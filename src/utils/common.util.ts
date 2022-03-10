@@ -88,3 +88,8 @@ export function dataURLtoFile(dataurl: string, fileName: string): File | null {
   }
   return null;
 }
+
+export function randomNumber(): number {
+  // random 1 - 10
+  return Math.floor(Math.random() * 10) + 1;
+}

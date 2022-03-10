@@ -7,9 +7,8 @@ module.exports = {
     node: true,
   },
   extends: [
-    'eslint:recommended',
-    'plugin:jsx-a11y/recommended',
     'airbnb-base',
+    'plugin:jsx-a11y/recommended',
     'plugin:react/recommended',
     'plugin:import/errors',
     'plugin:import/warnings',

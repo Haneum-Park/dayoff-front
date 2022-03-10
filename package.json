@@ -1,10 +1,10 @@
 {
   "name": "portfolio-front",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "main": "index.js",
   "repository": "git@github.com:Haneum-Park/portfolio-front.git",
   "author": "Haneum-Park <qkrgksdma17@gmail.com>",
-  "license": "None",
+  "license": "UNLICENSED",
   "private": true,
   "scripts": {
     "dev": "NODE_ENV=development webpack serve --config ./webpack.config.js",

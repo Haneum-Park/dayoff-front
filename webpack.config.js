@@ -55,23 +55,13 @@ module.exports = {
       },
       {
         test: /\.html$/,
+        exclude: /node_modules/,
         use: 'html-loader',
       },
       {
         test: /\.(css|scss)$/,
+        exclude: /node_modules/,
         use: ['style-loader', 'css-loader', 'sass-loader'],
-        exclude: /node_modules/,
-      },
-      {
-        test: /\.()$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'file-loader',
-          options: {
-            name: '[name].[ext]',
-            publicPath: './dist',
-          },
-        },
       },
       {
         test: /\.(png|jpg|jpeg|gif|pdf|ico)$/,
@@ -80,8 +70,7 @@ module.exports = {
           loader: 'url-loader',
           options: {
             name: '[name].[ext]?[hash]',
-            publicPath: './dist/',
-            limit: 10000,
+            limit: 30000,
           },
         },
       },
@@ -101,7 +90,9 @@ module.exports = {
       '@hook': path.resolve(__dirname, 'src/hooks/'),
       '@router': path.resolve(__dirname, 'src/routers/'),
       '@page': path.resolve(__dirname, 'src/pages/'),
+      '@layout': path.resolve(__dirname, 'src/layouts/'),
       '@constant': path.resolve(__dirname, 'src/constants/'),
+      '@interface': path.resolve(__dirname, 'src/interfaces/'),
     },
   },
   plugins: [
@@ -120,7 +111,7 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: './public/index.html',
-      // favicon: './public/favicon.ico',
+      favicon: './public/favicon.ico',
     }),
     new ForkTsCheckerWebpackPlugin(),
     // new CopyPlugin({
@@ -139,10 +130,6 @@ module.exports = {
     historyApiFallback: true,
     hot: true,
     liveReload: true,
-    static: {
-      publicPath: path.join(__dirname, 'dist'),
-      watch: true,
-    },
     client: {
       logging: 'log',
       // progress: true,

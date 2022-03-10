@@ -2,14 +2,13 @@
 import React, { memo } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
-import Footer from '@comp/common/footer/Footer';
-import Header from '@comp/common/header/Header';
+import { GlobalStyle } from '@layout/globalStyles';
 
 import routers from './index.router';
 
 const ROOT = () => (
   <>
-    <Header />
+    <GlobalStyle />
     <BrowserRouter>
       <Routes>
         {routers.map(({ path, component: Component, key, child }) => (
@@ -22,7 +21,6 @@ const ROOT = () => (
         <Route path='*' element={<Navigate to='/' />} />
       </Routes>
     </BrowserRouter>
-    <Footer />
   </>
 );
 

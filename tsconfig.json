@@ -42,11 +42,13 @@
       "@hook/*": ["./src/hooks/*"],
       "@router/*": ["./src/routers/*"],
       "@page/*": ["./src/pages/*"],
-      "@constant/*": ["./src/constants/*"]
+      "@layout/*": ["./src/layouts/*"],
+      "@constant/*": ["./src/constants/*"],
+      "@interface/*": ["./src/interfaces/*"]
     }
   },
   "include": [
-    "src/**/*", "public", "config"
+    "src/**/*", "public/**/*", "config/**/*", "@types/*"
   ],
   "exclude": [
     "node_modules"

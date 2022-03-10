@@ -2,6 +2,8 @@ import React from 'react';
 
 import Main from '@page/main/index';
 
+import Blog from '@page/blog/index';
+
 type Router = {
   path: string;
   component: React.FC,
@@ -14,11 +16,8 @@ type Router = {
 }
 
 const routers: Router[] = [
-  {
-    path: '/',
-    component: Main,
-    key: 'main',
-  },
+  { path: '/', component: Main, key: 'main' },
+  { path: '/blog', component: Blog, key: 'blogMain' },
 ];
 
 export default routers;
