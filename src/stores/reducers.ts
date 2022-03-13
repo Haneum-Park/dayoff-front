@@ -1,7 +1,14 @@
 import { combineReducers } from '@reduxjs/toolkit';
 
-import sampleSlice from './slices/sample';
+// ? COMMON
+import footerInfoSlice from './slices/common/footerInfo';
+
+// ? Blog
+import blogHeaderSlice from './slices/blog/common/header';
 
 export const rootReducer = combineReducers({
-  [sampleSlice.name]: sampleSlice.reducer,
+  // ? COMMON
+  [footerInfoSlice.name]: footerInfoSlice.reducer,
+  // ? Blog
+  [blogHeaderSlice.name]: blogHeaderSlice.reducer,
 });

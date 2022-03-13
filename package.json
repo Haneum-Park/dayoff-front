@@ -7,9 +7,10 @@
   "license": "UNLICENSED",
   "private": true,
   "scripts": {
-    "dev": "NODE_ENV=development webpack serve --config ./webpack.config.js",
-    "prod": "NODE_ENV=production webpack serve --config ./webpack.config.js",
-    "build": "NODE_ENV=production webpack builde --config ./webpack.config.js",
+    "prerender": "react-snap",
+    "dev": "NODE_ENV=development webpack serve --open --config webpack.dev.js",
+    "prod": "NODE_ENV=production webpack serve --config webpack.prod.js",
+    "build": "NODE_ENV=production webpack build --config webpack.prod.js && yarn prerender",
     "lint": "eslint './src/**/*.{ts,tsx}'",
     "lint:fix": "eslint --fix './src/**/*.{ts,tsx}'",
     "deploy-patch": "clear;printf \"\n\n\n\";npm version patch --no-git-tag-version;printf \"\n\n\n 푸시하시고, 머지요청하셔야 패치됩니다.\n\n\n\n\n\n\n\n\n\n\n\n\n\";printf \"https://github.com/Haneum-Park/portfolio-front/compare\n\n\";git add package.json && git commit && git push",
@@ -65,16 +66,26 @@
     "fork-ts-checker-webpack-plugin": "^7.2.1",
     "html-loader": "^3.1.0",
     "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.6.0",
     "node-sass": "^7.0.1",
+    "optimize-css-assets-webpack-plugin": "^6.0.1",
     "react-snap": "^1.23.0",
     "sass-loader": "^12.6.0",
     "style-loader": "^3.3.1",
     "ts-loader": "^9.2.7",
     "typescript": "^4.6.2",
-    "uglifyjs-webpack-plugin": "^2.2.0",
     "url-loader": "^4.1.1",
     "webpack": "5.64.3",
     "webpack-cli": "4.9.1",
-    "webpack-dev-server": "4.5.0"
+    "webpack-dev-server": "4.5.0",
+    "webpack-merge": "^5.8.0"
+  },
+  "reactSnap": {
+    "source": "dist",
+    "minifyHtml": {
+      "collapseWhitespace": false,
+      "removeComments": true,
+      "inlineCss": true
+    }
   }
 }

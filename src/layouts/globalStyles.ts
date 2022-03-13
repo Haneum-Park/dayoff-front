@@ -2,7 +2,6 @@ import styled, { createGlobalStyle } from 'styled-components';
 
 export const DefaultStyle = styled.div`
   width: 100%;
-  
 `;
 
 export const GlobalStyle = createGlobalStyle`
@@ -29,5 +28,16 @@ export const GlobalStyle = createGlobalStyle`
   button {
     cursor: pointer;
     background-color: transparent;
+    border: none;
+  }
+
+  ul, li {
+    padding-left: 0;
+    list-style: none;
+  }
+
+  a {
+    color: #171717 !important;
+    text-decoration: none;
   }
 `;

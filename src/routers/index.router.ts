@@ -2,7 +2,7 @@ import React from 'react';
 
 import Main from '@page/main/index';
 
-import Blog from '@page/blog/index';
+import BlogMain from '@page/blog/main/index';
 
 type Router = {
   path: string;
@@ -17,7 +17,7 @@ type Router = {
 
 const routers: Router[] = [
   { path: '/', component: Main, key: 'main' },
-  { path: '/blog', component: Blog, key: 'blogMain' },
+  { path: '/blog', component: BlogMain, key: 'blogmain' },
 ];
 
 export default routers;

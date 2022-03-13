@@ -1,43 +1,10 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const uglifyjsWebpackPlugin = require('uglifyjs-webpack-plugin');
-// typescript
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
-
-const isProduction = !(
-  (process.env.NODE_ENV || 'development') === 'development'
-);
-
-if (process.env.mode === 'development') console.log('개발모드입니다. d-ocean-back을 켜두시기 바랍니다.');
-
-const port = isProduction ? 80 : 8000;
-const host = isProduction ? '0.0.0.0' : 'localhost';
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-  mode: isProduction ? 'production' : 'development',
   entry: './src/index.tsx',
-  output: {
-    filename: '[name].[chunkhash].js',
-    path: path.join(__dirname, '/dist'),
-    publicPath: '/',
-    clean: true,
-  },
-  devtool: 'source-map',
-  optimization: {
-    splitChunks: {
-      cacheGroups: {
-        vendors: {
-          test: /[\\/]node_modules[\\/]/,
-          // cacheGroupKey here is `commons` as the key of the cacheGroup
-          name: 'vendors',
-          chunks: 'all',
-        },
-      },
-    },
-  },
   module: {
     rules: [
       {
@@ -61,7 +28,7 @@ module.exports = {
       {
         test: /\.(css|scss)$/,
         exclude: /node_modules/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+        use: [MiniCssExtractPlugin.loader, 'style-loader', 'css-loader', 'sass-loader'],
       },
       {
         test: /\.(png|jpg|jpeg|gif|pdf|ico)$/,
@@ -76,6 +43,24 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
+    }),
+    new webpack.DefinePlugin({
+      process: {
+        argv: JSON.stringify(process.argv),
+        env: {
+          NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+          mode: JSON.stringify(process.env.mode ? process.env.mode : 'production'),
+        },
+      },
+    }),
+    new HtmlWebpackPlugin({
+      template: './public/index.html',
+      favicon: './public/favicon.ico',
+    }),
+  ],
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
     modules: [path.resolve(__dirname, '.'), 'node_modules'],
@@ -95,52 +80,4 @@ module.exports = {
       '@interface': path.resolve(__dirname, 'src/interfaces/'),
     },
   },
-  plugins: [
-    new webpack.DefinePlugin({
-      process: {
-        argv: JSON.stringify(process.argv),
-        env: {
-          NODE_ENV: JSON.stringify(process.env.NODE_ENV),
-          mode: JSON.stringify(process.env.mode ? process.env.mode : 'production'),
-        },
-      },
-    }),
-    new webpack.HotModuleReplacementPlugin(),
-    new CleanWebpackPlugin({
-      cleanAfterEveryBuildPatterns: ['dist'],
-    }),
-    new HtmlWebpackPlugin({
-      template: './public/index.html',
-      favicon: './public/favicon.ico',
-    }),
-    new ForkTsCheckerWebpackPlugin(),
-    // new CopyPlugin({
-    //   patterns: [
-    //     { from: './public/robots.txt', to: 'robots.txt' },
-    //     { from: './public/sitemap.xml', to: 'sitemap.xml' },
-    //     { from: './public/ogImage.png', to: 'ogImage.png' },
-    //   ],
-    // }),
-  ],
-  devServer: {
-    host,
-    port,
-    open: true,
-    compress: true,
-    historyApiFallback: true,
-    hot: true,
-    liveReload: true,
-    client: {
-      logging: 'log',
-      // progress: true,
-    },
-  },
-};
-
-if (isProduction) {
-  module.exports.plugins.push(new uglifyjsWebpackPlugin({
-    cache: true,
-    parallel: true,
-    sourceMap: true,
-  }));
 }

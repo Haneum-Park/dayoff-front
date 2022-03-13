@@ -1,15 +1,15 @@
 import React, { memo } from 'react';
 import { useSelector } from 'react-redux';
 
-import { FooterWrap as SignFooterWrap } from '@comp/common/footer/styles';
-
 import { RootState } from '@store/index';
 
-function SignFooter() {
+import { FooterWrap } from '@comp/common/footer/styles';
+
+function Footer() {
   const { baseInfo, copyright } = useSelector((state: RootState) => state.footerInfo);
 
   return (
-    <SignFooterWrap fontSize={14}>
+    <FooterWrap>
       <div className='footer-base-info'>
         {baseInfo.map((info, idx) => (
           <span key={`info-${idx}`}>{info}</span>
@@ -20,8 +20,8 @@ function SignFooter() {
           <span key={`copyright-${idx}`}>{info}</span>
         ))}
       </div>
-    </SignFooterWrap>
+    </FooterWrap>
   );
 }
 
-export default memo(SignFooter);
+export default memo(Footer);

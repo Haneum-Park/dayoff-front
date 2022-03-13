@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 
-import Footer from '@comp/common/footer/Footer';
-import Header from '@comp/common/header/Header';
+import Footer from '@comp/blog/common/footer/Footer';
+import Header from '@comp/blog/common/header/Header';
 
 import { ParentProps } from '@interface/common.interface';
 
@@ -12,7 +12,7 @@ interface DefaultLayoutProps extends ParentProps {
   isFooter?: boolean;
 }
 
-function DefaultLayout({ children, isHeader = true, isFooter = true }: DefaultLayoutProps) {
+function BlogDefaultLayout({ children, isHeader = true, isFooter = true }: DefaultLayoutProps) {
   return (
     <>
       <DefaultStyle>
@@ -24,4 +24,4 @@ function DefaultLayout({ children, isHeader = true, isFooter = true }: DefaultLa
   );
 }
 
-export default memo(DefaultLayout);
+export default memo(BlogDefaultLayout);

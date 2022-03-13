@@ -5,11 +5,12 @@ import { pixelToRem } from '@util/style.util';
 
 const SignMainSupHeadWrap = styled.div`
   position: absolute;
-  top: 42.5%;
+  top: 50%;
   right: 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-bottom: ${pixelToRem(160)};
   padding-right: ${pixelToRem(3)};
   transform: translateY(-50%);
   z-index: 3;
