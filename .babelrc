@@ -1,0 +1,36 @@
+{
+  "presets": ["next/babel", "@babel/preset-env", "@babel/preset-react", "@babel/preset-typescript"],
+  "plugins": [
+    "inline-react-svg",
+    [
+      "styled-components",
+      {
+        "ssr": true,
+        "displayName": true,
+        "preprocess": false
+      }
+    ],
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-syntax-dynamic-import",
+    "@babel/plugin-transform-runtime",
+    [
+      "module-resolver",
+      {
+        "root": ["."],
+        "alias": {
+          "@": ".",
+          "@config": "./config",
+          "@image": "./public/images",
+          "@atom": "./components/atom",
+          "@molecule": "./components/molecule",
+          "@organism": "./components/organism",
+          "@template": "./components/template",
+          "@store": "./stores",
+          "@util": "./utils",
+          "@hook": "./hooks",
+          "@const": "./consts"
+        }
+      }
+    ]
+  ]
+}
