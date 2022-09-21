@@ -11,7 +11,7 @@
     "noImplicitReturns": true,
     "strictNullChecks": true,
     "moduleResolution": "node",
-    "typeRoots": ["./node_modules/@types"],
+    "typeRoots": ["./node_modules/@types", "./@types"],
     "alwaysStrict": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
