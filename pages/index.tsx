@@ -1,7 +1,9 @@
 import React, { memo } from 'react';
 
-const App = () => {
-  return <div>aa</div>;
-};
+const App = () => (
+  <div>
+    <div>Day off</div>
+  </div>
+);
 
 export default memo(App);
