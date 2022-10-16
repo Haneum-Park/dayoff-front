@@ -1,4 +1,8 @@
-/* ? Pretendard Font Face Start */
+/*
+ * ==============
+ *   FONT FACE
+ * ==============
+ */
 @font-face {
   font-family: 'Thin';
   src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Thin.woff') format('woff');
@@ -53,22 +57,36 @@
   font-weight: 900;
   font-style: normal;
 }
-/* ? Pretendard Font Face End */
 
-/* :root {
-} */
+
+:root {
+  --color-gray-0: #f8f9fa;
+  --color-gray-1: #f1f3f5;
+  --color-gray-2: #e9ecef;
+  --color-gray-3: #dee2e6;
+  --color-gray-4: #ced4da;
+  --color-gray-5: #adb5bd;
+  --color-gray-6: #868e96;
+  --color-gray-7: #495057;
+  --color-gray-8: #343a40;
+  --color-gray-9: #212529;
+
+
+}
 
 html,
 body,
 #__next {
+  width: 100%;
+  max-width: 1920px;
   padding: 0;
-  margin: 0;
+  margin: 0 auto;
   font-family: 'Thin', 'ExtraLight', 'Light', 'Regular', 'Medium', 'SemiBold', 'Bold', 'ExtraBold', 'Heavy';
   /* background-color: var(--color-white-30);
   color: var(--color-white-20); */
 }
 
-div, div::after, div::before, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
+div, div::after, div::before, span, applet, object, iframe,
 blockquote, pre, a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong,
 sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li,
@@ -77,6 +95,62 @@ thead, tr, th, td, article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup, menu, nav, output,
 ruby, section, summary, time, mark, audio, video {
   font-family: 'Light';
+}
+
+.h0, .h1, .h2, .h3,
+h1, h2, h3 {
+  letter-spacing: calc(-0.5rem / 16);
+}
+
+.h4, .h5, .h6,
+h4, h5, h6, p {
+  letter-spacing: calc(-0.2rem / 16);
+}
+
+.h0 {
+  font-size: calc(50rem / 16);
+  line-height: calc(64rem / 16);
+}
+
+.h1,
+h1 {
+  font-size: calc(38rem / 16);
+  line-height: calc(49rem / 16);
+}
+
+.h2,
+h2 {
+  font-size: calc(28rem / 16);
+  line-height: calc(36rem / 16);
+}
+
+.h3,
+h3 {
+  font-size: calc(22rem / 16);
+  line-height: calc(33rem / 16);
+}
+
+.h4,
+h4 {
+  font-size: calc(22rem / 16);
+  line-height: calc(33rem / 16);
+}
+
+.h5,
+h5 {
+  font-size: calc(16rem /16);
+  line-height: calc(24rem / 16);
+}
+
+.h6,
+h6 {
+  font-size: calc(14rem / 16);
+  line-height: calc(21rem / 16);
+}
+
+p {
+  font-size: calc(12rem / 16);
+  line-height: calc(18rem / 16);
 }
 
 *, *::before, *::after {
