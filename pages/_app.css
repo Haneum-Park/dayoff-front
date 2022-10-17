@@ -1,7 +1,7 @@
 /*
- * ==============
- *   FONT FACE
- * ==============
+ * ====================
+ *      FONT FACE
+ * ====================
  */
 @font-face {
   font-family: 'Thin';
@@ -58,7 +58,11 @@
   font-style: normal;
 }
 
-
+/*
+ * ===================== 
+ *    COLOR SETTINGS
+ * =====================
+ */
 :root {
   --color-gray-0: #f8f9fa;
   --color-gray-1: #f1f3f5;
@@ -70,8 +74,6 @@
   --color-gray-7: #495057;
   --color-gray-8: #343a40;
   --color-gray-9: #212529;
-
-
 }
 
 html,
@@ -97,9 +99,15 @@ ruby, section, summary, time, mark, audio, video {
   font-family: 'Light';
 }
 
+
+/*
+ * =====================
+ *     HEADING STYLE
+ * =====================
+ */
 .h0, .h1, .h2, .h3,
 h1, h2, h3 {
-  letter-spacing: calc(-0.5rem / 16);
+  letter-spacing: calc(-0.4rem / 16);
 }
 
 .h4, .h5, .h6,
@@ -151,6 +159,26 @@ h6 {
 p {
   font-size: calc(12rem / 16);
   line-height: calc(18rem / 16);
+}
+
+@media screen and (max-width: 768px) {
+  .h1,
+  h1 {
+    font-size: calc(32rem / 16);
+    line-height: calc(38rem / 16);
+  }
+
+  .h2,
+  h2 {
+    font-size: calc(24rem / 16);
+    line-height: calc(34rem / 16);
+  }
+
+  .h3,
+  h3 {
+    font-size: calc(21rem / 16);
+    line-height: calc(30rem / 16);
+  }
 }
 
 *, *::before, *::after {

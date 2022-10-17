@@ -1,7 +1,7 @@
 /*
- * ===============
- *   MEDIA QUERY
- * ===============
+ * ==================
+ *    MEDIA QUERY
+ * ==================
  */
 type Breakpoints = {
   mobile: number;
