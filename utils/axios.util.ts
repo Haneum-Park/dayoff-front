@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 /* eslint-disable implicit-arrow-linebreak */
 import axios, { AxiosRequestConfig } from 'axios';
 

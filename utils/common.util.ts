@@ -1,5 +1,9 @@
 export const isProduction = (process.env.NODE_ENV || 'development') === 'production';
 
+// TODO - add darkmode
+// export function darkmode() {
+// }
+
 export function objToQuery<T extends Record<string, any>>(obj: T): string {
   const query: string[] = [];
   const keys = Object.keys(obj);
@@ -22,10 +26,10 @@ export function queryToObj<T>(query: string): T {
 }
 
 export const cookies = {
-  set: (key: string, value: string, expTime: number) => {
-    document.cookie = `${key}=${value}; expires=${new Date(
-      Date.now() + expTime,
-    ).toUTCString()} ;path=/`;
+  set: (key: string, value: string, expTime?: number) => {
+    const expires = expTime ? `expires=${new Date(Date.now() + expTime).toUTCString()}` : '';
+    const cookie = [`${key}=${value}`, expires, 'path=/'];
+    document.cookie = cookie.join('; ');
   },
   get: (key: string): string | null | undefined => {
     const value = document.cookie.match(`(^|;) ?${key}=([^;]*)(;|$)`);
@@ -54,6 +58,7 @@ export function dataURLtoFile(dataurl: string, fileName: string): File | null {
       let n = bstr.length;
       const u8arr = new Uint8Array(n);
 
+      // eslint-disable-next-line no-plusplus
       while (n--) {
         u8arr[n] = bstr.charCodeAt(n);
       }

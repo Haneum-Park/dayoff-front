@@ -1,5 +1,11 @@
 {
-  "presets": ["next/babel", "@babel/preset-env", "@babel/preset-react", "@babel/preset-typescript"],
+  "presets": [
+    "next/babel",
+    "@babel/preset-env",
+    "@babel/preset-react",
+    "@babel/preset-typescript",
+    "@babel/preset-flow"
+  ],
   "plugins": [
     [
       "styled-components",
@@ -18,15 +24,14 @@
         "root": ["."],
         "alias": {
           "@": ".",
-          "@config": "./config",
+          "@page": "./pages",
           "@image": "./public/images",
-          "@atom": "./components/atom",
-          "@molecule": "./components/molecule",
-          "@organism": "./components/organism",
-          "@template": "./components/template",
+          "@atom": "./components/atoms",
+          "@molecule": "./components/molecules",
+          "@organism": "./components/organisms",
+          "@template": "./components/templates",
           "@store": "./stores",
           "@util": "./utils",
-          "@hook": "./hooks",
           "@const": "./consts"
         }
       }
