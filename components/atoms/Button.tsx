@@ -13,6 +13,9 @@ export const BtnWrap = styled.button`
   border-radius: calc(12rem / 16);
   padding: calc(16rem / 16) calc(24rem / 16);
   margin-right: calc(16rem / 16);
+  &:last-child {
+    margin-right: 0;
+  }
 `;
 
 function Button({ type = 'button', children, onClick, ...rest }: BtnProps) {
