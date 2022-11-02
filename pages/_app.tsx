@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import Head from 'next/head';
 // import App, { AppContext, AppProps } from 'next/app';
 import { AppProps } from 'next/app';
-import { appWithTranslation } from 'next-i18next';
 import { useSnapshot } from 'valtio';
 
 import GlobalStyles from '@const/globalStyles';
@@ -45,4 +44,4 @@ function MyApp({ Component, pageProps }: AppProps) {
 //   return { ...appProps };
 // };
 
-export default appWithTranslation(MyApp);
+export default MyApp;

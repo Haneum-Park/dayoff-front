@@ -45,13 +45,7 @@ module.exports = {
     'no-await-in-loop': 0,
     'no-underscore-dangle': 0,
   },
-  ignorePatterns: [
-    '.eslintrc.js',
-    'next.config.js',
-    'jest.config.js',
-    'jest.setup.js',
-    'next-i18next.config.js',
-  ],
+  ignorePatterns: ['.eslintrc.js', 'next.config.js', 'jest.config.js', 'jest.setup.js'],
   settings: {
     'import/resolver': {
       node: {
