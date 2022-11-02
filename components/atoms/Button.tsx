@@ -8,9 +8,11 @@ export interface BtnProps extends React.ButtonHTMLAttributes<HTMLButtonElement> 
 export const BtnWrap = styled.button`
   width: 100%;
   color: var(--color-white-20);
-  background-color: var(--color-primary-normal);
-  border-radius: calc(16rem / 16);
-  padding: calc(10rem / 16);
+  border: 1px solid var(--color-gray-6);
+  background-color: transparent;
+  border-radius: calc(12rem / 16);
+  padding: calc(16rem / 16) calc(24rem / 16);
+  margin-right: calc(16rem / 16);
 `;
 
 function Button({ type = 'button', children, onClick, ...rest }: BtnProps) {

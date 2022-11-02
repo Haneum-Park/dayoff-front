@@ -1,35 +1,41 @@
-import React, { useCallback, useEffect, memo } from 'react';
-import { useSnapshot } from 'valtio';
+import React, { memo } from 'react';
 import type { NextPage } from 'next';
 
-import Layout from '@organism/Layout';
+import MainGrid from '@template/MainGrid';
 
-import { proxyDarkmode } from '@store/global/darkmode';
+import MainLogo from '@image/logo/header/logo.png';
+import JumbotronLogo from '@image/logo/main/jumbotron-text-logo.png';
 
-import { cookies } from '@util/common.util';
-
-const Home: NextPage = () => {
-  const { darkmode } = useSnapshot(proxyDarkmode);
-  const onDarkmode = useCallback(() => {
-    cookies.set('darkmode', darkmode ? '0' : '1');
-    proxyDarkmode.darkmode = !darkmode;
-  }, [darkmode]);
-
-  useEffect(() => {
-    const isDarkmode = cookies.get('darkmode');
-    proxyDarkmode.darkmode = isDarkmode === '1';
-  }, []);
-
-  return (
-    <Layout>
-      <div>
-        <button type='button' onClick={() => onDarkmode()}>
-          {darkmode ? 'darkmode' : 'lightmode'}
-        </button>
-        <div>Home</div>
-      </div>
-    </Layout>
-  );
-};
+const Home: NextPage = () => (
+  <MainGrid
+    header={{
+      img: {
+        src: MainLogo,
+        alt: 'Main Logo',
+        width: 50,
+        height: 50,
+      },
+    }}
+    jumbotron={{
+      img: {
+        src: JumbotronLogo,
+        alt: 'Jumbotron Logo',
+        width: 600,
+        height: 185.735,
+      },
+      groupBtn: {
+        maxWidth: 'calc(180rem / 16)',
+        btns: [
+          {
+            children: 'dev.haneum.park',
+          },
+          {
+            children: 'uxui.seoye.kim',
+          },
+        ],
+      },
+    }}
+  />
+);
 
 export default memo(Home);

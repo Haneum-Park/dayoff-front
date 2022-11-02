@@ -1,40 +1,48 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Head from 'next/head';
-import App, { AppContext, AppProps } from 'next/app';
+// import App, { AppContext, AppProps } from 'next/app';
+import { AppProps } from 'next/app';
+import { appWithTranslation } from 'next-i18next';
+import { useSnapshot } from 'valtio';
+
+import GlobalStyles from '@const/globalStyles';
+
+import { proxyDarkmode } from '@store/global/darkmode';
+
+import { cookies } from '@util/common.util';
 
 import './_app.css';
 
-export interface PageAppProps extends AppProps {
-  userAgent: string;
-}
+function MyApp({ Component, pageProps }: AppProps) {
+  const { darkmode } = useSnapshot(proxyDarkmode);
 
-export interface MyAppProps {
-  Component: typeof React.Component;
-  pageProps: PageAppProps;
-}
+  useEffect(() => {
+    const isDarkmode = cookies.get('darkmode');
+    proxyDarkmode.darkmode = isDarkmode === '1';
+  }, []);
 
-function MyApp({ Component, pageProps }: MyAppProps) {
   return (
     <>
       <Head>
         <meta name='viewport' content={'width=device-width, initial-scale=1'} />
         <title>Day off</title>
       </Head>
+      <GlobalStyles darkmode={darkmode} />
       <Component {...pageProps} />
     </>
   );
 }
 
-MyApp.getInitialProps = async (appContext: AppContext) => {
-  const appProps = await App.getInitialProps(appContext);
+// MyApp.getInitialProps = async (appContext: AppContext) => {
+//   const appProps = await App.getInitialProps(appContext);
 
-  const userAgent = (await appContext.ctx.req)
-    ? appContext.ctx.req?.headers['user-agent']
-    : navigator.userAgent;
+//   const userAgent = (await appContext.ctx.req)
+//     ? appContext.ctx.req?.headers['user-agent']
+//     : navigator.userAgent;
 
-  appProps.pageProps.userAgent = userAgent;
+//   appProps.pageProps.userAgent = userAgent;
 
-  return { ...appProps };
-};
+//   return { ...appProps };
+// };
 
-export default MyApp;
+export default appWithTranslation(MyApp);
