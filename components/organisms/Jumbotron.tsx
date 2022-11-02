@@ -23,6 +23,7 @@ const JumbotronDescWrap = styled.div``;
 const JumbotronPg = styled.p`
   width: 100%;
   max-width: calc(500rem / 16);
+  margin-top: calc(24rem / 16);
 `;
 
 export interface JumbotronProps extends JumbotronStyleProps {
