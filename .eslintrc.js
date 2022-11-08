@@ -7,17 +7,17 @@ module.exports = {
     node: true,
   },
   extends: [
-    'plugin:jsx-a11y/recommended',
-    'plugin:react/recommended',
     'airbnb-base',
-    'plugin:import/errors',
-    'plugin:import/warnings',
+    'next',
+    'plugin:import/error',
+    'plugin:import/warning',
     'plugin:import/typescript',
     'plugin:@typescript-eslint/eslint-recommended',
+    'next/core-web-vitals',
     'plugin:prettier/recommended',
   ],
   parserOptions: {
-    ecmaVersion: 2020,
+    ecmaVersion: 'latest',
     ecmaFeatures: {
       jsx: true,
     },
