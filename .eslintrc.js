@@ -9,9 +9,6 @@ module.exports = {
   extends: [
     'airbnb-base',
     'next',
-    'plugin:import/error',
-    'plugin:import/warning',
-    'plugin:import/typescript',
     'plugin:@typescript-eslint/eslint-recommended',
     'next/core-web-vitals',
     'plugin:prettier/recommended',
