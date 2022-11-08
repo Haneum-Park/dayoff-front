@@ -20,10 +20,9 @@ interface MainGridProps {
 const MainGridLayout = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: calc(56rem / 16) calc(64rem / 16);
   height: 100vh;
   > div {
-    width: calc(800rem / 16);
+    width: calc(850rem / 16);
   }
 `;
 
@@ -31,6 +30,7 @@ const MainLeftGrid = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding: calc(56rem / 16) calc(64rem / 16);
 `;
 
 const MainRightGrid = styled.div``;

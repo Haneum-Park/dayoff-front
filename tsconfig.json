@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
     "jsx": "preserve",
-    "target": "ES2020",
-    "module": "commonjs",
+    "target": "ES5",
+    "module": "ESNext",
     "allowJs": true,
     "outDir": "./dist",
     "removeComments": true,
