@@ -20,8 +20,8 @@ const Home: NextPage = () => (
       img: {
         src: JumbotronLogo,
         alt: 'Jumbotron Logo',
-        width: 600,
-        height: 185.735,
+        width: 700,
+        height: 216.69,
       },
       groupBtn: {
         maxWidth: 'calc(180rem / 16)',

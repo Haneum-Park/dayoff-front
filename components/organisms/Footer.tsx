@@ -1,6 +1,5 @@
 import React, { memo } from 'react';
 
-// import Info from './Info';
 import Copyright from '@molecule/footer/Copyright';
 
 function Footer() {

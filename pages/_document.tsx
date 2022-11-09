@@ -1,4 +1,3 @@
-/* eslint-disable implicit-arrow-linebreak */
 import React from 'react';
 import Document, { DocumentContext } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
