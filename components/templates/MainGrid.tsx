@@ -1,20 +1,15 @@
 import React, { memo } from 'react';
-import Image from 'next/image';
 import styled from 'styled-components';
 
-import Jumbotron from '@organism/Jumbotron';
-import type { JumbotronProps } from '@organism/Jumbotron';
+import Jumbotron from '@organism/main/Jumbotron';
+import type { JumbotronProps } from '@organism/main/Jumbotron';
 import Header from '@organism/Header';
 import type { HeaderProps } from '@organism/Header';
+import ProjectRoller from '@organism/main/ProjectRoller';
+import type { ProjectRollerProps } from '@organism/main/ProjectRoller';
 import Footer from '@organism/Footer';
 
-import SampleIMG1 from '@image/sample/1.jpg';
-import SampleIMG2 from '@image/sample/2.jpg';
-import SampleIMG3 from '@image/sample/3.jpg';
-import SampleIMG4 from '@image/sample/4.jpg';
-import SampleIMG5 from '@image/sample/5.gif';
-
-interface MainGridProps {
+interface MainGridProps extends ProjectRollerProps {
   header: HeaderProps;
   jumbotron: JumbotronProps;
 }
@@ -41,31 +36,9 @@ const MainRightGrid = styled.div`
   flex-direction: column;
   justify-content: center;
   margin-right: calc(108rem / 16);
-  .scroll {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-    overflow-y: scroll;
-    div {
-      width: calc(760rem / 16);
-      height: calc(760rem / 16);
-      margin: calc(24rem / 16) 0;
-      &:first-child {
-        margin-top: calc(64rem / 16);
-      }
-      &:last-child {
-        margin-bottom: calc(64rem / 16);
-      }
-      &,
-      & > img {
-        border-radius: calc(16rem / 16);
-      }
-    }
-  }
 `;
 
-function MainGrid({ header, jumbotron }: MainGridProps) {
+function MainGrid({ header, jumbotron, projects }: MainGridProps) {
   return (
     <MainGridLayout>
       <MainLeftGrid>
@@ -74,23 +47,7 @@ function MainGrid({ header, jumbotron }: MainGridProps) {
         <Footer />
       </MainLeftGrid>
       <MainRightGrid>
-        <div className='scroll'>
-          <div>
-            <Image src={SampleIMG5} alt='sample 5' width={760} height={760} />
-          </div>
-          <div>
-            <Image src={SampleIMG1} alt='sample 1' width={760} height={760} />
-          </div>
-          <div>
-            <Image src={SampleIMG2} alt='sample 2' width={760} height={760} />
-          </div>
-          <div>
-            <Image src={SampleIMG3} alt='sample 3' width={760} height={760} />
-          </div>
-          <div>
-            <Image src={SampleIMG4} alt='sample 4' width={760} height={760} />
-          </div>
-        </div>
+        <ProjectRoller projects={projects} />
       </MainRightGrid>
     </MainGridLayout>
   );
