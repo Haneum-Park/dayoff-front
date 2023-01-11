@@ -19,7 +19,7 @@ export interface JumbotronProps extends JumbotronStyleProps {
 
 function Jumbotron({ img, groupBtn, desc }: JumbotronProps) {
   return (
-    <JumbotronWrap>
+    <JumbotronWrap className='render'>
       <JumbotronImgWrap>
         <Image {...img} alt='Jumbotron' priority={true} />
       </JumbotronImgWrap>

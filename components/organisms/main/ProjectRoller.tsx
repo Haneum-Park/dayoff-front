@@ -89,14 +89,14 @@ const ProjectWrap = styled.div`
   max-height: calc(760rem / 16);
   ${MEDIA_QUERY.max('mobile')} {
     height: calc(100vw - 4rem);
-  }
-  &::after {
-    content: '';
-    display: block;
-    padding-bottom: 44%;
+    &::after {
+      content: '';
+      display: block;
+      padding-bottom: 44%;
+    }
   }
   &:last-child {
-    margin-bottom: calc(64rem / 16);
+    margin-bottom: 0;
     /* &::after {
       padding-bottom: 0;
     } */

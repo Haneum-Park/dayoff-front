@@ -28,17 +28,25 @@ const MainGridLayout = styled.div`
     justify-content: flex-start;
     > div {
       width: calc(100% - 4rem);
+    }
+    > div,
+    > div .render {
       transition: opacity 0.5s ease-in-out;
     }
     &:hover {
-      > div {
+      > div,
+      > div .render {
         transition: opacity 0.5s ease-in-out;
       }
       > div:first-child {
-        opacity: 0;
+        .render {
+          opacity: 0;
+        }
       }
       > div:first-child:hover {
-        opacity: 1;
+        .render {
+          opacity: 1;
+        }
         & + div {
           opacity: 0;
         }
@@ -74,7 +82,7 @@ const MainRightGrid = styled.div`
   margin-top: calc(64rem / 16);
   @media screen and (max-width: 1600px) {
     position: absolute;
-    top: 10%;
+    top: 7%;
     left: 50%;
     transform: translateX(-50%);
     margin: 0 auto;
