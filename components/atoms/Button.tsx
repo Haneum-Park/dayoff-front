@@ -9,7 +9,6 @@ export interface BtnProps extends BtnStyleProps {
 
 export const BtnWrap = styled.button<BtnStyleProps>`
   width: 100%;
-  color: var(--color-black);
   border: 1px solid var(--color-gray-6);
   border-radius: calc(12rem / 16);
   padding: calc(16rem / 16) calc(24rem / 16);
