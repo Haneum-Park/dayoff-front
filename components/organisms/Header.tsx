@@ -34,7 +34,7 @@ const Languages = styled.div`
   button {
     border: none;
     border-radius: 0;
-    margin: 0;
+    margin: 0 !important;
     padding: 0;
     &.lang-ko,
     &.lang-en {
@@ -62,7 +62,7 @@ function Header({ img }: HeaderProps) {
         >
           Kor
         </Button>
-        <span> / </span>
+        <span>/</span>
         <Button
           className={language === 'en' ? 'lang-en' : ''}
           onClick={() => onSwitchLanguage('en')}

@@ -1,11 +1,13 @@
 import React, { memo } from 'react';
 import Image from 'next/image';
 import type { ImageProps } from 'next/image';
+import styled from 'styled-components';
 
+import { Body1 } from '@const/globalStyles';
 import GroupBtn from '@molecule/common/GroupBtn';
 import type { GroupBtnProps } from '@molecule/common/GroupBtn';
 
-import { JumbotronDescWrap, JumbotronImgWrap, JumbotronPg, JumbotronWrap } from './styles';
+import { MEDIA_QUERY } from '@util/design.util';
 
 interface JumbotronStyleProps {}
 
@@ -19,7 +21,7 @@ function Jumbotron({ img, groupBtn, desc }: JumbotronProps) {
   return (
     <JumbotronWrap>
       <JumbotronImgWrap>
-        <Image {...img} alt='Jumbotron' />
+        <Image {...img} alt='Jumbotron' priority={true} />
       </JumbotronImgWrap>
       <JumbotronDescWrap>
         <JumbotronPg>{desc}</JumbotronPg>
@@ -30,3 +32,31 @@ function Jumbotron({ img, groupBtn, desc }: JumbotronProps) {
 }
 
 export default memo(Jumbotron);
+
+const JumbotronWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: calc(64rem / 16) 0 calc(32rem / 16);
+  height: 100%;
+
+  ${MEDIA_QUERY.max('mobile')} {
+    margin: calc(32rem / 16) 0 calc(16rem / 16);
+  }
+`;
+
+const JumbotronImgWrap = styled.div`
+  img {
+    width: 100%;
+    height: 100%;
+  }
+`;
+
+const JumbotronDescWrap = styled.div``;
+
+const JumbotronPg = styled(Body1)`
+  width: 100%;
+  max-width: calc(608rem / 16);
+  margin-top: calc(24rem / 16);
+  margin-bottom: calc(16rem / 16);
+`;

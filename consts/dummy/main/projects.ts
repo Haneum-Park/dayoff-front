@@ -26,8 +26,8 @@ export interface Project {
   img?: {
     src: StaticImageData;
     alt: string;
-    width: number;
-    height: number;
+    width?: number;
+    height?: number;
   };
   card?: ProjectCard;
   resume?: ProjectResume;

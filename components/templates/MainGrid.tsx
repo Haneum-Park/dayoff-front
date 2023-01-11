@@ -19,7 +19,39 @@ const MainGridLayout = styled.div`
   justify-content: space-between;
   height: 100vh;
   > div {
-    width: calc(760rem / 16);
+    width: 100%;
+    max-width: calc(760rem / 16);
+  }
+
+  @media screen and (max-width: 1600px) {
+    flex-direction: column;
+    justify-content: flex-start;
+    > div {
+      width: calc(100% - 4rem);
+      transition: opacity 0.5s ease-in-out;
+    }
+    &:hover {
+      > div {
+        transition: opacity 0.5s ease-in-out;
+      }
+      > div:first-child {
+        opacity: 0;
+      }
+      > div:first-child:hover {
+        opacity: 1;
+        & + div {
+          opacity: 0;
+        }
+      }
+      > div:last-child {
+        opacity: 1;
+      }
+    }
+  }
+
+  @media screen and (max-width: 1800px) {
+    padding: 0 2rem;
+    gap: 2rem;
   }
 `;
 
@@ -28,14 +60,26 @@ const MainLeftGrid = styled.div`
   flex-direction: column;
   justify-content: space-between;
   margin: calc(64rem / 16) 0;
-  margin-left: calc(108rem / 16);
+
+  @media screen and (max-width: 1600px) {
+    margin: calc(32rem / 16) auto 0;
+    z-index: 2;
+  }
 `;
 
 const MainRightGrid = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-right: calc(108rem / 16);
+  margin-top: calc(64rem / 16);
+  @media screen and (max-width: 1600px) {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0 auto;
+    height: calc(100vh - 15%);
+  }
 `;
 
 function MainGrid({ header, jumbotron, projects }: MainGridProps) {

@@ -2,6 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  images: {
+    unoptimized: true,
+  },
   compiler: {
     styledComponents: true,
     // ! 컴파일 할 때 console을 전부 지움
