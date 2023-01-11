@@ -79,7 +79,7 @@ const MainRightGrid = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: calc(64rem / 16);
+  margin: calc(64rem / 16) 0;
   @media screen and (max-width: 1600px) {
     position: absolute;
     top: 7%;
