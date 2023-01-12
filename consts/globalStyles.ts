@@ -147,7 +147,7 @@ const GlobalStyles = createGlobalStyle<GlobalStylesProps>`
     color: var(${({ darkmode }) => (darkmode ? '--color-gray-0' : '--color-gray-9')});
   }
 
-  @media (prefers-color-scheme: dark) {
+  /* @media (prefers-color-scheme: dark) {
     html,
     body,
     #__next {
@@ -185,7 +185,7 @@ const GlobalStyles = createGlobalStyle<GlobalStylesProps>`
     ruby, section, summary, time, mark, audio, video, button *, *::before, *::after {
       color: var(--color-gray-9);
     }
-  }
+  } */
 
   @media screen and (max-width: 1280px) {
     div, span, applet, object, iframe,

@@ -7,6 +7,7 @@ import styled from 'styled-components';
 
 import { setProjectPoss } from '@store/main/projectPoss';
 import { setRollerScrollPos } from '@store/main/rollerScrollPos';
+import { setOpenPPIconPos } from '@store/main/openPPIconPos';
 
 import { Project } from '@const/dummy/main/projects';
 
@@ -20,10 +21,26 @@ export interface ProjectRollerProps {
 }
 
 function ProjectRoller({ projects = [] }: ProjectRollerProps) {
-  const onScroll = () => {
+  let timer: NodeJS.Timeout | null = null;
+
+  const onScroll = (e: React.UIEvent<HTMLDivElement, UIEvent>) => {
+    e.preventDefault();
+    if (timer) clearTimeout(timer);
+    timer = setTimeout(() => {
+      if (document.querySelector('#roller')) {
+        const rollerScrollPos = document.querySelector('#roller')?.scrollTop;
+        setRollerScrollPos(rollerScrollPos as number);
+      }
+    }, 500);
     if (document.querySelector('#roller')) {
-      const rollerScrollPos = document.querySelector('#roller')?.scrollTop;
-      setRollerScrollPos(rollerScrollPos as number);
+      const openPPIconRect = document
+        .querySelector('#roller')
+        ?.querySelector('#open-pp-icon')
+        ?.getBoundingClientRect() as DOMRect;
+
+      if (openPPIconRect) {
+        setOpenPPIconPos(openPPIconRect.top, openPPIconRect.left);
+      }
     }
   };
 
@@ -43,6 +60,15 @@ function ProjectRoller({ projects = [] }: ProjectRollerProps) {
         return acc;
       }, [] as number[]);
       setProjectPoss(projectPoss);
+      if (document.querySelector('#roller')) {
+        const openPPIconRect = document
+          .querySelector('#roller')
+          ?.querySelector('#open-pp-icon')
+          ?.getBoundingClientRect() as DOMRect;
+        if (openPPIconRect) {
+          setOpenPPIconPos(openPPIconRect.top, openPPIconRect.left);
+        }
+      }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

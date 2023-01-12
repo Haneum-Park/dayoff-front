@@ -1,15 +1,14 @@
 import React, { memo } from 'react';
 import styled from 'styled-components';
 
-import Jumbotron from '@organism/main/Jumbotron';
 import type { JumbotronProps } from '@organism/main/Jumbotron';
-import Header from '@organism/Header';
 import type { HeaderProps } from '@organism/Header';
-import ProjectRoller from '@organism/main/ProjectRoller';
 import type { ProjectRollerProps } from '@organism/main/ProjectRoller';
-import Footer from '@organism/Footer';
 
-interface MainGridProps extends ProjectRollerProps {
+import MainLeftGrid from './MainLeftGrid';
+import MainRightGrid from './MainRightGrid';
+
+export interface MainGridProps extends ProjectRollerProps {
   header: HeaderProps;
   jumbotron: JumbotronProps;
 }
@@ -63,44 +62,11 @@ const MainGridLayout = styled.div`
   }
 `;
 
-const MainLeftGrid = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin: calc(64rem / 16) 0;
-
-  @media screen and (max-width: 1600px) {
-    margin: calc(32rem / 16) auto 0;
-    z-index: 2;
-  }
-`;
-
-const MainRightGrid = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: calc(64rem / 16) 0;
-  @media screen and (max-width: 1600px) {
-    position: absolute;
-    top: 7%;
-    left: 50%;
-    transform: translateX(-50%);
-    margin: 0 auto;
-    height: calc(100vh - 15%);
-  }
-`;
-
 function MainGrid({ header, jumbotron, projects }: MainGridProps) {
   return (
     <MainGridLayout>
-      <MainLeftGrid>
-        <Header {...header} />
-        <Jumbotron {...jumbotron} />
-        <Footer />
-      </MainLeftGrid>
-      <MainRightGrid>
-        <ProjectRoller projects={projects} />
-      </MainRightGrid>
+      <MainLeftGrid header={header} jumbotron={jumbotron} />
+      <MainRightGrid projects={projects} />
     </MainGridLayout>
   );
 }

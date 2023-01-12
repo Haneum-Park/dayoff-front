@@ -11,13 +11,13 @@ import { MEDIA_QUERY } from '@util/design.util';
 
 interface JumbotronStyleProps {}
 
-export interface JumbotronProps extends JumbotronStyleProps {
+export interface JumbotronProps {
   img: ImageProps;
   groupBtn: GroupBtnProps;
   desc: string;
 }
 
-function Jumbotron({ img, groupBtn, desc }: JumbotronProps) {
+function Jumbotron({ img, groupBtn, desc }: JumbotronProps & JumbotronStyleProps) {
   return (
     <JumbotronWrap className='render'>
       <JumbotronImgWrap>
@@ -43,12 +43,21 @@ const JumbotronWrap = styled.div`
   ${MEDIA_QUERY.max('mobile')} {
     margin: calc(32rem / 16) 0 calc(16rem / 16);
   }
+
+  @media screen and (max-width: 1600px) {
+    margin-top: 1rem;
+  }
 `;
 
 const JumbotronImgWrap = styled.div`
+  margin: 5rem 0;
   img {
     width: 100%;
     height: 100%;
+  }
+
+  @media screen and (max-width: 1600px) {
+    margin: 0;
   }
 `;
 
