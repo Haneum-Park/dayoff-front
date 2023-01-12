@@ -14,16 +14,18 @@ interface JumbotronStyleProps {}
 export interface JumbotronProps {
   img: ImageProps;
   groupBtn: GroupBtnProps;
+  slogan: string;
   desc: string;
 }
 
-function Jumbotron({ img, groupBtn, desc }: JumbotronProps & JumbotronStyleProps) {
+function Jumbotron({ img, groupBtn, slogan, desc }: JumbotronProps & JumbotronStyleProps) {
   return (
     <JumbotronWrap className='render'>
       <JumbotronImgWrap>
         <Image {...img} alt='Jumbotron' priority={true} />
       </JumbotronImgWrap>
       <JumbotronDescWrap>
+        <JumbotronBq>{slogan}</JumbotronBq>
         <JumbotronPg>{desc}</JumbotronPg>
         <GroupBtn {...groupBtn} />
       </JumbotronDescWrap>
@@ -62,6 +64,8 @@ const JumbotronImgWrap = styled.div`
 `;
 
 const JumbotronDescWrap = styled.div``;
+
+const JumbotronBq = styled(Body1)``;
 
 const JumbotronPg = styled(Body1)`
   width: 100%;
