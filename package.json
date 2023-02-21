@@ -1,10 +1,10 @@
 {
-  "name": "dayoff-front",
+  "name": "util-api-front",
   "version": "0.1.0",
-  "description": "day-off.xyz site base front project",
-  "repository": "git@github.com:DayOffxyz/dayoff-front.git",
+  "description": "util-api.com site base front project",
+  "repository": "git@github.com:Haneum-Park/portfolio-front.git",
   "author": "Haneum-Park <qkrgksdma17@gmail.com>",
-  "license": "DayOffxyz",
+  "license": "UTIL API PORTFOLIO",
   "private": true,
   "scripts": {
     "dev": "NODE_ENV=development node server.js",
@@ -18,9 +18,9 @@
     "test:ci": "jest --ci --passWithNoTests",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "deploy-patch": "clear;printf \"\n\n\n\";npm version patch --no-git-tag-version;printf \"\n\n\n 푸시하시고, 머지요청하셔야 패치됩니다.\n\n\n\n\n\n\n\n\n\n\n\n\n\";printf \"https://github.com/DayOffxyz/dayoff-front/compare\n\n\";git add package.json && git commit && git push",
-    "deploy-minor": "clear;printf \"\n\n\n\";npm version minor --no-git-tag-version;printf \"\n\n\n 푸시하시고, 머지요청하셔야 패치됩니다.\n\n\n\n\n\n\n\n\n\n\n\n\n\";printf \"https://github.com/DayOffxyz/dayoff-front/compare\n\n\";git add package.json && git commit && git push",
-    "deploy-major": "clear;printf \"\n\n\n\";npm version major --no-git-tag-version;printf \"\n\n\n 푸시하시고, 머지요청하셔야 패치됩니다.\n\n\n\n\n\n\n\n\n\n\n\n\n\";printf \"https://github.com/DayOffxyz/dayoff-front/compare\n\n\";git add package.json && git commit && git push"
+    "deploy-patch": "clear;printf \"\n\n\n\";npm version patch --no-git-tag-version;printf \"\n\n\n 푸시하시고, 머지요청하셔야 패치됩니다.\n\n\n\n\n\n\n\n\n\n\n\n\n\";printf \"https://github.com/Haneum-Park/portfolio-front/compare\n\n\";git add package.json && git commit && git push",
+    "deploy-minor": "clear;printf \"\n\n\n\";npm version minor --no-git-tag-version;printf \"\n\n\n 푸시하시고, 머지요청하셔야 패치됩니다.\n\n\n\n\n\n\n\n\n\n\n\n\n\";printf \"https://github.com/Haneum-Park/portfolio-front/compare\n\n\";git add package.json && git commit && git push",
+    "deploy-major": "clear;printf \"\n\n\n\";npm version major --no-git-tag-version;printf \"\n\n\n 푸시하시고, 머지요청하셔야 패치됩니다.\n\n\n\n\n\n\n\n\n\n\n\n\n\";printf \"https://github.com/Haneum-Park/portfolio-front/compare\n\n\";git add package.json && git commit && git push"
   },
   "dependencies": {
     "@types/node": "^18.11.9",

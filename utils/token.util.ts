@@ -1,4 +1,3 @@
-import $axios from '@util/axios.util';
 import { cookies, regex } from '@util/common.util';
 
 export type ParsedToken = {
@@ -55,14 +54,4 @@ export function validateToken(key = 'accessToken'): boolean {
   if (iss !== issuer) return false;
 
   return true;
-}
-
-export async function logout() {
-  await $axios.get('auth/logout').then((res) => {
-    if (res && res.data) {
-      if (res.data.statusCode === 200) {
-        cookies.del('accessToken');
-      }
-    }
-  });
 }

@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React, { useEffect, memo } from 'react';
 import Image from 'next/image';
 import type { ImageProps } from 'next/image';
