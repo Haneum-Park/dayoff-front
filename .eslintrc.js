@@ -8,15 +8,16 @@ module.exports = {
   },
   extends: [
     'airbnb-base',
-    'plugin:jsx-a11y/recommended',
-    'plugin:react/recommended',
-    'plugin:import/errors',
-    'plugin:import/warnings',
-    'plugin:import/typescript',
+    'next',
     'plugin:@typescript-eslint/eslint-recommended',
+    'next/core-web-vitals',
+    'plugin:prettier/recommended',
   ],
   parserOptions: {
-    ecmaVersion: 2020,
+    ecmaVersion: 'latest',
+    ecmaFeatures: {
+      jsx: true,
+    },
     sourceType: 'module',
     project: './tsconfig.json',
     tsconfigRootDir: './',
@@ -41,11 +42,11 @@ module.exports = {
     'no-await-in-loop': 0,
     'no-underscore-dangle': 0,
   },
-  ignorePatterns: ['.eslintrc.js'],
+  ignorePatterns: ['.eslintrc.js', 'next.config.js', 'jest.config.js', 'jest.setup.js'],
   settings: {
     'import/resolver': {
       node: {
-        extensions: ['*', '.ts', '.tsx'],
+        extensions: ['*', '.js', '.jsx', '.ts', '.tsx'],
       },
     },
   },

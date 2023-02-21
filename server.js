@@ -1,16 +1,23 @@
+// server.js
 const express = require('express');
-const path = require('path');
+const next = require('next');
 
-const port = 80;
-const app = express();
+const dev = process.env.NODE_ENV !== 'production';
+const PORT = process.env.NODE_ENV !== 'production' ? process.env.PORT || 8080 : 80;
+const app = next({ dev });
+const handle = app.getRequestHandler();
 
-const basePath = `${__dirname}/dist`;
+app
+  .prepare()
+  .then(() => {
+    const server = express();
+    server.get('*', (req, res) => handle(req, res));
 
-app.use(express.static(basePath));
-
-console.log(__dirname);
-app.get('*', (req, res) => {
-  res.sendFile(path.resolve(`${basePath}/index.html`));
-});
-
-app.listen(port);
+    server.listen(PORT, (err) => {
+      if (err) throw err;
+    });
+  })
+  .catch((ex) => {
+    console.error(ex.stack);
+    process.exit(1);
+  });

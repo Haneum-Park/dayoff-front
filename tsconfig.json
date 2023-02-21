@@ -1,56 +1,46 @@
 {
   "compilerOptions": {
-    "typeRoots": [
-      "./node_modules/@types"
-    ],
-    "target": "ESNext",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "sourceMap": true,
+    "jsx": "preserve",
+    "target": "ES5",
+    "module": "ESNext",
     "allowJs": true,
-    "checkJs": false,
-    "skipLibCheck": true,
+    "outDir": "./dist",
+    "removeComments": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "strictNullChecks": true,
+    "moduleResolution": "node",
+    "typeRoots": ["./node_modules/@types", "./@types"],
+    "alwaysStrict": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "alwaysStrict": true,
-    "strictBindCallApply": true,
-    "strictFunctionTypes": true,
-    "strictNullChecks": true,
-    "strictPropertyInitialization": true,
-    "removeComments": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "module": "esnext",
-    "moduleResolution": "node",
     "resolveJsonModule": true,
-    "noEmit": true,
-    "jsx": "react",
-    "isolatedModules": true,
+    "noUnusedLocals": true,
+    "noUncheckedIndexedAccess": true,
     "baseUrl": ".",
+    "rootDir": ".",
     "paths": {
       "@/*": ["./*"],
-      "@config/*": ["./config/*"],
+      "@page/*": ["./pages/*"],
       "@image/*": ["./public/images/*"],
-      "@src/*": ["./src/*"],
-      "@comp/*": ["./src/components/*"],
-      "@store/*": ["./src/stores/*"],
-      "@util/*": ["./src/utils/*"],
-      "@hook/*": ["./src/hooks/*"],
-      "@router/*": ["./src/routers/*"],
-      "@page/*": ["./src/pages/*"],
-      "@layout/*": ["./src/layouts/*"],
-      "@constant/*": ["./src/constants/*"],
-      "@interface/*": ["./src/interfaces/*"]
-    }
+      "@atom/*": ["./components/atoms/*"],
+      "@molecule/*": ["./components/molecules/*"],
+      "@organism/*": ["./components/organisms/*"],
+      "@template/*": ["./components/templates/*"],
+      "@store/*": ["./stores/*"],
+      "@util/*": ["./utils/*"],
+      "@const/*": ["./consts/*"]
+    },
+    "noEmit": true,
+    "isolatedModules": true,
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "incremental": true
   },
-  "include": [
-    "src/**/*", "public/**/*", "config/**/*", "@types/*", "webpack.*.js"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "next.config.js", "server.js", "@types/*"]
 }
