@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useEffect, memo } from 'react';
+import Link from 'next/link';
 import Image from 'next/image';
 import type { ImageProps } from 'next/image';
 import styled from 'styled-components';
@@ -18,7 +19,15 @@ const HeaderWrap = styled.header`
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  max-width: var(--content-width);
   height: 50px;
+  padding: 0 ${16 / 16}rem;
+
+  img {
+    width: 150px;
+    height: 28px;
+    cursor: pointer;
+  }
 `;
 
 const Languages = styled.div`
@@ -54,7 +63,9 @@ function Header({ img }: HeaderProps) {
 
   return (
     <HeaderWrap>
-      <Image {...img} />
+      <Link href='/'>
+        <Image {...img} />
+      </Link>
       <Languages>
         <Button
           className={language === 'ko' ? 'lang-ko' : ''}

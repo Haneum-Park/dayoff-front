@@ -74,6 +74,8 @@
   --color-gray-7: #495057;
   --color-gray-8: #343a40;
   --color-gray-9: #212529;
+
+  --content-width: 1440px;
 }
 
 /*
@@ -169,7 +171,7 @@ p {
     background-color: var(--color-gray-9);
     color: var(--color-gray-0);
   }
-  
+
   div, span, applet, object, iframe,
   blockquote, pre, a, abbr, acronym, address, big, cite, code,
   del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong,
@@ -217,6 +219,10 @@ body,
   margin: 0 auto;
   font-size: 16px;
   font-family: 'Thin', 'ExtraLight', 'Light', 'Regular', 'Medium', 'SemiBold', 'Bold', 'ExtraBold', 'Heavy';
+}
+
+#__next>* {
+  margin: 0 auto;
 }
  
 div, span, applet, object, iframe,

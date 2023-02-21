@@ -1,15 +1,11 @@
 import styled from 'styled-components';
 
-type FooterWrapProps = {
-  colorcode?: string;
-};
-
-export const FooterInfoWrap = styled.p<FooterWrapProps>`
-  color: var(${({ colorcode }) => colorcode || '--color-grey-7'});
+export const FooterInfoWrap = styled.div`
+  color: var(--color-gray-5);
   font-size: calc(14rem / 16);
 `;
 
-export const CopyrightWrap = styled.p`
+export const CopyrightWrap = styled.div`
   font-size: calc(13rem / 16);
   color: var(--color-gray-4) !important;
   font-weight: var(--bold);
