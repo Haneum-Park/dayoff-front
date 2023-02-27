@@ -1,8 +1,8 @@
 import React, { memo } from 'react';
 import type { NextPage } from 'next';
 
-import MainGrid from '@template/MainGrid';
+import IndexGrid from '@block/Index';
 
-const Home: NextPage = () => <MainGrid>asd</MainGrid>;
+const Home: NextPage = () => <IndexGrid />;
 
 export default memo(Home);

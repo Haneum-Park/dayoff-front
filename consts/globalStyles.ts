@@ -19,7 +19,11 @@ const GlobalStyles = createGlobalStyle<GlobalStylesProps>`
   fieldset, form, label, legend, table, caption, tbody, tfoot,
   thead, tr, th, td, article, aside, canvas, details, embed,
   figure, figcaption, footer, header, hgroup, menu, nav, output,
-  ruby, section, summary, time, mark, audio, video, *, *::before, *::after {
+  ruby, section, summary, time, mark, audio, video {
+    color: var(${({ darkmode }) => (darkmode ? '--color-gray-0' : '--color-gray-9')});
+  }
+
+  *, *::before, *::after {
     color: var(${({ darkmode }) => (darkmode ? '--color-gray-0' : '--color-gray-9')});
   }
 `;
