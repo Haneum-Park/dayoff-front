@@ -1,27 +1,4 @@
-import styled, { createGlobalStyle } from 'styled-components';
-
-export const LocalPageStyle = createGlobalStyle`
-  html, body, #__next {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    max-width: 100%;
-  }
-`;
-
-type IndexGridStyleProps = {};
-
-export const IndexGridBackground = styled.div<IndexGridStyleProps>`
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-image: url('/images/index/bg.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 100vh;
-`;
+import styled from 'styled-components';
 
 export const IndexGridWrap = styled.div`
   display: flex;
