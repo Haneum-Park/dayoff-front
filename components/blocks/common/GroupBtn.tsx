@@ -19,15 +19,16 @@ export const GroupBtnWrap = styled.div<GroupBtnStyleProps>`
 
 export interface GroupBtnProps extends GroupBtnStyleProps {
   btns: BtnProps[];
+  onClick?: (event?: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
-function GroupBtn({ btns, maxWidth, align }: GroupBtnProps) {
+function GroupBtn({ btns, maxWidth, align, onClick }: GroupBtnProps) {
   return (
     <GroupBtnWrap maxWidth={maxWidth} align={align}>
       {btns &&
         btns.length > 0 &&
         btns.map(({ children, ...rest }, idx) => (
-          <Button key={`btn-${idx}`} {...rest}>
+          <Button key={`btn-${idx}`} onClick={onClick} {...rest}>
             {children}
           </Button>
         ))}

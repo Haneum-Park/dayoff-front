@@ -1,6 +1,10 @@
 import React from 'react';
+import { useRouter } from 'next/router';
+import { useSnapshot } from 'valtio';
 
 import GroupBtn from '@block/common/GroupBtn';
+
+import { proxyBtns, type ProxyBtns } from '@store/index/btns';
 
 import {
   IndexGridBackground,
@@ -15,6 +19,13 @@ type IndexGridProps = {
 };
 
 function IndexGrid({ children }: IndexGridProps) {
+  const { push } = useRouter();
+  const { btns } = useSnapshot(proxyBtns);
+
+  const onRedirect = (event?: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    push(`/${(event as React.MouseEvent<HTMLButtonElement, MouseEvent>).currentTarget.id}`);
+  };
+
   return (
     <>
       <LocalPageStyle />
@@ -35,28 +46,10 @@ function IndexGrid({ children }: IndexGridProps) {
           </IndexGridTitle>
           <IndexGridBtnWrap>
             <GroupBtn
-              btns={[
-                {
-                  children: '2020',
-                  bdColor: 'gray-9',
-                  bdRadius: 32,
-                  isEffect: true,
-                },
-                {
-                  children: '2021',
-                  bdColor: 'gray-9',
-                  bdRadius: 32,
-                  isEffect: true,
-                },
-                {
-                  children: '2022',
-                  bdColor: 'gray-9',
-                  bdRadius: 32,
-                  isEffect: true,
-                },
-              ]}
+              btns={btns as ProxyBtns['btns']}
               align='center'
               maxWidth={'calc(440rem / 16)'}
+              onClick={onRedirect}
             />
           </IndexGridBtnWrap>
           {children}

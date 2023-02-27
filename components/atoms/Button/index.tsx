@@ -12,19 +12,19 @@ function Button({ type = 'button', children, onClick, isEffect = false, ...rest 
   const onClickMerge = useCallback(
     (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
       if (isEffect) {
-        console.log('a');
-        if (onClick) onClick();
+        if (onClick) onClick(event);
+        console.log(event.currentTarget);
         const ripple = document.createElement('div');
         const rect = event.currentTarget.getBoundingClientRect();
         ripple.className = 'animate';
         ripple.style.left = `${event.clientX - rect.left}px`;
         ripple.style.top = `${event.clientY - rect.top}px`;
-        ripple.style.backgroundColor = event.currentTarget.style.backgroundColor || '#dee2e6';
+        ripple.style.backgroundColor = '#dee2e6a6';
         ripple.style.setProperty('--material-scale', String(event.currentTarget.offsetWidth));
         event.currentTarget.append(ripple);
         setTimeout(() => {
           (ripple.parentNode as ParentNode).removeChild(ripple);
-        }, 500);
+        }, 800);
       }
     },
     [onClick, isEffect],
