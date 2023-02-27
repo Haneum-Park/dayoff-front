@@ -1,31 +1,10 @@
-import React from 'react';
-import { useRouter } from 'next/router';
-import { useSnapshot } from 'valtio';
+import React, { memo } from 'react';
 
-import GroupBtn from '@block/common/GroupBtn';
+import CVBtns from './CVBtns';
 
-import { proxyBtns, type ProxyBtns } from '@store/index/btns';
+import { IndexGridBackground, IndexGridWrap, IndexGridTitle, LocalPageStyle } from './styles';
 
-import {
-  IndexGridBackground,
-  IndexGridWrap,
-  IndexGridTitle,
-  IndexGridBtnWrap,
-  LocalPageStyle,
-} from './styles';
-
-type IndexGridProps = {
-  children?: React.ReactNode;
-};
-
-function IndexGrid({ children }: IndexGridProps) {
-  const { push } = useRouter();
-  const { btns } = useSnapshot(proxyBtns);
-
-  const onRedirect = (event?: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    push(`/${(event as React.MouseEvent<HTMLButtonElement, MouseEvent>).currentTarget.id}`);
-  };
-
+function IndexGrid() {
   return (
     <>
       <LocalPageStyle />
@@ -44,19 +23,11 @@ function IndexGrid({ children }: IndexGridProps) {
               <text x='380'>O</text>
             </svg>
           </IndexGridTitle>
-          <IndexGridBtnWrap>
-            <GroupBtn
-              btns={btns as ProxyBtns['btns']}
-              align='center'
-              maxWidth={'calc(440rem / 16)'}
-              onClick={onRedirect}
-            />
-          </IndexGridBtnWrap>
-          {children}
+          <CVBtns />
         </IndexGridWrap>
       </IndexGridBackground>
     </>
   );
 }
 
-export default IndexGrid;
+export default memo(IndexGrid);

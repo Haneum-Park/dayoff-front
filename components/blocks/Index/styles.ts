@@ -94,12 +94,17 @@ export const IndexGridTitle = styled.h1`
 `;
 
 export const IndexGridBtnWrap = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: space-between;
   width: 100%;
   max-width: calc(440rem / 16);
+  overflow: hidden;
 
   button {
     transition: background-color 0.15s ease-in, color 0.15s ease-in;
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       background-color: var(--color-gray-9);
       color: var(--color-gray-0);
       transition: background-color 0.15s ease-out, color 0.15s ease-out;
@@ -118,4 +123,50 @@ export const IndexGridBtnWrap = styled.div`
     100% {
       opacity: 1;
     }
+  }
+`;
+
+export const FoldWrap = styled.button`
+  position: relative;
+  display: inline-block;
+  border: 1px solid var(--color-gray-9);
+  border-radius: 50px;
+  padding: 0.75rem 0.75rem;
+  width: 66px;
+  color: var(--color-gray-0);
+  background-color: var(--color-gray-9);
+
+  z-index: 2;
+`;
+
+type GroupBtnWrapProps = {
+  foldToggle: boolean;
+};
+
+export const GroupBtnWrap = styled.div<GroupBtnWrapProps>`
+  position: absolute;
+  top: 0;
+  left: ${({ foldToggle }) => (foldToggle ? '60.15%' : '-40%')};
+
+  width: 100%;
+  max-width: calc(350rem / 16);
+  transform: translateX(-50%);
+  transition: left 0.5s ease;
+`;
+
+export const MainVisibleBtn = styled(FoldWrap)<GroupBtnWrapProps>`
+  background-color: transparent;
+  color: var(--color-gray-9);
+  opacity: ${({ foldToggle }) => (foldToggle ? '0' : '1')};
+  z-index: ${({ foldToggle }) => (foldToggle ? '-1' : '1')};
+  ${({ foldToggle }) => (foldToggle ? 'animation: visibleBtn 0.5s linear;' : '')}
+  @keyframes visibleBtn {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      display: none;
+    }
+  }
 `;
