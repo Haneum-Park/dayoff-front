@@ -1,8 +1,17 @@
 import styled from 'styled-components';
 
+export const MainGridWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+`;
+
 export const ProfileWrap = styled.div`
   display: grid;
-  grid-template-columns: 0.2fr 1fr 0.5fr;
+  grid-template-columns: 0.1fr 1fr 0.5fr;
+  gap: 3rem;
   width: 100%;
 `;
 
@@ -28,6 +37,9 @@ export const ProfileDescWrap = styled.div`
   border: 1px solid var(--color-gray-6);
   border-radius: 5rem;
   margin: 0.5rem 0;
+  padding: 1.5rem;
+  font-size: 14px;
+  color: var(--color-gray-6);
 `;
 
 export const ProfileInfoWrap = styled.div`

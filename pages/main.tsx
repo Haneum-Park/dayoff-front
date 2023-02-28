@@ -1,13 +1,54 @@
-import React, { memo } from 'react';
+import React, { memo, useEffect } from 'react';
 import type { NextPage } from 'next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useTranslation } from 'next-i18next';
+import { ImageProps } from 'next/image';
+import { useSnapshot } from 'valtio';
 
 import LayoutContent from '@block/common/LayoutContent';
 import MainGrid from '@block/Main';
 
-const Main: NextPage = () => (
-  <LayoutContent>
-    <MainGrid></MainGrid>
-  </LayoutContent>
-);
+import { proxyProfile, type ProxyProfileDesc } from '@store/main/profile';
+
+import Character from '@image/profile/character.png';
+import Caricature from '@image/profile/caricature.png';
+
+export async function getStaticProps({ locale }: any) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common', 'main'])),
+    },
+  };
+}
+
+const Main: NextPage = () => {
+  const { t } = useTranslation('main');
+  const images = [Character, Caricature];
+  const random = Math.floor(Math.random() * 2);
+  const { info, desc } = useSnapshot(proxyProfile);
+
+  useEffect(() => {
+    (Object.keys(info) as Array<keyof typeof info>).forEach((key) => {
+      proxyProfile.info[key] = t(`info.${key}`);
+    });
+
+    desc.forEach((item, idx) => {
+      if (item.text)
+        (proxyProfile.desc[idx] as { text?: string }).text = t(`desc.${idx}.text`) as string;
+      if (item.focus)
+        (proxyProfile.desc[idx] as { focus?: string }).focus = t(`desc.${idx}.focus`) as string;
+    });
+  }, [desc, info, t]);
+
+  return (
+    <LayoutContent>
+      <MainGrid
+        image={images[random] as ImageProps['src']}
+        info={info}
+        desc={desc as ProxyProfileDesc[]}
+      />
+    </LayoutContent>
+  );
+};
 
 export default memo(Main);

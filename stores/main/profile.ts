@@ -1,6 +1,6 @@
 import { proxy } from 'valtio';
 
-type ProxyProfileDesc = {
+export type ProxyProfileDesc = {
   text?: string;
   focus?: string;
 };
@@ -12,7 +12,7 @@ type ProxyProfileInfo = {
   dob: string;
 };
 
-type ProxyProfile = {
+export type ProxyProfile = {
   info: ProxyProfileInfo;
   desc: ProxyProfileDesc[];
 };

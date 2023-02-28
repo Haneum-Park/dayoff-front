@@ -1,0 +1,21 @@
+{
+  "info": {
+    "name": "Haneum Park",
+    "address": "RoK, Gwangju. qkrgksdma17@gmail.com",
+    "job": "Web Full-Stack Engineer",
+    "dob": "DOB : 29 / 09 / 1994"
+  },
+  "desc": [
+    { "text": "Hi, my name is Haneum Park, but I go by " },
+    { "focus": "Kanu." },
+    { "text": "I'm an " },
+    { "focus": "Web full-stack engineer" },
+    { "text": "from Korea, It is the" },
+    { "focus": "4th year." },
+    { "text": "I'm focused on" },
+    { "focus": "NodeJS, mainly language is Typescript." },
+    {
+      "text": "I always prefer to develop new areas and stick to the basics. You can check out my history in detail below!"
+    }
+  ]
+}

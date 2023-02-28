@@ -1,6 +1,8 @@
 import React, { memo } from 'react';
 import styled from 'styled-components';
 
+import Sidebar from './Sidebar';
+
 interface LayoutContentStyleProps {}
 
 interface LayoutContentProps extends LayoutContentStyleProps {
@@ -11,6 +13,7 @@ function LayoutContent({ children }: LayoutContentProps) {
   return (
     <LayoutContentBackground>
       <LayoutContentWrap>{children}</LayoutContentWrap>
+      <Sidebar />
     </LayoutContentBackground>
   );
 }

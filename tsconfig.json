@@ -43,5 +43,13 @@
     "incremental": true
   },
   "exclude": ["node_modules"],
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "next.config.js", "server.js", "@types/*"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "next.config.js",
+    "server.js",
+    "@types/*",
+    "next-i18next.config.js"
+  ]
 }
