@@ -19,5 +19,5 @@ const FocusTextWrap = styled.div<FocusTextStyleProps>`
   display: inline-block;
   color: var(--color-gray-9);
   font-size: ${({ fontSize }) => fontSize || '14px'};
-  font-family: 'Bold';
+  font-family: 'SemiBold';
 `;

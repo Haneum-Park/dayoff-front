@@ -39,6 +39,7 @@ export const ProfileDescWrap = styled.div`
   margin: 0.5rem 0;
   padding: 1.5rem;
   font-size: 14px;
+  font-family: 'ExtraLight';
   color: var(--color-gray-6);
 `;
 
