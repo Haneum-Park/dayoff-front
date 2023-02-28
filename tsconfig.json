@@ -30,9 +30,7 @@
       "@image/*": ["./public/images/*"],
       "@atom/*": ["./components/atoms/*"],
       "@block/*": ["./components/blocks/*"],
-      "@molecule/*": ["./components/molecules/*"],
-      "@organism/*": ["./components/organisms/*"],
-      "@template/*": ["./components/templates/*"],
+      "@hook/*": ["./hooks/*"],
       "@store/*": ["./stores/*"],
       "@util/*": ["./utils/*"],
       "@const/*": ["./consts/*"]

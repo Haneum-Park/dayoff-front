@@ -21,10 +21,14 @@ const GlobalStyles = createGlobalStyle<GlobalStylesProps>`
   figure, figcaption, footer, header, hgroup, menu, nav, output,
   ruby, section, summary, time, mark, audio, video {
     color: var(${({ darkmode }) => (darkmode ? '--color-gray-0' : '--color-gray-9')});
+    /* background-color: var(${({ darkmode }) =>
+      darkmode ? '--color-gray-9' : '--color-gray-0'}); */
   }
 
   *, *::before, *::after {
     color: var(${({ darkmode }) => (darkmode ? '--color-gray-0' : '--color-gray-9')});
+    /* background-color: var(${({ darkmode }) =>
+      darkmode ? '--color-gray-9' : '--color-gray-0'}); */
   }
 `;
 

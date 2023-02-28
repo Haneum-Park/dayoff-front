@@ -1,5 +1,8 @@
 import React, { memo } from 'react';
 import styled from 'styled-components';
+import { useSnapshot } from 'valtio';
+
+import { proxyDarkmode } from '@store/global/darkmode';
 
 import Sidebar from './Sidebar';
 
@@ -10,8 +13,10 @@ interface LayoutContentProps extends LayoutContentStyleProps {
 }
 
 function LayoutContent({ children }: LayoutContentProps) {
+  const { darkmode } = useSnapshot(proxyDarkmode);
+
   return (
-    <LayoutContentBackground>
+    <LayoutContentBackground darkmode={darkmode}>
       <LayoutContentWrap>{children}</LayoutContentWrap>
       <Sidebar />
     </LayoutContentBackground>
@@ -20,11 +25,19 @@ function LayoutContent({ children }: LayoutContentProps) {
 
 export default memo(LayoutContent);
 
-export const LayoutContentBackground = styled.div`
-  background-image: url('/images/index/bg.jpg');
+type LayoutContentBackgroundProps = {
+  darkmode: boolean;
+};
+
+export const LayoutContentBackground = styled.div<LayoutContentBackgroundProps>`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+
+  ${({ darkmode }) =>
+    darkmode
+      ? 'background-color: var(--color-gray-9);'
+      : 'background-image: url("/images/index/bg.jpg");'}
   width: 100%;
   height: 100vh;
 `;

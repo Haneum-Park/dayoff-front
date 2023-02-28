@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { MEDIA_QUERY } from '@util/design.util';
+
 export const MainGridWrap = styled.div`
   display: flex;
   flex-direction: column;
@@ -9,10 +11,16 @@ export const MainGridWrap = styled.div`
 `;
 
 export const ProfileWrap = styled.div`
-  display: grid;
-  grid-template-columns: 0.1fr 1fr 0.5fr;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   gap: 3rem;
   width: 100%;
+
+  ${MEDIA_QUERY.max('tablet')} {
+    gap: 1rem;
+    flex-direction: column;
+  }
 `;
 
 export const ProfileImgWrap = styled.div`
@@ -46,7 +54,12 @@ export const ProfileDescWrap = styled.div`
 export const ProfileInfoWrap = styled.div`
   text-align: right;
   width: 100%;
-  max-width: calc(330rem / 16);
+  max-width: calc(240rem / 16);
+  justify-self: end;
+
+  ${MEDIA_QUERY.max('tablet')} {
+    text-align: center;
+  }
 
   h1 {
     margin: 0 0 0.5rem;

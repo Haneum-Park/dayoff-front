@@ -6,12 +6,14 @@
 type Breakpoints = {
   mobile: number;
   tablet: number;
+  laptop: number;
   desktop: number;
 };
 
 const breakpoints: Breakpoints = {
   mobile: 768,
   tablet: 1040,
+  laptop: 1600,
   desktop: 1920,
 };
 

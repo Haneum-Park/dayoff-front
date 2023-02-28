@@ -49,7 +49,7 @@ function LocaleSwitchScript() {
       if (
         toggleTarget &&
         target.className !== toggleTarget.className &&
-        target.className !== 'current-locale'
+        target.className.indexOf('current-locale') === -1
       ) {
         document.querySelector('.active')?.classList.remove('active');
         document.querySelectorAll('.hidden').forEach((el) => {
@@ -57,7 +57,7 @@ function LocaleSwitchScript() {
             el.classList.add('disappear');
             setTimeout(() => {
               el.classList.remove('appear');
-            }, 290);
+            }, 100);
           }
         });
       }

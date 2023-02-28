@@ -2,6 +2,7 @@ import React, { memo } from 'react';
 import styled from 'styled-components';
 
 import LocaleSwitch from './LocaleSwitch';
+import DarkmodeSwitch from './DarkmodeSwitch';
 
 function Sidebar() {
   return (
@@ -10,7 +11,9 @@ function Sidebar() {
         <li className='localeswitch'>
           <LocaleSwitch />
         </li>
-        <li>dasdsad</li>
+        <li>
+          <DarkmodeSwitch />
+        </li>
       </ul>
     </SidebarWrap>
   );
@@ -21,7 +24,7 @@ export default memo(Sidebar);
 const SidebarWrap = styled.nav`
   position: absolute;
   top: 50%;
-  left: 92%;
+  left: 95%;
   transform: translate(-50%, -50%);
   width: 100%;
   max-width: 3rem;
@@ -35,5 +38,9 @@ const SidebarWrap = styled.nav`
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    &.localeswitch {
+      align-items: flex-end;
+    }
   }
 `;

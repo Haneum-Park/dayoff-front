@@ -2,12 +2,6 @@ import styled from 'styled-components';
 
 export const LocaleSwitchWrap = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-`;
-
-export const ToggleWrap = styled.div`
-  display: flex;
   justify-content: center;
   align-items: center;
   gap: 0.5rem;

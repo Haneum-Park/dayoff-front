@@ -13,6 +13,8 @@ import { proxyProfile, type ProxyProfileDesc } from '@store/main/profile';
 import Character from '@image/profile/character.png';
 import Caricature from '@image/profile/caricature.png';
 
+import { LocalPageStyle } from './styles';
+
 export async function getStaticProps({ locale }: any) {
   return {
     props: {
@@ -41,13 +43,16 @@ const Main: NextPage = () => {
   }, [desc, info, t]);
 
   return (
-    <LayoutContent>
-      <MainGrid
-        image={images[random] as ImageProps['src']}
-        info={info}
-        desc={desc as ProxyProfileDesc[]}
-      />
-    </LayoutContent>
+    <>
+      <LocalPageStyle />
+      <LayoutContent>
+        <MainGrid
+          image={images[random] as ImageProps['src']}
+          info={info}
+          desc={desc as ProxyProfileDesc[]}
+        />
+      </LayoutContent>
+    </>
   );
 };
 
