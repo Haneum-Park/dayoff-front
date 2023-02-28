@@ -40,17 +40,17 @@ export const CurrentLocale = styled.div`
     color: var(--color-gray-9);
   }
 
-  & > .hidden {
+  &.hidden {
     display: none;
     opacity: 0;
   }
 
-  & > .appear {
+  &.appear {
     animation: flabIn 0.5s forwards;
     display: initial;
   }
 
-  & > .disappear {
+  &.disappear {
     animation: flabOut 0.5s forwards;
   }
 
