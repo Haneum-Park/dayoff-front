@@ -1,5 +1,11 @@
 import styled from 'styled-components';
 
+export const LocaleSwitchWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+`;
+
 export const ToggleWrap = styled.div`
   display: flex;
   justify-content: center;
@@ -13,17 +19,6 @@ export const ToggleWrap = styled.div`
   background-color: var(--color-gray-2);
   overflow: hidden;
 
-  > div:not(.current-locale) {
-    color: var(--color-gray-5);
-    &:hover {
-      color: var(--color-gray-9);
-    }
-  }
-
-  > div.current-locale {
-    color: var(--color-gray-9);
-  }
-
   &.active {
     width: 10rem;
     transition: width 0.5s;
@@ -31,18 +26,31 @@ export const ToggleWrap = styled.div`
       cursor: pointer;
     }
   }
+`;
 
-  .hidden {
+export const CurrentLocale = styled.div`
+  &:not(.current-locale) {
+    color: var(--color-gray-5);
+    &:hover {
+      color: var(--color-gray-9);
+    }
+  }
+
+  &.current-locale {
+    color: var(--color-gray-9);
+  }
+
+  & > .hidden {
     display: none;
     opacity: 0;
   }
 
-  .appear {
+  & > .appear {
     animation: flabIn 0.5s forwards;
     display: initial;
   }
 
-  .disappear {
+  & > .disappear {
     animation: flabOut 0.5s forwards;
   }
 

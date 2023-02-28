@@ -7,7 +7,7 @@ function Sidebar() {
   return (
     <SidebarWrap>
       <ul>
-        <li>
+        <li className='localeswitch'>
           <LocaleSwitch />
         </li>
         <li>dasdsad</li>
@@ -28,10 +28,12 @@ const SidebarWrap = styled.nav`
   ul {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
     gap: 1.5rem;
   }
+
   li {
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 `;
