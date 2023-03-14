@@ -7,7 +7,7 @@ export interface BtnStyleProps {
 
 export const BtnWrap = styled.button<BtnStyleProps>`
   width: 100%;
-  color: var(--color-white);
+  color: var(--color-gray-9);
   border: 1px solid var(--color-${({ bdColor }) => bdColor || 'gray-6'});
   background-color: transparent;
   border-radius: calc(${({ bdRadius }) => bdRadius || 16}rem / 16);

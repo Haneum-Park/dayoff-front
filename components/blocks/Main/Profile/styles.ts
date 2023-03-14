@@ -54,7 +54,7 @@ export const ProfileDescWrap = styled.div`
 export const ProfileInfoWrap = styled.div`
   text-align: right;
   width: 100%;
-  max-width: calc(240rem / 16);
+  max-width: calc(275rem / 16);
   justify-self: end;
 
   ${MEDIA_QUERY.max('tablet')} {

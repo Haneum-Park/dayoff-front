@@ -13,7 +13,6 @@ function Button({ type = 'button', children, onClick, isEffect = false, ...rest 
     (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
       if (isEffect) {
         if (onClick) onClick(event);
-        console.log(event.currentTarget);
         const ripple = document.createElement('div');
         const rect = event.currentTarget.getBoundingClientRect();
         ripple.className = 'animate';
@@ -31,7 +30,7 @@ function Button({ type = 'button', children, onClick, isEffect = false, ...rest 
   );
 
   return (
-    <BtnWrap type={type} onClick={onClickMerge} {...rest} className='ripple'>
+    <BtnWrap type={type} onClick={onClickMerge} {...rest}>
       {children}
     </BtnWrap>
   );

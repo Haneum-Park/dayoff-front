@@ -14,7 +14,7 @@ export interface ProfileProps extends ProxyProfile {
 function Profile({ image, info, desc }: ProfileProps) {
   return (
     <ProfileWrap>
-      <ProfileImgWrap>
+      <ProfileImgWrap className='fixed'>
         <Image src={image} alt='profile' width={80} priority />
       </ProfileImgWrap>
       <ProfileDescWrap>

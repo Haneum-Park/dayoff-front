@@ -28,7 +28,7 @@ function GroupBtn({ btns, maxWidth, align, onClick }: GroupBtnProps) {
       {btns &&
         btns.length > 0 &&
         btns.map(({ children, ...rest }, idx) => (
-          <Button key={`btn-${idx}`} onClick={onClick} {...rest}>
+          <Button key={`btn-${idx}`} className='reverse' onClick={onClick} {...rest}>
             {children}
           </Button>
         ))}

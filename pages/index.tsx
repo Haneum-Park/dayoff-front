@@ -1,12 +1,24 @@
 import React from 'react';
 import type { NextPage } from 'next';
 import { useSnapshot } from 'valtio';
+import styled, { createGlobalStyle } from 'styled-components';
 
 import IndexGrid from '@block/Index';
+import { LayoutContentBackground } from '@block/common/LayoutContent';
 
 import { proxyDarkmode } from '@store/global/darkmode';
 
-import { IndexGridBackground, LocalPageStyle } from './styles';
+export const LocalPageStyle = createGlobalStyle`
+  html, body, #__next {
+    max-width: 100%;
+  }
+`;
+
+export const IndexGridBackground = styled(LayoutContentBackground)`
+  position: absolute;
+  top: 0;
+  left: 0;
+`;
 
 const Home: NextPage = () => {
   const { darkmode } = useSnapshot(proxyDarkmode);

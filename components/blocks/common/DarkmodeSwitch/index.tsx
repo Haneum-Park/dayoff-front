@@ -23,6 +23,7 @@ function DarkmodeSwitch() {
         id='darkmode'
         checked={darkmode}
         onChange={onChangeDarkmode}
+        className='reverse'
       />
       <DarkmodeLabel htmlFor='darkmode'>
         <MdDarkMode size='18' fill='var(--color-gray-0)' />
