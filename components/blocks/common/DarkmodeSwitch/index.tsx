@@ -25,7 +25,7 @@ function DarkmodeSwitch() {
         onChange={onChangeDarkmode}
       />
       <DarkmodeLabel htmlFor='darkmode'>
-        <MdDarkMode size='18' fill='var(--color-gray-0)' />
+        <MdDarkMode size='18' fill='var(--color-gray-9)' />
         <MdLightMode size='18' fill='var(--color-gray-9)' />
       </DarkmodeLabel>
     </DarkmodeSwitchWrap>

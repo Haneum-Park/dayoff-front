@@ -3,8 +3,6 @@ import { useSnapshot } from 'valtio';
 
 import { proxyDarkmode } from '@store/global/darkmode';
 
-import { setDarkmode } from '@const/globalSciprts';
-
 import { cookies } from '@util/common.util';
 
 function useDarkmode(): [boolean, (mode: boolean) => void] {
@@ -13,7 +11,8 @@ function useDarkmode(): [boolean, (mode: boolean) => void] {
   const onDarkmode = useCallback((mode: boolean) => {
     proxyDarkmode.darkmode = mode as boolean;
     cookies.set('darkmode', mode ? '1' : '0');
-    setDarkmode();
+    if (mode) document.body.classList.add('darkmode');
+    else document.body.classList.remove('darkmode');
   }, []);
 
   return [darkmode, onDarkmode];

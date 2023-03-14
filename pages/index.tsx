@@ -5,6 +5,7 @@ import styled, { createGlobalStyle } from 'styled-components';
 
 import IndexGrid from '@block/Index';
 import { LayoutContentBackground } from '@block/common/LayoutContent';
+import Sidebar from '@block/common/Sidebar';
 
 import { proxyDarkmode } from '@store/global/darkmode';
 
@@ -40,6 +41,7 @@ const Home: NextPage = () => {
             <text x='380'>O</text>
           </svg>
         </IndexGrid>
+        <Sidebar />
       </IndexGridBackground>
     </>
   );

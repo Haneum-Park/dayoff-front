@@ -20,9 +20,7 @@ function CVBtns() {
 
   return (
     <IndexGridBtnWrap>
-      <FoldWrap onClick={onFoldToggle} className='reverse'>
-        FOLD
-      </FoldWrap>
+      <FoldWrap onClick={onFoldToggle}>FOLD</FoldWrap>
       <GroupBtnWrap foldToggle={foldToggle}>
         <GroupBtn
           btns={btns as ProxyBtns['btns']}
@@ -31,7 +29,7 @@ function CVBtns() {
           onClick={onRedirect}
         />
       </GroupBtnWrap>
-      <MainVisibleBtn foldToggle={foldToggle} className='reverse' id='main' onClick={onRedirect}>
+      <MainVisibleBtn foldToggle={foldToggle} id='main' onClick={onRedirect}>
         Main
       </MainVisibleBtn>
     </IndexGridBtnWrap>

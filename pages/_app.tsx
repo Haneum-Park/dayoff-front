@@ -10,7 +10,6 @@ import { useSnapshot } from 'valtio';
 import nextI18nextConfig from '@/next-i18next.config';
 
 import GlobalStyles from '@const/globalStyles';
-import { setDarkmode } from '@const/globalSciprts';
 
 import { proxyDarkmode } from '@store/global/darkmode';
 
@@ -26,7 +25,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       const isDarkmode = cookies.get('darkmode');
       if (isDarkmode) {
         proxyDarkmode.darkmode = isDarkmode === '1';
-        setDarkmode(true);
+        document.body.classList.add('darkmode');
       }
     }
   }, []);

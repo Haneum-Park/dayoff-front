@@ -16,7 +16,7 @@ function LayoutContent({ children }: LayoutContentProps) {
   const { darkmode } = useSnapshot(proxyDarkmode);
 
   return (
-    <LayoutContentBackground darkmode={darkmode}>
+    <LayoutContentBackground className='fixed' darkmode={darkmode}>
       <LayoutContentWrap>{children}</LayoutContentWrap>
       <Sidebar />
     </LayoutContentBackground>
@@ -33,7 +33,7 @@ export const LayoutContentBackground = styled.div<LayoutContentBackgroundProps>`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-color: var(--color-gray-1);
+  background-color: var(--color-gray-0);
   ${({ darkmode }) => (darkmode ? '' : 'background-image: url("/images/index/bg.jpg");')}
   width: 100%;
   height: 100vh;

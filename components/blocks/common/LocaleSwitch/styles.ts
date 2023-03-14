@@ -10,7 +10,7 @@ export const LocaleSwitchWrap = styled.div`
   height: 2rem;
   border: 1px solid var(--color-gray-4);
   border-radius: 0.5rem;
-  background-color: var(--color-gray-2);
+  background-color: var(--color-gray-0);
   overflow: hidden;
 
   &.active {

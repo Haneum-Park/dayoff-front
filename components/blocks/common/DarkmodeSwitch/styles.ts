@@ -6,7 +6,7 @@ export const DarkmodeSwitchWrap = styled.div`
   align-items: center;
   border: 1px solid var(--color-gray-4);
   border-radius: 0.5rem;
-  background-color: var(--color-gray-2);
+  background-color: var(--color-gray-0);
   width: 3rem;
   height: 1.5rem;
 

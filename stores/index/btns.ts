@@ -13,7 +13,7 @@ export const proxyBtns = proxy<ProxyBtns>({
       bdColor: 'gray-9',
       bdRadius: 32,
       isEffect: true,
-      className: 'ripple reverse',
+      className: 'ripple',
       id: '2020',
     },
     {
@@ -21,7 +21,7 @@ export const proxyBtns = proxy<ProxyBtns>({
       bdColor: 'gray-9',
       bdRadius: 32,
       isEffect: true,
-      className: 'ripple reverse',
+      className: 'ripple',
       id: '2021',
     },
     {
@@ -29,7 +29,7 @@ export const proxyBtns = proxy<ProxyBtns>({
       bdColor: 'gray-9',
       bdRadius: 32,
       isEffect: true,
-      className: 'ripple reverse',
+      className: 'ripple',
       id: '2022',
     },
   ],

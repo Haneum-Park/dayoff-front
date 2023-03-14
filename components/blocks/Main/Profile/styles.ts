@@ -28,7 +28,7 @@ export const ProfileImgWrap = styled.div`
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  background-color: var(--color-gray-0);
+  background-color: var(--color-white);
   overflow: hidden;
 
   img {
