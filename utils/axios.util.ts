@@ -12,7 +12,7 @@ const requireApiList = [
   { method: 'post', url: 'crawler/run' },
 ];
 
-export const baseUrl = isProduction ? 'https://util-api.com/' : 'http://localhost:3333/';
+export const baseUrl = isProduction ? 'https://api.day-off.xyz/' : 'http://localhost:3000/';
 
 const $axios = axios.create({
   baseURL: baseUrl,

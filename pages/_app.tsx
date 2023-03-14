@@ -8,6 +8,7 @@ import { AppProps } from 'next/app';
 import { useSnapshot } from 'valtio';
 
 import nextI18nextConfig from '@/next-i18next.config';
+
 import GlobalStyles from '@const/globalStyles';
 import { setDarkmode } from '@const/globalSciprts';
 
@@ -21,22 +22,21 @@ function MyApp({ Component, pageProps }: AppProps) {
   const { darkmode } = useSnapshot(proxyDarkmode);
 
   useEffect(() => {
-    const isDarkmode = cookies.get('darkmode');
-    proxyDarkmode.darkmode = isDarkmode === '1';
-  }, []);
-
-  useEffect(() => {
     if (document) {
-      setDarkmode();
+      const isDarkmode = cookies.get('darkmode');
+      if (isDarkmode) {
+        proxyDarkmode.darkmode = isDarkmode === '1';
+        setDarkmode(true);
+      }
     }
-  }, [darkmode]);
+  }, []);
 
   return (
     <>
       <Head>
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/favicon.ico' />
-        <title>HANUMI | PORTFOLIO</title>
+        <title>PORTFOLIO | DAY OFF</title>
       </Head>
       <GlobalStyles darkmode={darkmode} />
       <Component {...pageProps} />

@@ -15,7 +15,7 @@ function Profile({ image, info, desc }: ProfileProps) {
   return (
     <ProfileWrap>
       <ProfileImgWrap className='fixed'>
-        <Image src={image} alt='profile' width={80} priority />
+        <Image src={image} alt='profile' width={80} />
       </ProfileImgWrap>
       <ProfileDescWrap>
         {desc.map(({ text, focus }, idx) => text || <FocusText key={idx}>{focus}</FocusText>)}

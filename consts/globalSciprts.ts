@@ -1,7 +1,7 @@
 /* eslint-disable no-param-reassign */
-export function setDarkmode() {
+export function setDarkmode(init = false) {
   const allElement = document.querySelectorAll(
-    'body *:not(.reverse):not(.fixed)',
+    `body *${init ? ':not(.reverse)' : ''}:not(.fixed)`,
   ) as NodeListOf<HTMLElement>;
   allElement.forEach((element) => {
     const { color, backgroundColor } = window.getComputedStyle(element);

@@ -10,7 +10,7 @@ import MainGrid from '@block/Main';
 
 import { proxyProfile, type ProxyProfileDesc } from '@store/main/profile';
 
-import Character from '@image/profile/character.png';
+// import Character from '@image/profile/character.png';
 import Caricature from '@image/profile/caricature.png';
 
 import { LocalPageStyle } from './styles';
@@ -25,8 +25,6 @@ export async function getStaticProps({ locale }: any) {
 
 const Main: NextPage = () => {
   const { t } = useTranslation('main');
-  const images = [Character, Caricature];
-  const random = Math.floor(Math.random() * 2);
   const { info, desc } = useSnapshot(proxyProfile);
 
   useEffect(() => {
@@ -47,7 +45,7 @@ const Main: NextPage = () => {
       <LocalPageStyle />
       <LayoutContent>
         <MainGrid
-          image={images[random] as ImageProps['src']}
+          image={Caricature as ImageProps['src']}
           info={info}
           desc={desc as ProxyProfileDesc[]}
         />

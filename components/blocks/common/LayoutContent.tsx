@@ -33,11 +33,8 @@ export const LayoutContentBackground = styled.div<LayoutContentBackgroundProps>`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-
-  ${({ darkmode }) =>
-    darkmode
-      ? 'background-color: var(--color-gray-9);'
-      : 'background-image: url("/images/index/bg.jpg");'}
+  background-color: var(--color-gray-1);
+  ${({ darkmode }) => (darkmode ? '' : 'background-image: url("/images/index/bg.jpg");')}
   width: 100%;
   height: 100vh;
 `;

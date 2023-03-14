@@ -22,6 +22,7 @@ export const DarkmodeCheckbox = styled.input`
   width: 1.2rem;
   height: 1.2rem;
   border-radius: 0.35rem;
+  color: var(--color-gray-0);
   background-color: var(--color-gray-9);
   padding: 0;
   margin: 0;

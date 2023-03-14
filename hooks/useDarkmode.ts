@@ -1,26 +1,22 @@
-import { useCallback, useEffect } from 'react';
+import { useCallback } from 'react';
 import { useSnapshot } from 'valtio';
 
-import { proxyDarkmode } from 'stores/global/darkmode';
+import { proxyDarkmode } from '@store/global/darkmode';
+
+import { setDarkmode } from '@const/globalSciprts';
 
 import { cookies } from '@util/common.util';
 
 function useDarkmode(): [boolean, (mode: boolean) => void] {
   const { darkmode } = useSnapshot(proxyDarkmode);
 
-  const setDarkmode = useCallback((mode: boolean) => {
+  const onDarkmode = useCallback((mode: boolean) => {
     proxyDarkmode.darkmode = mode as boolean;
     cookies.set('darkmode', mode ? '1' : '0');
+    setDarkmode();
   }, []);
 
-  useEffect(() => {
-    if (document && document.cookie) {
-      const isDarkmode = cookies.get('darkmode');
-      proxyDarkmode.darkmode = isDarkmode === '1';
-    }
-  }, []);
-
-  return [darkmode, setDarkmode];
+  return [darkmode, onDarkmode];
 }
 
 export default useDarkmode;
