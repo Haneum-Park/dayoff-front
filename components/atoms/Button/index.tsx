@@ -18,7 +18,7 @@ function Button({ type = 'button', children, onClick, isEffect = false, ...rest 
         ripple.className = 'animate';
         ripple.style.left = `${event.clientX - rect.left}px`;
         ripple.style.top = `${event.clientY - rect.top}px`;
-        ripple.style.backgroundColor = '#dee2e6a6';
+        ripple.style.backgroundColor = 'var(--color-gray-2)';
         ripple.style.setProperty('--material-scale', String(event.currentTarget.offsetWidth));
         event.currentTarget.append(ripple);
         setTimeout(() => {

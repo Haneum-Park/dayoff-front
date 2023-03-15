@@ -9,13 +9,13 @@ import Sidebar from '@block/common/Sidebar';
 
 import { proxyDarkmode } from '@store/global/darkmode';
 
-export const LocalPageStyle = createGlobalStyle`
+const LocalPageStyle = createGlobalStyle`
   html, body, #__next {
     max-width: 100%;
   }
 `;
 
-export const IndexGridBackground = styled(LayoutContentBackground)`
+const IndexGridBackground = styled(LayoutContentBackground)`
   position: absolute;
   top: 0;
   left: 0;

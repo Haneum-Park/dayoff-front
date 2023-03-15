@@ -4,6 +4,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 import { ImageProps } from 'next/image';
 import { useSnapshot } from 'valtio';
+import { createGlobalStyle } from 'styled-components';
 
 import LayoutContent from '@block/common/LayoutContent';
 import MainGrid from '@block/Main';
@@ -13,7 +14,11 @@ import { proxyProfile, type ProxyProfileDesc } from '@store/main/profile';
 // import Character from '@image/profile/character.png';
 import Caricature from '@image/profile/caricature.png';
 
-import { LocalPageStyle } from './styles';
+const LocalPageStyle = createGlobalStyle`
+  html, body, #__next {
+    max-width: 100%;
+  }
+`;
 
 export async function getStaticProps({ locale }: any) {
   return {

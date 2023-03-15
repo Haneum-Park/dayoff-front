@@ -5,11 +5,8 @@ import Head from 'next/head';
 import { appWithTranslation } from 'next-i18next';
 // import App, { AppContext, AppProps } from 'next/app';
 import { AppProps } from 'next/app';
-import { useSnapshot } from 'valtio';
 
 import nextI18nextConfig from '@/next-i18next.config';
-
-import GlobalStyles from '@const/globalStyles';
 
 import { proxyDarkmode } from '@store/global/darkmode';
 
@@ -18,8 +15,6 @@ import { cookies } from '@util/common.util';
 import './_app.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const { darkmode } = useSnapshot(proxyDarkmode);
-
   useEffect(() => {
     if (document) {
       const isDarkmode = cookies.get('darkmode');
@@ -37,7 +32,6 @@ function MyApp({ Component, pageProps }: AppProps) {
         <link rel='icon' href='/favicon.ico' />
         <title>PORTFOLIO | DAY OFF</title>
       </Head>
-      <GlobalStyles darkmode={darkmode} />
       <Component {...pageProps} />
     </>
   );
