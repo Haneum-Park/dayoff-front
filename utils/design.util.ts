@@ -6,6 +6,8 @@
 type Breakpoints = {
   mobile: number;
   tablet: number;
+  'sm-tablet': number;
+  'lg-tablet': number;
   laptop: number;
   desktop: number;
 };
@@ -13,6 +15,8 @@ type Breakpoints = {
 const breakpoints: Breakpoints = {
   mobile: 768,
   tablet: 1040,
+  'sm-tablet': 1280,
+  'lg-tablet': 1440,
   laptop: 1600,
   desktop: 1920,
 };

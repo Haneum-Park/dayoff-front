@@ -17,5 +17,25 @@
     {
       "text": "입니다. 항상 새로운 영역을 개발하고, 기본을 충실하는 것을 선호합니다. 저에 관한 이력은 아래에 자세히 확인하실 수 있습니다!"
     }
-  ]
+  ],
+  "record": {
+    "education": {
+      "title": "학력"
+    },
+    "career": {
+      "title": "경력"
+    },
+    "skills": {
+      "title": "보유 기술"
+    },
+    "documents": {
+      "title": "포트폴리오/기타문서"
+    },
+    "licenseNcert": {
+      "title": "자격증/수상내역"
+    },
+    "activities": {
+      "title": "활동"
+    }
+  }
 }

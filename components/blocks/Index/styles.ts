@@ -18,7 +18,7 @@ export const IndexGridTitle = styled.h1`
     font-family: 'Light';
     font-size: 80px;
     stroke-width: 1px;
-    stroke: var(--color-white);
+    stroke: var(--color-gray-9);
     fill: transparent;
     stroke-dashoffset: 750;
     stroke-dasharray: 750;

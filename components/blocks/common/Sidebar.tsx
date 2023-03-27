@@ -1,6 +1,8 @@
 import React, { memo } from 'react';
 import styled from 'styled-components';
 
+import { MEDIA_QUERY } from '@util/design.util';
+
 import LocaleSwitch from './LocaleSwitch';
 import DarkmodeSwitch from './DarkmodeSwitch';
 
@@ -24,10 +26,11 @@ export default memo(Sidebar);
 const SidebarWrap = styled.nav`
   position: absolute;
   top: 50%;
-  left: 95%;
+  left: 93%;
   transform: translate(-50%, -50%);
   width: 100%;
   max-width: 3rem;
+
   ul {
     display: flex;
     flex-direction: column;
@@ -41,6 +44,14 @@ const SidebarWrap = styled.nav`
 
     &.localeswitch {
       align-items: flex-end;
+    }
+  }
+
+  ${MEDIA_QUERY.max('sm-tablet')} {
+    top: 5%;
+
+    ul {
+      gap: 0.5rem;
     }
   }
 `;

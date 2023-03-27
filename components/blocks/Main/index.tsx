@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Profile from '@block/Main/Profile';
-import type { ProfileProps } from '@block/Main/Profile';
-
 import type { ProxyProfileDesc } from '@store/main/profile';
+
+import Profile from './Profile';
+import type { ProfileProps } from './Profile';
+import Record from './Record';
 
 type MainGridProps = {
   children?: React.ReactNode;
@@ -14,6 +15,7 @@ function MainGrid({ children, image, info, desc }: MainGridProps & ProfileProps)
   return (
     <MainGridWrap>
       <Profile image={image} info={info} desc={desc as ProxyProfileDesc[]} />
+      <Record />
       {children}
     </MainGridWrap>
   );

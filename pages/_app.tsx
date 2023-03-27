@@ -18,9 +18,11 @@ function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
     if (document) {
       const isDarkmode = cookies.get('darkmode');
-      if (isDarkmode) {
-        proxyDarkmode.darkmode = isDarkmode === '1';
+      proxyDarkmode.darkmode = isDarkmode === '1';
+      if (isDarkmode === '1') {
         document.body.classList.add('darkmode');
+      } else if (isDarkmode === '0') {
+        document.body.classList.remove('darkmode');
       }
     }
   }, []);

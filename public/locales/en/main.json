@@ -17,5 +17,25 @@
     {
       "text": "I always prefer to develop new areas and stick to the basics. You can check out my history in detail below!"
     }
-  ]
+  ],
+  "record": {
+    "education": {
+      "title": "Education"
+    },
+    "career": {
+      "title": "Career"
+    },
+    "skills": {
+      "title": "Skills"
+    },
+    "documents": {
+      "title": "Documents"
+    },
+    "licenseNcert": {
+      "title": "License & Certification"
+    },
+    "activities": {
+      "title": "Activities"
+    }
+  }
 }

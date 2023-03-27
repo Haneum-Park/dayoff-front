@@ -30,7 +30,7 @@ export async function getStaticProps({ locale }: any) {
 
 const Main: NextPage = () => {
   const { t } = useTranslation('main');
-  const { info, desc } = useSnapshot(proxyProfile);
+  const { info, desc, record } = useSnapshot(proxyProfile);
 
   useEffect(() => {
     (Object.keys(info) as Array<keyof typeof info>).forEach((key) => {
