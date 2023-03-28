@@ -2,20 +2,23 @@ import React from 'react';
 import styled from 'styled-components';
 
 import type { ProxyProfileDesc } from '@store/main/profile';
+import type { ProxyRecord } from '@store/main/record';
 
-import Profile from './Profile';
-import type { ProfileProps } from './Profile';
+import { MEDIA_QUERY } from '@util/design.util';
+
+import Profile, { type ProfileProps } from './Profile';
 import Record from './Record';
 
 type MainGridProps = {
   children?: React.ReactNode;
-};
+} & ProfileProps &
+  ProxyRecord['record'];
 
-function MainGrid({ children, image, info, desc }: MainGridProps & ProfileProps) {
+function MainGrid({ children, image, info, desc, ...record }: MainGridProps) {
   return (
     <MainGridWrap>
       <Profile image={image} info={info} desc={desc as ProxyProfileDesc[]} />
-      <Record />
+      <Record {...record} />
       {children}
     </MainGridWrap>
   );
@@ -29,4 +32,12 @@ const MainGridWrap = styled.div`
   align-items: center;
   justify-content: center;
   height: 100vh;
+  padding: 2rem 0;
+
+  ${MEDIA_QUERY.max('lg-tablet')} {
+    justify-content: flex-start;
+    height: 100vh;
+    padding: 1rem 0 0;
+    overflow-y: auto;
+  }
 `;

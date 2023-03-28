@@ -43,6 +43,14 @@ ruby, section, summary, time, mark, audio, video {
   font-size: 16px;
   font-family: 'Regular';
   color: var(--color-gray-9);
+  /* scroll bar invisible */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* scroll bar invisible */
+*::-webkit-scrollbar {
+  display: none;  /* Safari and Chrome */
 }
 
 *, *::before, *::after {

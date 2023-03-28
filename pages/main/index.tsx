@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import React, { memo, useEffect } from 'react';
 import type { NextPage } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
@@ -10,6 +11,7 @@ import LayoutContent from '@block/common/LayoutContent';
 import MainGrid from '@block/Main';
 
 import { proxyProfile, type ProxyProfileDesc } from '@store/main/profile';
+import { proxyRecord, type ProxyRecord } from '@store/main/record';
 
 // import Character from '@image/profile/character.png';
 import Caricature from '@image/profile/caricature.png';
@@ -30,7 +32,8 @@ export async function getStaticProps({ locale }: any) {
 
 const Main: NextPage = () => {
   const { t } = useTranslation('main');
-  const { info, desc, record } = useSnapshot(proxyProfile);
+  const { info, desc } = useSnapshot(proxyProfile);
+  const { record } = useSnapshot(proxyRecord);
 
   useEffect(() => {
     (Object.keys(info) as Array<keyof typeof info>).forEach((key) => {
@@ -43,7 +46,15 @@ const Main: NextPage = () => {
       if (item.focus)
         (proxyProfile.desc[idx] as { focus?: string }).focus = t(`desc.${idx}.focus`) as string;
     });
-  }, [desc, info, t]);
+
+    (Object.keys(record) as Array<keyof typeof record>).forEach((key) => {
+      proxyRecord.record[key].title = t(`record.${key}.title`);
+      proxyRecord.record[key].list.forEach((item, idx) => {
+        item.desc = t(`record.${key}.list.${idx}.desc`);
+        item.memo = t(`record.${key}.list.${idx}.memo`);
+      });
+    });
+  }, [desc, info, record, t]);
 
   return (
     <>
@@ -53,6 +64,7 @@ const Main: NextPage = () => {
           image={Caricature as ImageProps['src']}
           info={info}
           desc={desc as ProxyProfileDesc[]}
+          {...(record as ProxyRecord['record'])}
         />
       </LayoutContent>
     </>

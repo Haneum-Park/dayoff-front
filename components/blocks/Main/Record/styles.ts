@@ -1,11 +1,15 @@
 import styled from 'styled-components';
 
+import { MEDIA_QUERY } from '@util/design.util';
+
 export const MainContentWrap = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: start;
   gap: 1.5rem;
   width: 100%;
+  height: 800px;
+  overflow-y: auto;
   margin-top: 2rem;
 
   > div {
@@ -20,9 +24,36 @@ export const MainContentWrap = styled.div`
       max-width: 20%;
     }
   }
+
+  ${MEDIA_QUERY.max('lg-tablet')} {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+    padding: 0 1rem;
+    height: 100%;
+    overflow-y: initial;
+
+    > div {
+      width: 100%;
+      &:first-child,
+      &:nth-child(2),
+      &:last-child {
+        max-width: 100%;
+      }
+    }
+  }
 `;
 
-export const MasonryWrap = styled.div``;
+export const MasonryWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  ${MEDIA_QUERY.max('lg-tablet')} {
+    &:last-child {
+      padding-bottom: 1rem;
+    }
+  }
+`;
 
 export const ContentWrap = styled.div`
   display: flex;
@@ -38,6 +69,10 @@ export const ContentWrap = styled.div`
 
 export const ContentTitle = styled.h2`
   margin: 0;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'Source Serif 4', serif;
+  font-size: 30px;
+  font-weight: 300;
 `;
 
 export const ContentListWrap = styled.div`

@@ -49,7 +49,7 @@ const SidebarWrap = styled.nav`
 
   ${MEDIA_QUERY.max('sm-tablet')} {
     top: 5%;
-
+    left: 91%;
     ul {
       gap: 0.5rem;
     }
