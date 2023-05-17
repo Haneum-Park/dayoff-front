@@ -20,7 +20,7 @@ function Record({
   contacts,
   career_desc,
   languages,
-  skills,
+  // skills,
   documents,
   licenseNawards,
   activities,
