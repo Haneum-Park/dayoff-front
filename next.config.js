@@ -3,10 +3,6 @@ const nextConfig = {
   trailingSlash: true,
   reactStrictMode: true,
   swcMinify: true,
-  images: {
-    loader: 'akamai',
-    path: '',
-  },
   compiler: {
     styledComponents: true,
     ssr: true,

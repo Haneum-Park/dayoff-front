@@ -1,8 +1,8 @@
 /* eslint-disable no-param-reassign */
 import React, { memo, useEffect } from 'react';
 import type { NextPage } from 'next';
+
 import { useTranslation } from 'next-i18next';
-import { ImageProps } from 'next/image';
 import { useSnapshot } from 'valtio';
 import { createGlobalStyle } from 'styled-components';
 
@@ -20,6 +20,7 @@ import { setOpenAlert } from '@store/global/isAlert';
 import Caricature from '@image/profile/caricature.png';
 
 const getStaticProps = makeStaticProps(['common', 'main']);
+
 export { getStaticPaths, getStaticProps };
 
 const LocalPageStyle = createGlobalStyle`
@@ -64,7 +65,7 @@ const Main: NextPage = () => {
       {/* <Alert color='gray-9'>포트폴리오 PDF 다운로드</Alert> */}
       <LayoutContent>
         <MainGrid
-          image={Caricature as ImageProps['src']}
+          image={Caricature}
           info={info}
           desc={desc as ProxyProfileDesc[]}
           {...(record as ProxyRecord['record'])}
