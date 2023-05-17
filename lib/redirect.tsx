@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-return */
 /* eslint-disable no-param-reassign */
 import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
@@ -11,7 +12,10 @@ export const useRedirect = (to?: string) => {
     const detectedLng = languageDetector.detect();
     if (to!.startsWith(`/${detectedLng}`) && router.route === '/404') {
       router.replace(`/${detectedLng}${router.route}`);
-      // eslint-disable-next-line no-useless-return
+      return;
+    }
+    if (to!.length === 1) {
+      router.replace(`/${detectedLng}`);
       return;
     }
   });
