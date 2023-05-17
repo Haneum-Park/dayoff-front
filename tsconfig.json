@@ -34,7 +34,8 @@
       "@hook/*": ["./hooks/*"],
       "@store/*": ["./stores/*"],
       "@util/*": ["./utils/*"],
-      "@const/*": ["./consts/*"]
+      "@const/*": ["./consts/*"],
+      "@lib/*": ["./lib/*"]
     },
     "noEmit": true,
     "isolatedModules": true,

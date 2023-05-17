@@ -1,11 +1,11 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useEffect, memo } from 'react';
-import Link from 'next/link';
 import Image from 'next/image';
 import type { ImageProps } from 'next/image';
 import { useSnapshot } from 'valtio';
 
 import Button from '@atom/Button';
+import Link from '@common/Link';
 
 import { proxyLanguage } from '@store/global/language';
 

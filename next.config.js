@@ -1,12 +1,15 @@
-const { i18n } = require('./next-i18next.config');
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  i18n,
+  trailingSlash: true,
   reactStrictMode: true,
   swcMinify: true,
+  images: {
+    loader: 'akamai',
+    path: '',
+  },
   compiler: {
     styledComponents: true,
+    ssr: true,
     // ! 컴파일 할 때 console을 전부 지움
     // NOTE 만약 console.log 제외한 console을 전부 지우고 싶다면
     // removeConsole: {

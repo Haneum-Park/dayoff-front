@@ -1,13 +1,17 @@
+/* eslint-disable consistent-return */
 import { useCallback, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
+import i18nextConfig from '@/next-i18next.config';
+
 function LocaleSwitchScript() {
-  const { locales, locale, pathname, push } = useRouter();
+  const { query, pathname, push } = useRouter();
 
   const onChangeLocale = useCallback(
     (loc: string) => {
       if (loc === 'current-locale') return;
-      push(pathname, pathname, { locale: loc });
+      const pName = pathname.replace('[locale]', loc);
+      push(pName, pName, { locale: loc });
     },
     [pathname, push],
   );
@@ -64,7 +68,7 @@ function LocaleSwitchScript() {
     });
   }, []);
 
-  return { locales, locale, onChangeLocale, onFlab };
+  return { locales: i18nextConfig.i18n.locales, locale: query.locale, onChangeLocale, onFlab };
 }
 
 export default LocaleSwitchScript;
