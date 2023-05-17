@@ -29,9 +29,9 @@
       "@page/*": ["./pages/*"],
       "@image/*": ["./public/images/*"],
       "@atom/*": ["./components/atoms/*"],
-      "@molecule/*": ["./components/molecules/*"],
-      "@organism/*": ["./components/organisms/*"],
-      "@template/*": ["./components/templates/*"],
+      "@block/*": ["./components/blocks/*"],
+      "@common/*": ["./components/blocks/common/*"],
+      "@hook/*": ["./hooks/*"],
       "@store/*": ["./stores/*"],
       "@util/*": ["./utils/*"],
       "@const/*": ["./consts/*"]
@@ -42,5 +42,13 @@
     "incremental": true
   },
   "exclude": ["node_modules"],
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "next.config.js", "server.js", "@types/*"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "next.config.js",
+    "server.js",
+    "@types/*",
+    "next-i18next.config.js"
+  ]
 }

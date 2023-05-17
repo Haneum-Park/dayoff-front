@@ -1,41 +1,50 @@
-import React, { memo } from 'react';
+import React from 'react';
 import type { NextPage } from 'next';
+import { useSnapshot } from 'valtio';
+import styled, { createGlobalStyle } from 'styled-components';
 
-import MainGrid from '@template/MainGrid';
+import IndexGrid from '@block/Index';
+import { LayoutContentBackground } from '@common/LayoutContent';
+import Sidebar from '@common/Sidebar';
 
-import MainLogo from '@image/logo/header/logo.png';
-import JumbotronLogo from '@image/logo/main/jumbotron-text-logo.png';
+import { proxyDarkmode } from '@store/global/darkmode';
 
-const Home: NextPage = () => (
-  <MainGrid
-    header={{
-      img: {
-        src: MainLogo,
-        alt: 'Main Logo',
-        width: 50,
-        height: 50,
-      },
-    }}
-    jumbotron={{
-      img: {
-        src: JumbotronLogo,
-        alt: 'Jumbotron Logo',
-        width: 600,
-        height: 185.735,
-      },
-      groupBtn: {
-        maxWidth: 'calc(180rem / 16)',
-        btns: [
-          {
-            children: 'dev.haneum.park',
-          },
-          {
-            children: 'uxui.seoye.kim',
-          },
-        ],
-      },
-    }}
-  />
-);
+const LocalPageStyle = createGlobalStyle`
+  html, body, #__next {
+    max-width: 100%;
+  }
+`;
 
-export default memo(Home);
+const IndexGridBackground = styled(LayoutContentBackground)`
+  position: absolute;
+  top: 0;
+  left: 0;
+`;
+
+const Home: NextPage = () => {
+  const { darkmode } = useSnapshot(proxyDarkmode);
+
+  return (
+    <>
+      <LocalPageStyle />
+      <IndexGridBackground darkmode={darkmode}>
+        <IndexGrid>
+          <svg width='440' height='65' viewBox='0 -60 440 65'>
+            <text x='0'>P</text>
+            <text x='50'>O</text>
+            <text x='110'>R</text>
+            <text x='160'>T</text>
+            <text x='210'>F</text>
+            <text x='255'>O</text>
+            <text x='315'>L</text>
+            <text x='360'>I</text>
+            <text x='380'>O</text>
+          </svg>
+        </IndexGrid>
+        <Sidebar />
+      </IndexGridBackground>
+    </>
+  );
+};
+
+export default Home;

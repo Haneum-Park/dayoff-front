@@ -1,10 +1,12 @@
+/* eslint-disable no-param-reassign */
+/* eslint-disable @next/next/no-page-custom-font */
 import React, { useEffect } from 'react';
 import Head from 'next/head';
+import { appWithTranslation } from 'next-i18next';
 // import App, { AppContext, AppProps } from 'next/app';
 import { AppProps } from 'next/app';
-import { useSnapshot } from 'valtio';
 
-import GlobalStyles from '@const/globalStyles';
+import nextI18nextConfig from '@/next-i18next.config';
 
 import { proxyDarkmode } from '@store/global/darkmode';
 
@@ -13,20 +15,25 @@ import { cookies } from '@util/common.util';
 import './_app.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const { darkmode } = useSnapshot(proxyDarkmode);
-
   useEffect(() => {
-    const isDarkmode = cookies.get('darkmode');
-    proxyDarkmode.darkmode = isDarkmode === '1';
+    if (document) {
+      const isDarkmode = cookies.get('darkmode');
+      proxyDarkmode.darkmode = isDarkmode === '1';
+      if (isDarkmode === '1') {
+        document.body.classList.add('darkmode');
+      } else if (isDarkmode === '0') {
+        document.body.classList.remove('darkmode');
+      }
+    }
   }, []);
 
   return (
     <>
       <Head>
-        <meta name='viewport' content={'width=device-width, initial-scale=1'} />
-        <title>Day off</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1' />
+        <link rel='icon' href='/favicon.ico' />
+        <title>PORTFOLIO | DAY OFF</title>
       </Head>
-      <GlobalStyles darkmode={darkmode} />
       <Component {...pageProps} />
     </>
   );
@@ -44,4 +51,4 @@ function MyApp({ Component, pageProps }: AppProps) {
 //   return { ...appProps };
 // };
 
-export default MyApp;
+export default appWithTranslation(MyApp, nextI18nextConfig);

@@ -6,7 +6,7 @@ export interface LabelStyleProps extends React.LabelHTMLAttributes<HTMLLabelElem
 export interface LabelProps extends LabelStyleProps {}
 
 const LabelWrap = styled.label<LabelStyleProps>`
-  color: var(--color-grey-10);
+  color: var(--color-gray-9);
   font-size: 14px;
 `;
 

@@ -13,7 +13,7 @@ const CheckContainer = styled.div`
   justify-content: flex-start;
   margin-right: calc(5rem / 16);
   > svg {
-    color: var(--color-white-20);
+    color: var(--color-white);
     cursor: pointer;
   }
 `;

@@ -1,0 +1,154 @@
+{
+  "info": {
+    "name": "Haneum Park",
+    "address": "RoK, Gwangju. qkrgksdma17@gmail.com",
+    "job": "Web Full-Stack Engineer",
+    "dob": "DOB : 29 / 09 / 1994"
+  },
+  "desc": [
+    { "text": "Hi, my name is Haneum Park, but I go by " },
+    { "focus": "Kanu." },
+    { "text": "I'm an " },
+    { "focus": "Web full-stack engineer" },
+    { "text": "from Korea, It is the" },
+    { "focus": "4th year." },
+    { "text": "I'm focused on" },
+    { "focus": "NodeJS, mainly language is Typescript." },
+    {
+      "text": "I always prefer to develop new areas and stick to the basics. You can check out my history in detail below!"
+    }
+  ],
+  "record": {
+    "educations": {
+      "title": "Education",
+      "list": [
+        {
+          "desc": "Department of Computer Statistics",
+          "memo": "Chosun University / Republic of Korea, Gwangju Metropolitan City / 2013 ~ 2019"
+        },
+        {
+          "desc": "Science",
+          "memo": "Sejong High School / Republic of Korea, Gwangju Metropolitan City / 2010 ~ 2013"
+        }
+      ]
+    },
+    "career": {
+      "title": "Career",
+      "list": [
+        {
+          "desc": "Caramella Co., Ltd. Web Front General Manager and Project Lead",
+          "memo": "Republic of Korea, Gwangju Metropolitan City / 2019.10 ~ 2023.03(4 years)"
+        }
+      ]
+    },
+    "contacts": {
+      "title": "Contact",
+      "list": [
+        {
+          "desc": "Email",
+          "memo": "qkrgksdma17@gmail.com"
+        },
+        {
+          "desc": "Email",
+          "memo": "qksdbf15@naver.com"
+        },
+        {
+          "desc": "Email",
+          "memo": "qksdbf15@gmail.com"
+        }
+      ]
+    },
+    "career_desc": {
+      "title": "Career Details",
+      "list": []
+    },
+    "languages": {
+      "title": "Languages",
+      "list": [
+        {
+          "desc": "Korean",
+          "memo": "Mother language"
+        },
+        {
+          "desc": "English",
+          "memo": "Basic"
+        }
+      ]
+    },
+    "skills": {
+      "title": "Skills"
+    },
+    "documents": {
+      "title": "Documents",
+      "list": [
+        {
+          "desc": "Web link",
+          "memo": "https://day-off.xyz"
+        },
+        {
+          "desc": "Web link",
+          "memo": "https://portfolio.day-off.xyz"
+        },
+        {
+          "desc": "Web link",
+          "memo": "https://allreva.com"
+        },
+        {
+          "desc": "Web link",
+          "memo": "https://github.com/hanuem-park"
+        }
+      ]
+    },
+    "licenseNawards": {
+      "title": "License & Awards",
+      "list": [
+        {
+          "desc": "License / information processing engineer / Final pass",
+          "memo": "Human Resources Development Service of Korea / 2019.08"
+        },
+        {
+          "desc": "License / Class 1 Driver License / Final pass",
+          "memo": "National Police Agency / 2013.08"
+        },
+        {
+          "desc": "Award / Idea award",
+          "memo": "Smart Media Human Resources Development Institute / 2019.02"
+        },
+        {
+          "desc": "Award / Core Web Convergence Project Grand Prize",
+          "memo": "Smart Media Human Resources Development Institute / 2019.01"
+        },
+        {
+          "desc": "Award / BASE Creative Talent Fostering Festival Content Award",
+          "memo": "Science and Culture Education Project Group / 2018.12"
+        },
+        {
+          "desc": "Award / Software Contest Grand Prize",
+          "memo": "College of Natural Sciences, Chosun University / 2019.06"
+        }
+      ]
+    },
+    "activities": {
+      "title": "Activities",
+      "list": [
+        {
+          "desc": "Completion of education / Completion of big data analysis expert course",
+          "memo": "Smart Media Human Resources Development Institute / 2018.09.03 ~ 2019.02.28"
+        },
+        {
+          "desc": "Part-time job / Hanul Corporation",
+          "memo": "Republic of Korea / 2016.07 ~ 2016.08"
+        }
+      ]
+    },
+    "etc": {
+      "title": "Etc.",
+      "list": [
+        {
+          "desc": "Republic of Korea Military Pillar / Army Sergeant Fully Discharged",
+          "memo": "Munsan-eup, Paju-si, South Korea / 2014.10 ~ 2016.07"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,74 @@
+/*
+ * =====================
+ *     HEADING STYLE
+ * =====================
+ */
+h1,
+h2,
+h3 {
+  letter-spacing: calc(-0.4rem / 16);
+}
+
+h4,
+h5,
+h6,
+p {
+  letter-spacing: calc(-0.2rem / 16);
+}
+
+.h0 {
+  font-size: calc(50rem / 16);
+  line-height: calc(64rem / 16);
+}
+
+h1 {
+  font-size: calc(38rem / 16);
+  line-height: calc(49rem / 16);
+}
+
+h2 {
+  font-size: calc(28rem / 16);
+  line-height: calc(36rem / 16);
+}
+
+h3 {
+  font-size: calc(22rem / 16);
+  line-height: calc(33rem / 16);
+}
+
+h4 {
+  font-size: calc(22rem / 16);
+  line-height: calc(33rem / 16);
+}
+
+h5 {
+  font-size: calc(16rem /16);
+  line-height: calc(24rem / 16);
+}
+
+h6 {
+  font-size: calc(14rem / 16);
+  line-height: calc(21rem / 16);
+}
+
+p {
+  font-size: calc(12rem / 16);
+  line-height: calc(18rem / 16);
+}
+
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: calc(32rem / 16);
+    line-height: calc(38rem / 16);
+  }
+
+  h2 {
+    font-size: calc(24rem / 16);
+    line-height: calc(34rem / 16);
+  }
+
+  h3 {
+    font-size: calc(21rem / 16);
+    line-height: calc(30rem / 16);
+  }
+}

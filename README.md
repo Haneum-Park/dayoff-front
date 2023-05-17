@@ -1,34 +1,17 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+##### 사용 디자인패턴
 
-## Getting Started
+- VAC (View - Assets - Component)
+- Atomic (Atom - Molecule - Organism - Template - Page)
+  - 기존 Atomic 디자인 패턴에서 Molecule, Organism, Template을 제거하고 Block 단위를 추가해 적용
+  - Proxy 상태관리를 사용하여 props drilling을 방지
+- Presentational and Container Components
+  - Presentational Components : UI를 담당하는 컴포넌트
+  - Container Components : Presentational Components를 감싸고 데이터를 주입하는 컴포넌트
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+요약하여 설명하면, Input, Image 등 가장 작은 단위부터 Page까지 올라가고, Page에서 쓰에는 대부분의 state들은 Valtio로 가져간다.
+이 때 사용되는 state들은 Presentational Components에서 불러와 Object화 시킨 후 Container Components에 주입하는 방식으로 구현하였다.
+이렇게 되면 Atomic 방식을 유지하면서 props drilling을 방지할 수 있고 Presentational and Container 방식을 구현해 prop가 비대해지는걸 방지 할 수 있다.
+즉, 하나의 컴포넌트는 폴더 안에 index.tsx, style.ts, script.ts를 가진다.
+단, 코드량이 적은 컴포넌트는 분리하지 않는다.
