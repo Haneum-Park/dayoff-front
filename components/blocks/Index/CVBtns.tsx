@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import { useRouter } from 'next/router';
 import { useSnapshot } from 'valtio';
 
-import GroupBtn from '@block/common/GroupBtn';
+import GroupBtn from '@common/GroupBtn';
 
 import { proxyBtns, type ProxyBtns } from '@store/index/btns';
 import { onFoldToggle, proxyFoldToggleState } from '@/stores/index/foldToggle';

@@ -7,11 +7,13 @@ import { ImageProps } from 'next/image';
 import { useSnapshot } from 'valtio';
 import { createGlobalStyle } from 'styled-components';
 
-import LayoutContent from '@block/common/LayoutContent';
+// import Alert from '@common/Alert';
+import LayoutContent from '@common/LayoutContent';
 import MainGrid from '@block/Main';
 
 import { proxyProfile, type ProxyProfileDesc } from '@store/main/profile';
 import { proxyRecord, type ProxyRecord } from '@store/main/record';
+import { setOpenAlert } from '@store/global/isAlert';
 
 // import Character from '@image/profile/character.png';
 import Caricature from '@image/profile/caricature.png';
@@ -56,9 +58,14 @@ const Main: NextPage = () => {
     });
   }, [desc, info, record, t]);
 
+  useEffect(() => {
+    setOpenAlert();
+  }, []);
+
   return (
     <>
       <LocalPageStyle />
+      {/* <Alert color='gray-9'>포트폴리오 PDF 다운로드</Alert> */}
       <LayoutContent>
         <MainGrid
           image={Caricature as ImageProps['src']}

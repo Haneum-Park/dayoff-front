@@ -30,6 +30,7 @@
       "@image/*": ["./public/images/*"],
       "@atom/*": ["./components/atoms/*"],
       "@block/*": ["./components/blocks/*"],
+      "@common/*": ["./components/blocks/common/*"],
       "@hook/*": ["./hooks/*"],
       "@store/*": ["./stores/*"],
       "@util/*": ["./utils/*"],

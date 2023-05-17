@@ -4,8 +4,8 @@ import { useSnapshot } from 'valtio';
 import styled, { createGlobalStyle } from 'styled-components';
 
 import IndexGrid from '@block/Index';
-import { LayoutContentBackground } from '@block/common/LayoutContent';
-import Sidebar from '@block/common/Sidebar';
+import { LayoutContentBackground } from '@common/LayoutContent';
+import Sidebar from '@common/Sidebar';
 
 import { proxyDarkmode } from '@store/global/darkmode';
 

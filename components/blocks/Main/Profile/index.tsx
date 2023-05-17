@@ -1,7 +1,7 @@
 import React from 'react';
 import Image, { ImageProps } from 'next/image';
 
-import FocusText from '@block/common/FocusText';
+import FocusText from '@common/FocusText';
 
 import { type ProxyProfile } from '@store/main/profile';
 
