@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { FiSquare, FiCheckSquare } from 'react-icons/fi';
 
@@ -30,4 +30,4 @@ function Check({ onClick, isCheck = false }: Omit<CheckProps, 'type'>) {
   );
 }
 
-export default memo(Check);
+export default Check;

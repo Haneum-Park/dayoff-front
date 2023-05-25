@@ -1,4 +1,4 @@
-import React, { useId, memo } from 'react';
+import React, { useId } from 'react';
 import styled from 'styled-components';
 
 export interface SelectProps extends React.HTMLAttributes<HTMLSelectElement> {
@@ -30,4 +30,4 @@ function Select({ options, ...rest }: SelectProps) {
   );
 }
 
-export default memo(Select);
+export default Select;

@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 interface TextStyleProps extends React.InputHTMLAttributes<HTMLInputElement> {}
@@ -17,4 +17,4 @@ function Text({ value, ...rest }: TextProps) {
   return <TextWrap {...rest} value={value || ''} />;
 }
 
-export default memo(Text);
+export default Text;

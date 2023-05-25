@@ -1,16 +1,16 @@
 /* eslint-disable no-param-reassign */
 import React, { memo, useEffect } from 'react';
 import type { NextPage } from 'next';
-
 import { useTranslation } from 'next-i18next';
 import { useSnapshot } from 'valtio';
-import { createGlobalStyle } from 'styled-components';
 
 import { getStaticPaths, makeStaticProps } from '@lib/getStatic';
 
 // import Alert from '@common/Alert';
 import LayoutContent from '@common/LayoutContent';
-import MainGrid from '@block/Main';
+import Profile from '@block/Main/Profile';
+import Record from '@block/Main/Record';
+import { MainGridWrap } from '@block/Main/styles';
 
 import { proxyProfile, type ProxyProfileDesc } from '@store/main/profile';
 import { proxyRecord, type ProxyRecord } from '@store/main/record';
@@ -22,12 +22,6 @@ import Caricature from '@image/profile/caricature.png';
 const getStaticProps = makeStaticProps(['common', 'main']);
 
 export { getStaticPaths, getStaticProps };
-
-const LocalPageStyle = createGlobalStyle`
-  html, body, #__next {
-    max-width: 100%;
-  }
-`;
 
 const Main: NextPage = () => {
   const { t } = useTranslation('main');
@@ -60,18 +54,13 @@ const Main: NextPage = () => {
   }, []);
 
   return (
-    <>
-      <LocalPageStyle />
+    <LayoutContent>
       {/* <Alert color='gray-9'>포트폴리오 PDF 다운로드</Alert> */}
-      <LayoutContent>
-        <MainGrid
-          image={Caricature}
-          info={info}
-          desc={desc as ProxyProfileDesc[]}
-          {...(record as ProxyRecord['record'])}
-        />
-      </LayoutContent>
-    </>
+      <MainGridWrap>
+        <Profile image={Caricature} info={info} desc={desc as ProxyProfileDesc[]} />
+        <Record {...(record as ProxyRecord['record'])} />
+      </MainGridWrap>
+    </LayoutContent>
   );
 };
 
