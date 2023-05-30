@@ -20,6 +20,8 @@ const ChevronWrap = styled.div<Omit<ChevronProps, 'direction'>>`
   height: 25px;
   border: 1px solid transparent;
 
+  ${({ isAccordian }) => (isAccordian ? 'opacity: 1 !important;' : '')}
+
   &::before,
   &::after {
     content: '';

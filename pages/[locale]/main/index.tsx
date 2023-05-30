@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-param-reassign */
 import React, { memo, useEffect } from 'react';
 import type { NextPage } from 'next';
@@ -32,22 +33,30 @@ const Main: NextPage = () => {
     (Object.keys(info) as Array<keyof typeof info>).forEach((key) => {
       proxyProfile.info[key] = t(`info.${key}`);
     });
+  }, [t]);
 
+  useEffect(() => {
     desc.forEach((item, idx) => {
       if (item.text)
         (proxyProfile.desc[idx] as { text?: string }).text = t(`desc.${idx}.text`) as string;
       if (item.focus)
         (proxyProfile.desc[idx] as { focus?: string }).focus = t(`desc.${idx}.focus`) as string;
     });
+  }, [t]);
 
+  useEffect(() => {
     (Object.keys(record) as Array<keyof typeof record>).forEach((key) => {
       proxyRecord.record[key].title = t(`record.${key}.title`);
       proxyRecord.record[key].list.forEach((item, idx) => {
         item.desc = t(`record.${key}.list.${idx}.desc`);
         item.memo = t(`record.${key}.list.${idx}.memo`);
+        item.extra =
+          item.extra && item.extra.length > 0
+            ? (t(`record.${key}.list.${idx}.extra`, { returnObjects: true }) as string[])
+            : [];
       });
     });
-  }, [desc, info, record, t]);
+  }, [t]);
 
   useEffect(() => {
     setOpenAlert();

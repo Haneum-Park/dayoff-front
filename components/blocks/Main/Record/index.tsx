@@ -13,6 +13,7 @@ function Record({
   career_desc,
   languages,
   // skills,
+  project_desc,
   documents,
   licenseNawards,
   activities,
@@ -31,14 +32,16 @@ function Record({
         <ContentAccordian isAccordian={true} target='contacts' contents={contacts} />
       </MasonryWrap>
       <MasonryWrap>
+        {/* // * Project detail descriptions */}
+        <ContentAccordian target='project_desc' contents={project_desc} />
         {/* // * Career detail descriptions */}
-        <ContentAccordian target='career_desc' contents={career_desc} />
+        <ContentAccordian isAccordian={true} target='career_desc' contents={career_desc} />
       </MasonryWrap>
       <MasonryWrap>
         {/* // * Languages */}
         <ContentAccordian target='languages' contents={languages} />
         {/* // * Documents */}
-        <ContentAccordian cursor='pointer' target='documents' contents={documents} />
+        <ContentAccordian target='documents' contents={documents} />
         {/* // * Activities */}
         <ContentAccordian target='activities' contents={activities} />
         {/* // * Etc Infos */}

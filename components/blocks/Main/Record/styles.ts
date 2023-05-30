@@ -93,6 +93,17 @@ export const ContentTitle = styled.div`
     font-size: 28px;
     font-weight: 300;
   }
+
+  /* // ? For accordian */
+  > div:nth-child(2) {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+  &:hover {
+    > div:nth-child(2) {
+      opacity: 1;
+    }
+  }
 `;
 
 export const ContentDescWrap = styled.div`
@@ -118,20 +129,28 @@ export const ContentDesc = styled.div`
   font-family: Bold;
 `;
 
-export interface ContentMemoProps {
-  cursor?: 'pointer' | 'default';
+interface ContentMemoProps {
+  route?: boolean;
 }
 
 export const ContentMemo = styled.p<ContentMemoProps>`
   font-size: 12px;
   font-family: Light;
   margin: 0;
-  cursor: ${({ cursor }) => cursor ?? 'default'};
+  cursor: ${({ route }) => (route ? 'pointer' : 'default')};
 
-  ${({ cursor }) =>
-    cursor === 'pointer'
-      ? 'transition: font-family 0.3s ease-in-out; &:hover { font-family: Bold; }'
-      : ''}
+  ${({ route }) =>
+    route ? 'transition: font-family 0.3s ease-in-out; &:hover { font-family: Bold; }' : ''}
 `;
 
-export const ContentUl = styled.ul``;
+export const ContentExtra = styled.ul`
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+
+  li {
+    font-size: 14px;
+    font-family: Light;
+  }
+`;
