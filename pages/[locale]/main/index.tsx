@@ -8,7 +8,6 @@ import { useSnapshot } from 'valtio';
 import { getStaticPaths, makeStaticProps } from '@lib/getStatic';
 
 // import Alert from '@common/Alert';
-import LayoutContent from '@common/LayoutContent';
 import Profile from '@block/Main/Profile';
 import Record from '@block/Main/Record';
 import { MainGridWrap } from '@block/Main/styles';
@@ -63,13 +62,13 @@ const Main: NextPage = () => {
   }, []);
 
   return (
-    <LayoutContent>
+    <>
       {/* <Alert color='gray-9'>포트폴리오 PDF 다운로드</Alert> */}
       <MainGridWrap>
         <Profile image={Caricature} info={info} desc={desc as ProxyProfileDesc[]} />
         <Record {...(record as ProxyRecord['record'])} />
       </MainGridWrap>
-    </LayoutContent>
+    </>
   );
 };
 

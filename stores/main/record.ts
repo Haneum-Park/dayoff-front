@@ -5,9 +5,10 @@ type ContentProps = {
   list: {
     desc: string;
     memo: string;
-    extra?: string[];
-    masking?: boolean;
-    route?: string;
+    extra?: string[]; // ? 기타 내용
+    masking?: boolean; // ? 개인정보 마스킹
+    route?: string; // ? 사이트 접속 경로
+    path?: string; // ? 페이지 이동 경로
   }[];
 };
 
@@ -87,6 +88,7 @@ export const proxyRecord = proxy<ProxyRecord>({
             '- Languages : Javascript',
             '- Frameworks : React.js, Express.js',
           ],
+          path: '/project/metu',
         },
       ],
     },

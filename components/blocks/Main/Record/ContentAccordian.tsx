@@ -1,6 +1,7 @@
 import React, { memo, useId, useState } from 'react';
 
 import Chevron from '@common/Icon/Chevron';
+import Link from '@common/Link';
 
 import type { ProxyRecord } from '@store/main/record';
 
@@ -49,7 +50,9 @@ function ContentAccordian({
       <ContentDescWrap>
         {contents.list.map((item, idx) => (
           <ContentListWrap className={target} key={`content-${uuid}-${idx}`}>
-            <ContentDesc>{item.desc}</ContentDesc>
+            <ContentDesc>
+              {item.path ? <Link href={item.path}>{item.desc}</Link> : item.desc}
+            </ContentDesc>
             <ContentMemo route={!!item.route} onClick={() => onRouter(item.route)}>
               {/* // * 마스킹 부분 사용자 인증 후 개인번호 열람가능 */}
               {item.masking ? generateMasking(item.memo) : item.memo}
