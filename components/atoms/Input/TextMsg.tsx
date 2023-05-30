@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 interface TextWarnMsgStyleProps {
@@ -19,4 +19,4 @@ function TextMsg({ msgColor, msg }: TextWarnMsgProps) {
   return msg ? <TextWarnMsgWrap msgColor={msgColor}>{msg}</TextWarnMsgWrap> : null;
 }
 
-export default memo(TextMsg);
+export default TextMsg;

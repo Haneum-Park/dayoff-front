@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 import Label from '@atom/Label';
@@ -30,4 +30,4 @@ function Radio({ label, htmlFor, ...rest }: RadioProps) {
   );
 }
 
-export default memo(Radio);
+export default Radio;

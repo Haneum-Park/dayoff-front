@@ -25,7 +25,7 @@ export const ProfileWrap = styled.div`
     grid-template-areas:
       'profileImg profileInfo'
       'profileDesc profileDesc';
-    justify-content: ;
+    justify-content: center;
   }
 `;
 

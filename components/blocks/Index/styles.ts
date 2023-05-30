@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { MEDIA_QUERY } from '@util/design.util';
+
 export const IndexGridWrap = styled.div`
   display: flex;
   flex-direction: column;
@@ -13,6 +15,7 @@ export const IndexGridTitle = styled.h1`
   svg {
     display: flex;
     justify-content: space-bewteen;
+    transition: transform 0.2s ease-in-out;
   }
   svg text {
     font-family: 'Light';
@@ -68,6 +71,20 @@ export const IndexGridTitle = styled.h1`
       stroke: var(--color-gray-9);
     }
   }
+
+  ${MEDIA_QUERY.max('sm-tablet')} {
+    position: relative;
+    width: 100%;
+    height: 4rem;
+    margin: 0 auto calc(16rem / 16);
+
+    svg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
 `;
 
 export const IndexGridBtnWrap = styled.div`
@@ -101,6 +118,18 @@ export const IndexGridBtnWrap = styled.div`
       opacity: 1;
     }
   }
+
+  ${MEDIA_QUERY.max('sm-tablet')} {
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 0.5rem;
+    height: calc(300rem / 16);
+    padding: 0 1rem;
+
+    button {
+      width: 100%;
+    }
+  }
 `;
 
 export const FoldWrap = styled.button`
@@ -110,10 +139,14 @@ export const FoldWrap = styled.button`
   border-radius: 50px;
   padding: 0.75rem 0.75rem;
   width: 66px;
+  height: calc(45rem / 16);
   color: var(--color-gray-0);
   background-color: var(--color-gray-9);
-
   z-index: 2;
+
+  ${MEDIA_QUERY.max('sm-tablet')} {
+    order: 2;
+  }
 `;
 
 type GroupBtnWrapProps = {
@@ -124,11 +157,26 @@ export const GroupBtnWrap = styled.div<GroupBtnWrapProps>`
   position: absolute;
   top: 0;
   left: ${({ foldToggle }) => (foldToggle ? '60.15%' : '-40%')};
-
   width: 100%;
   max-width: calc(350rem / 16);
   transform: translateX(-50%);
   transition: left 0.5s ease;
+
+  ${MEDIA_QUERY.max('sm-tablet')} {
+    left: 50%;
+    top: 60%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    padding: 0 1rem;
+    > div {
+      flex-direction: column;
+      gap: 0.5rem;
+      width: 100%;
+      button {
+        margin-right: 0;
+      }
+    }
+  }
 `;
 
 export const MainVisibleBtn = styled(FoldWrap)<GroupBtnWrapProps>`
@@ -137,6 +185,12 @@ export const MainVisibleBtn = styled(FoldWrap)<GroupBtnWrapProps>`
   opacity: ${({ foldToggle }) => (foldToggle ? '0' : '1')};
   z-index: ${({ foldToggle }) => (foldToggle ? '-1' : '1')};
   ${({ foldToggle }) => (foldToggle ? 'animation: visibleBtn 0.5s linear;' : '')}
+
+  ${MEDIA_QUERY.max('sm-tablet')} {
+    order: 1;
+    opacity: 1;
+    animation: none;
+  }
   @keyframes visibleBtn {
     0% {
       opacity: 1;

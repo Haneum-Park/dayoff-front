@@ -58,7 +58,24 @@
         },
         {
           "desc": "개인번호",
-          "memo": "010-2397-8172"
+          "memo": "010-2397-8172",
+          "masking": true
+        }
+      ]
+    },
+    "project_desc": {
+      "title": "프로젝트 이력",
+      "list": [
+        {
+          "desc": "프로젝트명 : 디지털 성범죄 검출 솔루션(METU)",
+          "memo": "기간 : 2019.10 ~ 2020.01(4개월)",
+          "extra": [
+            "개발 상세 내용 또는 참여 내용",
+            "- 프로토 타입 버전 Front-End 개발",
+            "- Languages : Javascript",
+            "- Frameworks : React.js, Express.js"
+          ],
+          "path": "/project/metu"
         }
       ]
     },
@@ -145,19 +162,23 @@
       "list": [
         {
           "desc": "웹 사이트 주소",
-          "memo": "https://day-off.xyz"
+          "memo": "https://day-off.xyz",
+          "route": "https://day-off.xyz"
+        },
+        {
+          "desc": "포트폴리오",
+          "memo": "https://portfolio.day-off.xyz",
+          "route": "https://portfolio.day-off.xyz"
         },
         {
           "desc": "웹 사이트 주소",
-          "memo": "https://portfolio.day-off.xyz"
+          "memo": "https://allreva.com",
+          "route": "https://allreva.com"
         },
         {
-          "desc": "웹 사이트 주소",
-          "memo": "https://allreva.com"
-        },
-        {
-          "desc": "웹 사이트 주소",
-          "memo": "https://github.com/hanuem-park"
+          "desc": "Github 주소",
+          "memo": "https://github.com/haneum-park",
+          "route": "https://github.com/haneum-park"
         }
       ]
     },

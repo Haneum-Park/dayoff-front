@@ -67,3 +67,10 @@ export function dataURLtoFile(dataurl: string, fileName: string): File | null {
   }
   return null;
 }
+
+export function generateMasking(str: string, start?: number, end?: number): string {
+  const s = start || parseInt(`${str.length / 2 - 2}`, 10);
+  const e = end || s;
+  const re = new RegExp(`(?<=.{${s}}).(?=.*.{${e}})`, 'g');
+  return str.replace(re, '*');
+}

@@ -3,16 +3,8 @@ import React, { memo } from 'react';
 
 import type { ProxyRecord } from '@store/main/record';
 
-import {
-  MainContentWrap,
-  MasonryWrap,
-  ContentWrap,
-  ContentListWrap,
-  ContentTitle,
-  ContentDesc,
-  ContentMemo,
-  // ContentUl,
-} from './styles';
+import ContentAccordian from './ContentAccordian';
+import { MainContentWrap, MasonryWrap } from './styles';
 
 function Record({
   educations,
@@ -21,6 +13,7 @@ function Record({
   career_desc,
   languages,
   // skills,
+  project_desc,
   documents,
   licenseNawards,
   activities,
@@ -29,91 +22,30 @@ function Record({
   return (
     <MainContentWrap>
       <MasonryWrap>
-        <ContentWrap>
-          <ContentTitle>{educations.title}</ContentTitle>
-          {educations.list.map((item, idx) => (
-            <ContentListWrap key={`education-${idx}`}>
-              <ContentDesc>{item.desc}</ContentDesc>
-              <ContentMemo>{item.memo}</ContentMemo>
-            </ContentListWrap>
-          ))}
-        </ContentWrap>
-        <ContentWrap>
-          <ContentTitle>{careers.title}</ContentTitle>
-          {careers.list.map((item, idx) => (
-            <ContentListWrap key={`education-${idx}`}>
-              <ContentDesc>{item.desc}</ContentDesc>
-              <ContentMemo>{item.memo}</ContentMemo>
-            </ContentListWrap>
-          ))}
-        </ContentWrap>
-        <ContentWrap>
-          <ContentTitle>{licenseNawards.title}</ContentTitle>
-          {licenseNawards.list.map((item, idx) => (
-            <ContentListWrap key={`education-${idx}`}>
-              <ContentDesc>{item.desc}</ContentDesc>
-              <ContentMemo>{item.memo}</ContentMemo>
-            </ContentListWrap>
-          ))}
-        </ContentWrap>
-        <ContentWrap>
-          <ContentTitle>{contacts.title}</ContentTitle>
-          {contacts.list.map((item, idx) => (
-            <ContentListWrap key={`education-${idx}`}>
-              <ContentDesc>{item.desc}</ContentDesc>
-              <ContentMemo>{item.memo}</ContentMemo>
-            </ContentListWrap>
-          ))}
-        </ContentWrap>
+        {/* // * Education */}
+        <ContentAccordian target='educations' contents={educations} />
+        {/* // * Career */}
+        <ContentAccordian target='careers' contents={careers} />
+        {/* // * License and Awards */}
+        <ContentAccordian target='licenseNawards' contents={licenseNawards} />
+        {/* // * Contact */}
+        <ContentAccordian isAccordian={true} target='contacts' contents={contacts} />
       </MasonryWrap>
       <MasonryWrap>
-        <ContentWrap>
-          <ContentTitle>{career_desc.title}</ContentTitle>
-          {career_desc.list.map((item, idx) => (
-            <ContentListWrap key={`education-${idx}`}>
-              <ContentDesc>{item.desc}</ContentDesc>
-              <ContentMemo>{item.memo}</ContentMemo>
-            </ContentListWrap>
-          ))}
-        </ContentWrap>
+        {/* // * Project detail descriptions */}
+        <ContentAccordian target='project_desc' contents={project_desc} />
+        {/* // * Career detail descriptions */}
+        <ContentAccordian isAccordian={true} target='career_desc' contents={career_desc} />
       </MasonryWrap>
       <MasonryWrap>
-        <ContentWrap>
-          <ContentTitle>{languages.title}</ContentTitle>
-          {languages.list.map((item, idx) => (
-            <ContentListWrap className='round-rectangle' key={`education-${idx}`}>
-              <ContentDesc>{item.desc}</ContentDesc>
-              <ContentMemo>{item.memo}</ContentMemo>
-            </ContentListWrap>
-          ))}
-        </ContentWrap>
-        <ContentWrap>
-          <ContentTitle>{documents.title}</ContentTitle>
-          {documents.list.map((item, idx) => (
-            <ContentListWrap key={`education-${idx}`}>
-              <ContentDesc>{item.desc}</ContentDesc>
-              <ContentMemo>{item.memo}</ContentMemo>
-            </ContentListWrap>
-          ))}
-        </ContentWrap>
-        <ContentWrap>
-          <ContentTitle>{activities.title}</ContentTitle>
-          {activities.list.map((item, idx) => (
-            <ContentListWrap key={`education-${idx}`}>
-              <ContentDesc>{item.desc}</ContentDesc>
-              <ContentMemo>{item.memo}</ContentMemo>
-            </ContentListWrap>
-          ))}
-        </ContentWrap>
-        <ContentWrap>
-          <ContentTitle>{etc.title}</ContentTitle>
-          {etc.list.map((item, idx) => (
-            <ContentListWrap key={`education-${idx}`}>
-              <ContentDesc>{item.desc}</ContentDesc>
-              <ContentMemo>{item.memo}</ContentMemo>
-            </ContentListWrap>
-          ))}
-        </ContentWrap>
+        {/* // * Languages */}
+        <ContentAccordian target='languages' contents={languages} />
+        {/* // * Documents */}
+        <ContentAccordian target='documents' contents={documents} />
+        {/* // * Activities */}
+        <ContentAccordian target='activities' contents={activities} />
+        {/* // * Etc Infos */}
+        <ContentAccordian target='etc' contents={etc} />
       </MasonryWrap>
     </MainContentWrap>
   );

@@ -52,10 +52,18 @@ export const MasonryWrap = styled.div`
     &:last-child {
       padding-bottom: 1rem;
     }
+    &:not(:first-child):not(:last-child) {
+      margin-top: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
   }
 `;
 
-export const ContentWrap = styled.div`
+interface ContentWrapProps {
+  isAccordian: boolean;
+}
+
+export const ContentWrap = styled.div<ContentWrapProps>`
   display: flex;
   flex-direction: column;
   justify-content: cneter;
@@ -65,22 +73,48 @@ export const ContentWrap = styled.div`
   &:not(:first-child) {
     margin-top: 3rem;
   }
+  ${({ isAccordian }) => (isAccordian ? 'max-height: calc(36rem / 16);' : 'max-height: 50vh;')}
+  transition: max-height 0.5s ease-in-out;
+  overflow: hidden;
+  min-height: calc(36rem / 16);
 `;
 
-export const ContentTitle = styled.h2`
-  margin: 0;
-  font-family: 'Noto Sans KR', sans-serif;
-  font-family: 'Source Serif 4', serif;
-  font-size: 30px;
-  font-weight: 300;
+export const ContentTitle = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  cursor: pointer;
+
+  > h2 {
+    margin: 0;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'Source Serif 4', serif;
+    font-size: 28px;
+    font-weight: 300;
+  }
+
+  /* // ? For accordian */
+  > div:nth-child(2) {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+  &:hover {
+    > div:nth-child(2) {
+      opacity: 1;
+    }
+  }
 `;
 
-export const ContentListWrap = styled.div`
+export const ContentDescWrap = styled.div`
   display: flex;
   flex-direction: column;
   align-items: start;
   justify-content: center;
+  gap: 0.5rem;
+`;
 
+export const ContentListWrap = styled.div`
   &.round-rectangle {
     border-radius: 50px;
     border: 1px solid var(--color-gray-8);
@@ -95,10 +129,28 @@ export const ContentDesc = styled.div`
   font-family: Bold;
 `;
 
-export const ContentMemo = styled.p`
+interface ContentMemoProps {
+  route?: boolean;
+}
+
+export const ContentMemo = styled.p<ContentMemoProps>`
   font-size: 12px;
   font-family: Light;
   margin: 0;
+  cursor: ${({ route }) => (route ? 'pointer' : 'default')};
+
+  ${({ route }) =>
+    route ? 'transition: font-family 0.3s ease-in-out; &:hover { font-family: Bold; }' : ''}
 `;
 
-export const ContentUl = styled.ul``;
+export const ContentExtra = styled.ul`
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+
+  li {
+    font-size: 14px;
+    font-family: Light;
+  }
+`;

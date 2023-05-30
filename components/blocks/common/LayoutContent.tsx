@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import styled from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 import { useSnapshot } from 'valtio';
 
 import { proxyDarkmode } from '@store/global/darkmode';
@@ -16,14 +16,23 @@ function LayoutContent({ children }: LayoutContentProps) {
   const { darkmode } = useSnapshot(proxyDarkmode);
 
   return (
-    <LayoutContentBackground className='fixed' darkmode={darkmode}>
-      <LayoutContentWrap>{children}</LayoutContentWrap>
-      <Sidebar />
-    </LayoutContentBackground>
+    <>
+      <LocalPageStyle />
+      <LayoutContentBackground className='fixed' darkmode={darkmode}>
+        <LayoutContentWrap>{children}</LayoutContentWrap>
+        <Sidebar />
+      </LayoutContentBackground>
+    </>
   );
 }
 
 export default memo(LayoutContent);
+
+export const LocalPageStyle = createGlobalStyle`
+  html, body, #__next {
+    max-width: 100%;
+  }
+`;
 
 type LayoutContentBackgroundProps = {
   darkmode: boolean;

@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React from 'react';
 import { useRouter } from 'next/router';
 import { useSnapshot } from 'valtio';
 
@@ -33,11 +33,16 @@ function CVBtns() {
           onClick={onRedirect}
         />
       </GroupBtnWrap>
-      <MainVisibleBtn foldToggle={foldToggle} id='main' onClick={onRedirect}>
+      <MainVisibleBtn
+        foldToggle={foldToggle}
+        disabled={!!foldToggle}
+        id='main'
+        onClick={onRedirect}
+      >
         Main
       </MainVisibleBtn>
     </IndexGridBtnWrap>
   );
 }
 
-export default memo(CVBtns);
+export default CVBtns;

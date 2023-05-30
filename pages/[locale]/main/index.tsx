@@ -1,16 +1,16 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-param-reassign */
 import React, { memo, useEffect } from 'react';
 import type { NextPage } from 'next';
-
 import { useTranslation } from 'next-i18next';
 import { useSnapshot } from 'valtio';
-import { createGlobalStyle } from 'styled-components';
 
 import { getStaticPaths, makeStaticProps } from '@lib/getStatic';
 
 // import Alert from '@common/Alert';
-import LayoutContent from '@common/LayoutContent';
-import MainGrid from '@block/Main';
+import Profile from '@block/Main/Profile';
+import Record from '@block/Main/Record';
+import { MainGridWrap } from '@block/Main/styles';
 
 import { proxyProfile, type ProxyProfileDesc } from '@store/main/profile';
 import { proxyRecord, type ProxyRecord } from '@store/main/record';
@@ -23,12 +23,6 @@ const getStaticProps = makeStaticProps(['common', 'main']);
 
 export { getStaticPaths, getStaticProps };
 
-const LocalPageStyle = createGlobalStyle`
-  html, body, #__next {
-    max-width: 100%;
-  }
-`;
-
 const Main: NextPage = () => {
   const { t } = useTranslation('main');
   const { info, desc } = useSnapshot(proxyProfile);
@@ -38,22 +32,30 @@ const Main: NextPage = () => {
     (Object.keys(info) as Array<keyof typeof info>).forEach((key) => {
       proxyProfile.info[key] = t(`info.${key}`);
     });
+  }, [t]);
 
+  useEffect(() => {
     desc.forEach((item, idx) => {
       if (item.text)
         (proxyProfile.desc[idx] as { text?: string }).text = t(`desc.${idx}.text`) as string;
       if (item.focus)
         (proxyProfile.desc[idx] as { focus?: string }).focus = t(`desc.${idx}.focus`) as string;
     });
+  }, [t]);
 
+  useEffect(() => {
     (Object.keys(record) as Array<keyof typeof record>).forEach((key) => {
       proxyRecord.record[key].title = t(`record.${key}.title`);
       proxyRecord.record[key].list.forEach((item, idx) => {
         item.desc = t(`record.${key}.list.${idx}.desc`);
         item.memo = t(`record.${key}.list.${idx}.memo`);
+        item.extra =
+          item.extra && item.extra.length > 0
+            ? (t(`record.${key}.list.${idx}.extra`, { returnObjects: true }) as string[])
+            : [];
       });
     });
-  }, [desc, info, record, t]);
+  }, [t]);
 
   useEffect(() => {
     setOpenAlert();
@@ -61,16 +63,11 @@ const Main: NextPage = () => {
 
   return (
     <>
-      <LocalPageStyle />
       {/* <Alert color='gray-9'>포트폴리오 PDF 다운로드</Alert> */}
-      <LayoutContent>
-        <MainGrid
-          image={Caricature}
-          info={info}
-          desc={desc as ProxyProfileDesc[]}
-          {...(record as ProxyRecord['record'])}
-        />
-      </LayoutContent>
+      <MainGridWrap>
+        <Profile image={Caricature} info={info} desc={desc as ProxyProfileDesc[]} />
+        <Record {...(record as ProxyRecord['record'])} />
+      </MainGridWrap>
     </>
   );
 };

@@ -37,7 +37,7 @@
       "list": [
         {
           "desc": "Caramella Co., Ltd. Web Front General Manager and Project Lead",
-          "memo": "Republic of Korea, Gwangju Metropolitan City / 2019.10 ~ 2023.03(4 years)"
+          "memo": "Republic of Korea, Gwangju Metropolitan City / 10.2019 ~ 03.2023(4 years)"
         }
       ]
     },
@@ -55,6 +55,27 @@
         {
           "desc": "Email",
           "memo": "qksdbf15@gmail.com"
+        },
+        {
+          "desc": "Phone",
+          "memo": "010-2397-8172",
+          "masking": true
+        }
+      ]
+    },
+    "project_desc": {
+      "title": "Project history",
+      "list": [
+        {
+          "desc": "Name : Digital Sexual Crime Detection Solution(METU)",
+          "memo": "Period : 10.2019 ~ 01.2020(about 4 months)",
+          "extra": [
+            "Development or Participan Detail Content",
+            "- Developed the front-end with a prototype version",
+            "- Languages : Javascript",
+            "- Frameworks : React.js, Express.js"
+          ],
+          "path": "/project/metu"
         }
       ]
     },
@@ -83,19 +104,23 @@
       "list": [
         {
           "desc": "Web link",
-          "memo": "https://day-off.xyz"
+          "memo": "https://day-off.xyz",
+          "route": "https://day-off.xyz"
+        },
+        {
+          "desc": "Portfolio",
+          "memo": "https://portfolio.day-off.xyz",
+          "route": "https://portfolio.day-off.xyz"
         },
         {
           "desc": "Web link",
-          "memo": "https://portfolio.day-off.xyz"
+          "memo": "https://allreva.com",
+          "route": "https://allreva.com"
         },
         {
-          "desc": "Web link",
-          "memo": "https://allreva.com"
-        },
-        {
-          "desc": "Web link",
-          "memo": "https://github.com/hanuem-park"
+          "desc": "Github",
+          "memo": "https://github.com/haneum-park",
+          "route": "https://github.com/haneum-park"
         }
       ]
     },
@@ -104,27 +129,27 @@
       "list": [
         {
           "desc": "License / information processing engineer / Final pass",
-          "memo": "Human Resources Development Service of Korea / 2019.08"
+          "memo": "Human Resources Development Service of Korea / 08.2019"
         },
         {
           "desc": "License / Class 1 Driver License / Final pass",
-          "memo": "National Police Agency / 2013.08"
+          "memo": "National Police Agency / 08.2013"
         },
         {
           "desc": "Award / Idea award",
-          "memo": "Smart Media Human Resources Development Institute / 2019.02"
+          "memo": "Smart Media Human Resources Development Institute / 02.2019"
         },
         {
           "desc": "Award / Core Web Convergence Project Grand Prize",
-          "memo": "Smart Media Human Resources Development Institute / 2019.01"
+          "memo": "Smart Media Human Resources Development Institute / 01.2019"
         },
         {
           "desc": "Award / BASE Creative Talent Fostering Festival Content Award",
-          "memo": "Science and Culture Education Project Group / 2018.12"
+          "memo": "Science and Culture Education Project Group / 12.2018"
         },
         {
           "desc": "Award / Software Contest Grand Prize",
-          "memo": "College of Natural Sciences, Chosun University / 2019.06"
+          "memo": "College of Natural Sciences, Chosun University / 06.2019"
         }
       ]
     },
@@ -133,11 +158,11 @@
       "list": [
         {
           "desc": "Completion of education / Completion of big data analysis expert course",
-          "memo": "Smart Media Human Resources Development Institute / 2018.09.03 ~ 2019.02.28"
+          "memo": "Smart Media Human Resources Development Institute / 03.09.2018 ~ 28.02.2019"
         },
         {
           "desc": "Part-time job / Hanul Corporation",
-          "memo": "Republic of Korea / 2016.07 ~ 2016.08"
+          "memo": "Republic of Korea / 07.2016 ~ 08.2016"
         }
       ]
     },
@@ -146,7 +171,7 @@
       "list": [
         {
           "desc": "Republic of Korea Military Pillar / Army Sergeant Fully Discharged",
-          "memo": "Munsan-eup, Paju-si, South Korea / 2014.10 ~ 2016.07"
+          "memo": "Munsan-eup, Paju-si, South Korea / 10.2014 ~ 07.2016"
         }
       ]
     }

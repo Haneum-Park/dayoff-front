@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 export interface LabelStyleProps extends React.LabelHTMLAttributes<HTMLLabelElement> {}
@@ -14,4 +14,4 @@ function Label({ children, ...rest }: LabelProps) {
   return <LabelWrap {...rest}>{children}</LabelWrap>;
 }
 
-export default memo(Label);
+export default Label;

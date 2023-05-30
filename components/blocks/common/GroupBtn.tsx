@@ -1,8 +1,7 @@
-import React, { memo } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
-import Button from '@atom/Button';
-import type { BtnProps } from '@atom/Button';
+import RippleBtn, { type RippleBtnProps } from '@common/RippleBtn';
 
 interface GroupBtnStyleProps {
   maxWidth?: number | string;
@@ -18,8 +17,8 @@ export const GroupBtnWrap = styled.div<GroupBtnStyleProps>`
 `;
 
 export interface GroupBtnProps extends GroupBtnStyleProps {
-  btns: BtnProps[];
-  onClick?: (event?: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  btns: RippleBtnProps[];
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 function GroupBtn({ btns, maxWidth, align, onClick }: GroupBtnProps) {
@@ -28,12 +27,12 @@ function GroupBtn({ btns, maxWidth, align, onClick }: GroupBtnProps) {
       {btns &&
         btns.length > 0 &&
         btns.map(({ children, ...rest }, idx) => (
-          <Button key={`btn-${idx}`} onClick={onClick} {...rest}>
+          <RippleBtn key={`btn-${idx}`} onClick={onClick} {...rest}>
             {children}
-          </Button>
+          </RippleBtn>
         ))}
     </GroupBtnWrap>
   );
 }
 
-export default memo(GroupBtn);
+export default GroupBtn;
