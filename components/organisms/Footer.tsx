@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import styled from 'styled-components';
 
-import Copyright from '@molecule/footer/Copyright';
+import Copyright from '@molecule/Footer/Copyright';
 
 function Footer() {
   return (
