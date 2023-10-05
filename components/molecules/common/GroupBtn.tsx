@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Button from '@atom/Button';
 import type { BtnProps } from '@atom/Button';
 
-interface GroupBtnStyleProps {
+export interface GroupBtnStyleProps extends React.HTMLAttributes<HTMLButtonElement> {
   maxWidth?: number | string;
 }
 
@@ -13,6 +13,7 @@ const GroupBtnWrap = styled.div<GroupBtnStyleProps>`
   justify-content: flex-start;
   width: 100%;
   ${({ maxWidth }) => maxWidth && `max-width: ${maxWidth};`}
+  gap: 1rem;
 `;
 
 export interface GroupBtnProps extends GroupBtnStyleProps {
