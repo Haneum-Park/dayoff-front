@@ -25,15 +25,12 @@ const Home: NextPage = () => {
   const { darkmode } = useSnapshot(proxyDarkmode);
 
   const onFocusMember = useCallback(
-    (target: 'kanu' | 'xeoye') => {
+    (target: 'kanu') => {
       const currentPos = projectPoss
         .map((projectPos, index) => (pos < projectPos ? index : pos === 0 ? 0 : false))
         .filter((s) => s !== false)[0] as number;
 
-      const resumeIdx = projects.findIndex(
-        (p) =>
-          (p.resume && p.resume.target === 'kanu') || (p.resume && p.resume.target === 'xeoye'),
-      );
+      const resumeIdx = projects.findIndex((p) => (p.resume && p.resume.target === 'kanu'));
       if (resumeIdx !== -1) {
         removeProject(resumeIdx);
       }
@@ -69,11 +66,6 @@ const Home: NextPage = () => {
               children: 'dev.haneum.park',
               onClick: () => onFocusMember('kanu'),
               className: member === 'kanu' ? 'kanu' : '',
-            },
-            {
-              children: 'uxui.seoye.kim',
-              onClick: () => onFocusMember('xeoye'),
-              className: member === 'xeoye' ? 'xeoye' : '',
             },
           ],
         },

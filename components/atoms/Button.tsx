@@ -17,10 +17,6 @@ export const BtnWrap = styled.button<BtnStyleProps>`
     background-color: var(--color-kanu);
     color: var(--color-white);
   }
-  &.xeoye {
-    background-color: var(--color-xeoye);
-    color: var(--color-white);
-  }
 `;
 
 function Button({ type = 'button', children, onClick, ...rest }: BtnProps) {

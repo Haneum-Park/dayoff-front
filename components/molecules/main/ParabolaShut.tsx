@@ -12,7 +12,7 @@ function ParabolaShut() {
 
 export default ParabolaShut;
 
-const ParabolaShutWrap = styled.span<{ member: 'kanu' | 'xeoye' | '' }>`
+const ParabolaShutWrap = styled.span<{ member: 'kanu' | '' }>`
   position: absolute;
   display: none;
   top: -34px;

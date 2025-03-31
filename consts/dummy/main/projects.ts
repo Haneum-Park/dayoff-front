@@ -12,7 +12,7 @@ export interface ProjectResume {
   tags: string[];
   links: string[];
   color: string;
-  target: 'kanu' | 'xeoye';
+  target: 'kanu';
 }
 export interface ProjectCard {
   index: number;
