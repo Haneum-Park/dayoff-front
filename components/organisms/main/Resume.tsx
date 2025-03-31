@@ -136,7 +136,6 @@ function Resume({ title, desc, tags, links, color, target }: ProjectResume) {
         <ResumeBodyWrap>
           <ResumeTitleWrap>
             <span>{title}</span> {target === 'kanu' ? 'developer' : ''}{' '}
-            {target === 'xeoye' ? 'designer' : ''}
           </ResumeTitleWrap>
           <ResumeDescWrap>{desc}</ResumeDescWrap>
           <ResumeTagWrap>

@@ -1,7 +1,7 @@
 import { proxy } from 'valtio';
 
 export interface ProxyFocusMember {
-  member: 'kanu' | 'xeoye' | '';
+  member: 'kanu' | '';
 }
 
 export const proxyFocusMember = proxy<ProxyFocusMember>({
