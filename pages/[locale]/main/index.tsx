@@ -1,74 +1,81 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable no-param-reassign */
-import React, { memo, useEffect } from 'react';
+'use client';
+
+import { memo, useEffect } from 'react';
 import type { NextPage } from 'next';
 import { useTranslation } from 'next-i18next';
-import { useSnapshot } from 'valtio';
+import { useAtom, useSetAtom } from 'jotai';
 
-import { getStaticPaths, makeStaticProps } from '@lib/getStatic';
+import { getStaticPaths, makeStaticProps } from '@libs/getStatic';
 
-// import Alert from '@common/Alert';
-import Profile from '@block/Main/Profile';
-import Record from '@block/Main/Record';
-import { MainGridWrap } from '@block/Main/styles';
+import Profile from '@blocks/Main/Profile';
+import Record from '@blocks/Main/Record';
+import { MainGridWrap } from '@blocks/Main/styled';
 
-import { proxyProfile, type ProxyProfileDesc } from '@store/main/profile';
-import { proxyRecord, type ProxyRecord } from '@store/main/record';
-import { setOpenAlert } from '@store/global/isAlert';
+import { atomProfile } from '@stores/main/profile';
+import { atomRecord, type TypeContentProps } from '@stores/main/record';
+import { atomAlert } from '@stores/global/isAlert';
 
-// import Character from '@image/profile/character.png';
-import Caricature from '@image/profile/caricature.png';
+import Caricature from '@images/profile/caricature.png';
 
 const getStaticProps = makeStaticProps(['common', 'main']);
 
 export { getStaticPaths, getStaticProps };
 
 const Main: NextPage = () => {
-  const { t } = useTranslation('main');
-  const { info, desc } = useSnapshot(proxyProfile);
-  const { record } = useSnapshot(proxyRecord);
+  const { t } = useTranslation<string>('main');
+  const [profile, setProfile] = useAtom(atomProfile);
+  const [record, setRecord] = useAtom(atomRecord);
+  const setOpenAlert = useSetAtom(atomAlert);
 
   useEffect(() => {
-    (Object.keys(info) as Array<keyof typeof info>).forEach((key) => {
-      proxyProfile.info[key] = t(`info.${key}`);
+    (Object.keys(profile.info) as Array<keyof typeof profile.info>).forEach((key) => {
+      profile.info[key] = t(`info.${key}`);
     });
   }, [t]);
 
   useEffect(() => {
-    desc.forEach((item, idx) => {
-      if (item.text)
-        (proxyProfile.desc[idx] as { text?: string }).text = t(`desc.${idx}.text`) as string;
-      if (item.focus)
-        (proxyProfile.desc[idx] as { focus?: string }).focus = t(`desc.${idx}.focus`) as string;
-    });
-  }, [t]);
+    setProfile((prev) => ({
+      ...prev,
+      desc: prev.desc.map((item, idx) => {
+        if (item.text) {
+          (item as { text?: string }).text = t(`desc.${idx}.text`) as string;
+        }
+        if (item.focus) {
+          (item as { focus?: string }).focus = t(`desc.${idx}.focus`) as string;
+        }
+        return item;
+      }),
+    } as typeof profile));
 
-  useEffect(() => {
-    (Object.keys(record) as Array<keyof typeof record>).forEach((key) => {
-      proxyRecord.record[key].title = t(`record.${key}.title`);
-      proxyRecord.record[key].list.forEach((item, idx) => {
-        item.desc = t(`record.${key}.list.${idx}.desc`);
-        item.memo = t(`record.${key}.list.${idx}.memo`);
-        item.extra =
-          item.extra && item.extra.length > 0
-            ? (t(`record.${key}.list.${idx}.extra`, { returnObjects: true }) as string[])
-            : [];
+    setRecord((prev) => {
+      if (!prev) return prev;
+      (Object.keys(prev) as Array<keyof typeof prev>).forEach((key) => {
+        const content = prev[key] as unknown as TypeContentProps;
+        content.title = t(`record.${key}.title`);
+        content.list = content.list.map((item, idx) => {
+          item.desc = t(`record.${key}.list.${idx}.desc`);
+          item.memo = t(`record.${key}.list.${idx}.memo`);
+          item.extra =
+            item.extra && item.extra.length > 0
+              ? (t(`record.${key}.list.${idx}.extra`, { returnObjects: true }) as string[])
+              : [];
+          return item;
+        });
+        return prev[key];
       });
+      return prev;
     });
   }, [t]);
 
   useEffect(() => {
-    setOpenAlert();
+    setOpenAlert(true);
   }, []);
 
   return (
-    <>
-      {/* <Alert color='gray-9'>포트폴리오 PDF 다운로드</Alert> */}
-      <MainGridWrap>
-        <Profile image={Caricature} info={info} desc={desc as ProxyProfileDesc[]} />
-        <Record {...(record as ProxyRecord['record'])} />
-      </MainGridWrap>
-    </>
+    <MainGridWrap>
+      <Profile image={Caricature} {...profile} />
+      <Record {...record} />
+    </MainGridWrap>
   );
 };
 

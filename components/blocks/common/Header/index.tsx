@@ -1,47 +1,46 @@
-/* eslint-disable jsx-a11y/alt-text */
-import React, { useEffect, memo } from 'react';
+'use client';
+
+import { useEffect, memo } from 'react';
 import Image from 'next/image';
 import type { ImageProps } from 'next/image';
-import { useSnapshot } from 'valtio';
+import { useAtom } from 'jotai';
+import { Button } from '@radix-ui/themes';
 
-import Button from '@atom/Button';
-import Link from '@common/Link';
+import Link from '@commons/Link';
 
-import { proxyLanguage } from '@store/global/language';
+import { atomLanguage } from '@stores/global/language';
 
-import { HeaderWrap, Languages } from './styles';
+import { HeaderWrap, Languages } from './styled';
 
 export interface HeaderProps {
   img: ImageProps;
 }
 
 function Header({ img }: HeaderProps) {
-  const { language } = useSnapshot(proxyLanguage);
+  const [language, setLanguage] = useAtom(atomLanguage);
 
-  const onSwitchLanguage = (lang: 'ko' | 'en') => {
-    proxyLanguage.language = lang;
-  };
+  const onSwitchLanguage = (lang: 'ko' | 'en') => setLanguage(lang);
 
   useEffect(() => {}, []);
 
   return (
     <HeaderWrap>
-      <Link href='/'>
-        <Image {...img} />
-      </Link>
+      <Link href='/'><Image {...img} /></Link>
       <Languages>
         <Button
           className={language === 'ko' ? 'lang-ko' : ''}
           onClick={() => onSwitchLanguage('ko')}
+          variant='outline'
         >
-          Kor
+          Ko
         </Button>
         <span> / </span>
         <Button
           className={language === 'en' ? 'lang-en' : ''}
           onClick={() => onSwitchLanguage('en')}
+          variant='outline'
         >
-          Eng
+          En
         </Button>
       </Languages>
     </HeaderWrap>

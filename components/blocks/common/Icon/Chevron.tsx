@@ -1,64 +1,39 @@
-import React from 'react';
-import styled from 'styled-components';
+'use client';
+
+import styled from '@emotion/styled';
+import classnames from 'classnames';
+import { ChevronDownIcon } from '@radix-ui/react-icons';
 
 interface ChevronProps {
-  isAccordian?: boolean;
+  isAccordion?: boolean;
   direction?: 'top' | 'down' | 'left' | 'right';
+  className?: string;
 }
 
-function IconChevron({ isAccordian, direction = 'down' }: ChevronProps) {
-  return <ChevronWrap isAccordian={isAccordian} className={direction} />;
+function IconChevron({ isAccordion, className, direction = 'down' }: ChevronProps) {
+  return <ChevronWrap isAccordion={isAccordion} className={classnames(className, direction)} />;
 }
 
 export default IconChevron;
 
-const ChevronWrap = styled.div<Omit<ChevronProps, 'direction'>>`
+export const ChevronWrap = styled(ChevronDownIcon)<Omit<ChevronProps, 'direction'>>`
   position: relative;
   display: block;
   transform: scale(1);
   width: 25px;
   height: 25px;
   border: 1px solid transparent;
+  transition: opacity 0.2s ease-in-out;
+  cursor: pointer;
+  
 
-  ${({ isAccordian }) => (isAccordian ? 'opacity: 1 !important;' : '')}
-
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 10px;
-    height: 10px;
-    left: 50%;
-    transition: top 0.5s ease-in-out, transform 0.5s ease-in-out;
+  &.top {
+    transform: perspective(800px) rotateX(180deg);
+    transition: transform 0.2s ease-in-out;
   }
 
-  &.top::before,
-  &.top::after {
-    top: 65%;
-    transform: translate(-50%, -50%) rotateX(180deg) rotateZ(-135deg);
-  }
-
-  &.top::before {
-    border-top: 1px solid;
-  }
-  &.top::after {
-    border-left: 1px solid;
-  }
-
-  &.down::before,
-  &.down::after {
-    top: 45%;
-    transform: translate(-50%, -50%) rotateX(0deg) rotateZ(-135deg);
-  }
-
-  &.down::before {
-    border-top: 1px solid;
-  }
-
-  &.down::after {
-    border-left: 1px solid;
+  &.down {
+    transform: perspective(800px) rotateX(0deg);
+    transition: transform 0.2s ease-in-out;
   }
 `;

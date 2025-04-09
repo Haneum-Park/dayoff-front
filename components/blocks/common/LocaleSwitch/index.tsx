@@ -1,6 +1,8 @@
-import React, { memo } from 'react';
+'use client';
 
-import { LocaleSwitchWrap, CurrentLocale } from './styles';
+import { memo } from 'react';
+
+import { LocaleSwitchWrap, CurrentLocale } from './styled';
 import LocaleSwitchScript from './scripts';
 
 function LocaleSwitch() {

@@ -1,17 +1,5 @@
-import { proxy } from 'valtio';
+import { atom } from 'jotai';
 
-type ProxyAlert = {
-  isAlert: boolean;
-};
+export type TypeAtomAlert = boolean;
 
-export const proxyAlert = proxy<ProxyAlert>({
-  isAlert: false,
-});
-
-export function setOpenAlert() {
-  proxyAlert.isAlert = true;
-}
-
-export function setCloseAlert() {
-  proxyAlert.isAlert = false;
-}
+export const atomAlert = atom<TypeAtomAlert>(false);

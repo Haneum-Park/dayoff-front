@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "jsx": "preserve",
+    "jsxImportSource": "@emotion/react",
     "target": "ES5",
     "module": "ESNext",
     "allowJs": true,
@@ -11,7 +12,10 @@
     "noImplicitReturns": true,
     "strictNullChecks": true,
     "moduleResolution": "node",
-    "typeRoots": ["./node_modules/@types", "./@types"],
+    "typeRoots": [
+      "./node_modules/@types",
+      "./@types"
+    ],
     "alwaysStrict": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
@@ -25,24 +29,52 @@
     "baseUrl": ".",
     "rootDir": ".",
     "paths": {
-      "@/*": ["./*"],
-      "@page/*": ["./pages/*"],
-      "@image/*": ["./public/images/*"],
-      "@atom/*": ["./components/atoms/*"],
-      "@block/*": ["./components/blocks/*"],
-      "@common/*": ["./components/blocks/common/*"],
-      "@hook/*": ["./hooks/*"],
-      "@store/*": ["./stores/*"],
-      "@util/*": ["./utils/*"],
-      "@const/*": ["./consts/*"],
-      "@lib/*": ["./lib/*"]
+      "@/*": [
+        "./*"
+      ],
+      "@pages/*": [
+        "./pages/*"
+      ],
+      "@images/*": [
+        "./public/images/*"
+      ],
+      "@atoms/*": [
+        "./components/atoms/*"
+      ],
+      "@blocks/*": [
+        "./components/blocks/*"
+      ],
+      "@commons/*": [
+        "./components/blocks/common/*"
+      ],
+      "@hooks/*": [
+        "./hooks/*"
+      ],
+      "@stores/*": [
+        "./stores/*"
+      ],
+      "@utils/*": [
+        "./utils/*"
+      ],
+      "@consts/*": [
+        "./consts/*"
+      ],
+      "@libs/*": [
+        "./lib/*"
+      ]
     },
     "noEmit": true,
     "isolatedModules": true,
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "incremental": true
   },
-  "exclude": ["node_modules"],
+  "exclude": [
+    "node_modules"
+  ],
   "include": [
     "next-env.d.ts",
     "**/*.ts",

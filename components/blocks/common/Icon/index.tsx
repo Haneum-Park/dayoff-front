@@ -1,3 +1,5 @@
+'use client';
+
 import IconChevron from './Chevron';
 
 const Icon = {

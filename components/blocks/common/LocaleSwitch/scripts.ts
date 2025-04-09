@@ -1,4 +1,5 @@
-/* eslint-disable consistent-return */
+'use client';
+
 import { useCallback, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
@@ -7,14 +8,11 @@ import i18nextConfig from '@/next-i18next.config';
 function LocaleSwitchScript() {
   const { query, pathname, push } = useRouter();
 
-  const onChangeLocale = useCallback(
-    (loc: string) => {
-      if (loc === 'current-locale') return;
-      const pName = pathname.replace('[locale]', loc);
-      push(pName, pName, { locale: loc });
-    },
-    [pathname, push],
-  );
+  const onChangeLocale = (loc: string) => {
+    if (loc === 'current-locale') return;
+    const pName = pathname.replace('[locale]', loc);
+    push(pName, pName, { locale: loc });
+  };
 
   const onFlab = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     if (e.currentTarget.classList.contains('active')) {

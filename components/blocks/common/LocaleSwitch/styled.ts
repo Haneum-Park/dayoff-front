@@ -1,16 +1,16 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 export const LocaleSwitchWrap = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0.5rem;
+  gap: var(--space-3);
   transition: width 0.5s;
   width: 3rem;
-  height: 2rem;
-  border: 1px solid var(--color-gray-4);
-  border-radius: 0.5rem;
-  background-color: var(--color-gray-0);
+  height: 1.625rem;
+  border: 1px solid var(--gray-8);
+  border-radius: 0.3rem;
+  background-color: var(--gray-1);
   overflow: hidden;
 
   &.active {
@@ -24,14 +24,14 @@ export const LocaleSwitchWrap = styled.div`
 
 export const CurrentLocale = styled.div`
   &:not(.current-locale) {
-    color: var(--color-gray-5);
+    color: var(--gray-9);
     &:hover {
-      color: var(--color-gray-9);
+      color: var(--gray-12);
     }
   }
 
   &.current-locale {
-    color: var(--color-gray-9);
+    color: var(--gray-12);
   }
 
   &.hidden {

@@ -1,5 +1,7 @@
+'use client'
+
 import React, { memo } from 'react';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 interface FocusTextStyleProps {
   fontSize?: string;
@@ -17,7 +19,7 @@ export default memo(FocusText);
 
 const FocusTextWrap = styled.div<FocusTextStyleProps>`
   display: inline-block;
-  color: var(--color-gray-9);
+  color: var(--gray-12);
   font-size: ${({ fontSize }) => fontSize || '14px'};
   font-family: 'SemiBold';
 `;

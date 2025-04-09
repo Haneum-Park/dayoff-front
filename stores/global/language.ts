@@ -1,9 +1,5 @@
-import { proxy } from 'valtio';
+import { atom } from 'jotai';
 
-export interface ProxyLanguage {
-  language: 'ko' | 'en';
-}
+export type TypeAtomLanguage = 'ko' | 'en';
 
-export const proxyLanguage = proxy<ProxyLanguage>({
-  language: 'ko',
-});
+export const atomLanguage = atom<TypeAtomLanguage>('ko');

@@ -1,13 +1,5 @@
-import { proxy } from 'valtio';
+import { atom } from 'jotai';
 
-export interface ProxyDarkmode {
-  darkmode: boolean;
-}
+export type TypeAtomDarkmode = boolean;
 
-export const proxyDarkmode = proxy<ProxyDarkmode>({
-  darkmode: false,
-});
-
-export function setDarkmode(darkmode: boolean) {
-  proxyDarkmode.darkmode = darkmode;
-}
+export const atomDarkmode = atom<TypeAtomDarkmode>(false);

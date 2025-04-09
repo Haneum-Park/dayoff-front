@@ -1,6 +1,9 @@
-import styled from 'styled-components';
+import '@radix-ui/colors/gray.css';
+import { Flex } from '@radix-ui/themes';
+import styled from '@emotion/styled';
 
-import { MEDIA_QUERY } from '@util/design.util';
+import { AtomButtonWrap } from '@atoms/Button/styled';
+import { MEDIA_QUERY } from '@utils/design.util';
 
 export const IndexGridWrap = styled.div`
   display: flex;
@@ -21,38 +24,38 @@ export const IndexGridTitle = styled.h1`
     font-family: 'Light';
     font-size: 80px;
     stroke-width: 1px;
-    stroke: var(--color-gray-9);
+    stroke: var(--gray-12);
     fill: transparent;
     stroke-dashoffset: 750;
     stroke-dasharray: 750;
     animation: fadeIn 1.5s linear;
     animation-fill-mode: forwards;
 
-    &:nth-child(1) {
+    &:nth-of-type(1) {
       animation-delay: 0.2s;
     }
-    &:nth-child(2) {
+    &:nth-of-type(2) {
       animation-delay: 0.4s;
     }
-    &:nth-child(3) {
+    &:nth-of-type(3) {
       animation-delay: 0.6s;
     }
-    &:nth-child(4) {
+    &:nth-of-type(4) {
       animation-delay: 0.8s;
     }
-    &:nth-child(5) {
+    &:nth-of-type(5) {
       animation-delay: 1s;
     }
-    &:nth-child(6) {
+    &:nth-of-type(6) {
       animation-delay: 1.2s;
     }
-    &:nth-child(7) {
+    &:nth-of-type(7) {
       animation-delay: 1.4s;
     }
-    &:nth-child(8) {
+    &:nth-of-type(8) {
       animation-delay: 1.5s;
     }
-    &:nth-child(9) {
+    &:nth-of-type(9) {
       animation-delay: 1.8s;
     }
   }
@@ -62,13 +65,13 @@ export const IndexGridTitle = styled.h1`
       stroke-dashoffset: 750;
     }
     99% {
-      fill: var(--color-gray-8);
-      stroke: var(--color-gray-8);
+      fill: var(--gray-10);
+      stroke: var(--gray-10);
     }
     100% {
       stroke-dashoffset: 0;
-      fill: var(--color-gray-9);
-      stroke: var(--color-gray-9);
+      fill: var(--gray-12);
+      stroke: var(--gray-12);
     }
   }
 
@@ -96,11 +99,13 @@ export const IndexGridBtnWrap = styled.div`
   overflow: hidden;
 
   button {
+    color: var(--gray-12);
+    border-color: var(--gray-12);
     transition: background-color 0.15s ease-in, color 0.15s ease-in;
     &:hover,
     &:focus {
-      background-color: var(--color-gray-9);
-      color: var(--color-gray-0);
+      background-color: var(--gray-12);
+      color: var(--gray-1) !important;
       transition: background-color 0.15s ease-out, color 0.15s ease-out;
     }
   }
@@ -132,16 +137,9 @@ export const IndexGridBtnWrap = styled.div`
   }
 `;
 
-export const FoldWrap = styled.button`
+export const FoldWrap = styled(AtomButtonWrap)`
   position: relative;
   display: inline-block;
-  border: 1px solid var(--color-gray-9);
-  border-radius: 50px;
-  padding: 0.75rem 0.75rem;
-  width: 66px;
-  height: calc(45rem / 16);
-  color: var(--color-gray-0);
-  background-color: var(--color-gray-9);
   z-index: 2;
 
   ${MEDIA_QUERY.max('sm-tablet')} {
@@ -149,14 +147,13 @@ export const FoldWrap = styled.button`
   }
 `;
 
-type GroupBtnWrapProps = {
-  foldToggle: boolean;
-};
-
-export const GroupBtnWrap = styled.div<GroupBtnWrapProps>`
+export const GroupBtnWrap = styled.div`
   position: absolute;
   top: 0;
-  left: ${({ foldToggle }) => (foldToggle ? '60.15%' : '-40%')};
+  left: -40%;
+  &.fold-toggle {
+    left: 60.15%;
+  }
   width: 100%;
   max-width: calc(350rem / 16);
   transform: translateX(-50%);
@@ -179,18 +176,26 @@ export const GroupBtnWrap = styled.div<GroupBtnWrapProps>`
   }
 `;
 
-export const MainVisibleBtn = styled(FoldWrap)<GroupBtnWrapProps>`
-  background-color: transparent;
-  color: var(--color-gray-9);
-  opacity: ${({ foldToggle }) => (foldToggle ? '0' : '1')};
-  z-index: ${({ foldToggle }) => (foldToggle ? '-1' : '1')};
-  ${({ foldToggle }) => (foldToggle ? 'animation: visibleBtn 0.5s linear;' : '')}
+export const GroupBtnContainer = styled(Flex)`
+  width: 100%;
+`;
+
+export const MainVisibleBtn = styled(FoldWrap)`
+  opacity: 1;
+  z-index: 1;
+
+  &.fold-toggle {
+    opacity: 0;
+    z-index: -1;
+    animation: visibleBtn 0.5s linear;
+  }
 
   ${MEDIA_QUERY.max('sm-tablet')} {
     order: 1;
     opacity: 1;
     animation: none;
   }
+
   @keyframes visibleBtn {
     0% {
       opacity: 1;

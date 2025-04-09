@@ -1,13 +1,5 @@
-import { proxy } from 'valtio';
+import { atom } from 'jotai';
 
-type ProxyFoldToggle = {
-  foldToggle: boolean;
-};
+type TypeAtomFoldToggle = boolean;
 
-export const proxyFoldToggleState = proxy<ProxyFoldToggle>({
-  foldToggle: false,
-});
-
-export function onFoldToggle() {
-  proxyFoldToggleState.foldToggle = !proxyFoldToggleState.foldToggle;
-}
+export const atomFoldToggle = atom<TypeAtomFoldToggle>(false);

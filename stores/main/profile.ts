@@ -1,23 +1,23 @@
-import { proxy } from 'valtio';
+import { atom } from 'jotai';
 
-export type ProxyProfileDesc = {
+export type TypeAtomProfileDesc = {
   text?: string;
   focus?: string;
 };
 
-type ProxyProfileInfo = {
+type TypeAtomProfileInfo = {
   name: string;
   address: string;
   job: string;
   dob: string;
 };
 
-export type ProxyProfile = {
-  info: ProxyProfileInfo;
-  desc: ProxyProfileDesc[];
+export type TypeAtomProfile = {
+  info: TypeAtomProfileInfo;
+  desc: TypeAtomProfileDesc[];
 };
 
-export const proxyProfile = proxy<ProxyProfile>({
+export const atomProfile = atom<TypeAtomProfile>({
   info: {
     name: 'Haneum Park',
     address: 'RoK, Gwangju. qkrgksdma17@gmail.com',

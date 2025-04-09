@@ -1,8 +1,10 @@
-import React, { memo } from 'react';
+'use client';
 
-import footer from '@const/footer';
+import { memo } from 'react';
 
-import { CopyrightWrap, FooterInfoWrap, FooterWrap } from './styles';
+import footer from '@consts/footer';
+
+import { CopyrightWrap, FooterInfoWrap, FooterWrap } from './styled';
 
 function Footer() {
   return (

@@ -1,5 +1,5 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable no-param-reassign */
+'use client';
+
 import React from 'react';
 import { useRouter } from 'next/router';
 import Link, { LinkProps } from 'next/link';

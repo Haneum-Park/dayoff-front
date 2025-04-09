@@ -1,10 +1,12 @@
-/* eslint-disable camelcase */
-import React, { memo } from 'react';
+'use client';
 
-import type { ProxyRecord } from '@store/main/record';
+import { memo } from 'react';
 
-import ContentAccordian from './ContentAccordian';
-import { MainContentWrap, MasonryWrap } from './styles';
+import CustomAccordion from '@blocks/common/Accordion';
+import type { TypeContentProps, TypeAtomRecord } from '@stores/main/record';
+
+import Content from './Content';
+import { MainContentWrap, MasonryWrap } from './styled';
 
 function Record({
   educations,
@@ -18,35 +20,32 @@ function Record({
   licenseNawards,
   activities,
   etc,
-}: ProxyRecord['record']) {
+}: TypeAtomRecord) {
+  const recordTrack = [
+    { educations, careers, licenseNawards, contacts },
+    { project_desc, career_desc },
+    { languages, documents, activities, etc },
+  ];
+
   return (
-    <MainContentWrap>
-      <MasonryWrap>
-        {/* // * Education */}
-        <ContentAccordian target='educations' contents={educations} />
-        {/* // * Career */}
-        <ContentAccordian target='careers' contents={careers} />
-        {/* // * License and Awards */}
-        <ContentAccordian target='licenseNawards' contents={licenseNawards} />
-        {/* // * Contact */}
-        <ContentAccordian isAccordian={true} target='contacts' contents={contacts} />
-      </MasonryWrap>
-      <MasonryWrap>
-        {/* // * Project detail descriptions */}
-        <ContentAccordian target='project_desc' contents={project_desc} />
-        {/* // * Career detail descriptions */}
-        <ContentAccordian isAccordian={true} target='career_desc' contents={career_desc} />
-      </MasonryWrap>
-      <MasonryWrap>
-        {/* // * Languages */}
-        <ContentAccordian target='languages' contents={languages} />
-        {/* // * Documents */}
-        <ContentAccordian target='documents' contents={documents} />
-        {/* // * Activities */}
-        <ContentAccordian target='activities' contents={activities} />
-        {/* // * Etc Infos */}
-        <ContentAccordian target='etc' contents={etc} />
-      </MasonryWrap>
+    <MainContentWrap justify='between' align='start' gap='5'>
+      {recordTrack.map((track, index) => (
+        <MasonryWrap content='center' direction='column' key={`record-track-${index}`}>
+          {Object.entries(track).map(([key, value]) => (
+            <CustomAccordion
+              key={`track-${key}`}
+              title={value.title}
+              value={key}
+              children={
+                <Content
+                  target={key as keyof TypeAtomRecord}
+                  content={value.list as TypeContentProps['list']}
+                />
+              }
+            />
+          ))}
+        </MasonryWrap>
+      ))}
     </MainContentWrap>
   );
 }

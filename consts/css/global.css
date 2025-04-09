@@ -1,6 +1,17 @@
-@import '../consts/css/fonts.css';
-@import '../consts/css/variables.css';
-@import '../consts/css/default.css';
+@import '@radix-ui/colors/gray.css';
+@import '@radix-ui/colors/blue.css';
+@import '@radix-ui/colors/green.css';
+@import '@radix-ui/colors/red.css';
+@import '@radix-ui/colors/gray-dark.css';
+@import '@radix-ui/colors/blue-dark.css';
+@import '@radix-ui/colors/green-dark.css';
+@import '@radix-ui/colors/red-dark.css';
+
+@import './fonts.css';
+
+:root {
+  --content-width: 1440px;
+}
 
 /* 
  * =====================
@@ -15,10 +26,10 @@ body,
   max-width: 1920px;
   padding: 0;
   margin: 0 auto;
-  font-size: 16px;
+  font-size: var(--font-size-3);
   font-family: 'Thin', 'ExtraLight', 'Light', 'Regular', 'Medium', 'SemiBold', 'Bold', 'ExtraBold', 'Heavy';
-  background-color: var(--color-gray-0);
-  color: var(--color-gray-9);
+  background-color: var(--gray-1);
+  color: var(--gray-12);
 
   /* Disabled Draggable */
   -webkit-user-select: none;
@@ -40,9 +51,9 @@ fieldset, form, label, legend, table, caption, tbody, tfoot,
 thead, tr, th, td, article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup, menu, nav, output,
 ruby, section, summary, time, mark, audio, video {
-  font-size: 16px;
+  font-size: var(--font-size-3);
   font-family: 'Regular';
-  color: var(--color-gray-9);
+  color: var(--gray-12);
   /* scroll bar invisible */
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
@@ -55,9 +66,9 @@ ruby, section, summary, time, mark, audio, video {
 
 *, *::before, *::after {
   box-sizing: border-box;
-  font-size: 16px;
+  font-size: var(--font-size-3);
   font-family: 'Regular';
-  color: var(--color-gray-9);
+  color: var(--gray-12);
 }
 
 a { 
@@ -73,13 +84,6 @@ ul, li {
   padding: 0;
 }
 
-button {
-  border: none;
-  background-color: transparent;
-  margin: 0;
-  padding: 0;
-}
-
 button, a, input[type=button], input[type=submit] {
   cursor: pointer;
 }
@@ -90,8 +94,4 @@ label {
 
 button:focus, select:focus, select:active, button:active, input:active, input:focus {
   outline: none !important;
-}
-
-input {
-  background-color: var(--color-white);
 }

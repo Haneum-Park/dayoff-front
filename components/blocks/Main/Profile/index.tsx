@@ -1,13 +1,14 @@
-import React from 'react';
+'use client';
+
 import Image, { ImageProps } from 'next/image';
+import { Heading } from '@radix-ui/themes';
 
-import FocusText from '@common/FocusText';
+import FocusText from '@commons/FocusText';
+import { type TypeAtomProfile } from '@stores/main/profile';
 
-import { type ProxyProfile } from '@store/main/profile';
+import { ProfileDescWrap, ProfileImgWrap, ProfileInfoWrap, ProfileWrap } from './styled';
 
-import { ProfileDescWrap, ProfileImgWrap, ProfileInfoWrap, ProfileWrap } from './styles';
-
-export interface ProfileProps extends ProxyProfile {
+export interface ProfileProps extends TypeAtomProfile {
   image: ImageProps['src'];
 }
 
@@ -21,7 +22,7 @@ function Profile({ image, info, desc }: ProfileProps) {
         {desc.map(({ text, focus }, idx) => text || <FocusText key={idx}>{focus}</FocusText>)}
       </ProfileDescWrap>
       <ProfileInfoWrap>
-        <h1>{info.name}</h1>
+        <Heading size='8'>{info.name}</Heading>
         <div>{info.address}</div>
         <div>{info.job}</div>
         <div>{info.dob}</div>

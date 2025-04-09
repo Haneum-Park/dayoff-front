@@ -1,4 +1,4 @@
-import { cookies, regex } from '@util/common.util';
+import { cookies, regex } from '@utils/common.util';
 
 export type ParsedToken = {
   id: number;

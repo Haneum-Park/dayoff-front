@@ -1,18 +1,24 @@
-import { useCallback } from 'react';
-import { useSnapshot } from 'valtio';
+'use client';
 
-import { proxyDarkmode } from '@store/global/darkmode';
+import { useEffect } from 'react';
+import { useAtom } from 'jotai';
 
-import { cookies } from '@util/common.util';
+import { atomDarkmode } from '@stores/global/darkmode';
+
+import { cookies } from '@utils/common.util';
 
 function useDarkmode(): [boolean, (mode: boolean) => void] {
-  const { darkmode } = useSnapshot(proxyDarkmode);
+  const [darkmode, setDarkmode] = useAtom(atomDarkmode);
 
-  const onDarkmode = useCallback((mode: boolean) => {
-    proxyDarkmode.darkmode = mode as boolean;
+  const onDarkmode = (mode: boolean) => {
+    setDarkmode(mode);
     cookies.set('darkmode', mode ? '1' : '0');
-    if (mode) document.body.classList.add('darkmode');
-    else document.body.classList.remove('darkmode');
+  };
+
+  useEffect(() => {
+    if (cookies.get('darkmode')) {
+      setDarkmode(cookies.get('darkmode') === '1');
+    }
   }, []);
 
   return [darkmode, onDarkmode];

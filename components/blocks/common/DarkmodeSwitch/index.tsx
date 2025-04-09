@@ -1,32 +1,22 @@
-import React, { memo, useCallback } from 'react';
-import { MdLightMode, MdDarkMode } from 'react-icons/md';
+'use client';
 
-import useDarkmode from '@hook/useDarkmode';
+import { memo } from 'react';
+import { SunIcon, MoonIcon } from '@radix-ui/react-icons';
+import * as colors from '@radix-ui/colors';
 
-import { DarkmodeSwitchWrap, DarkmodeCheckbox, DarkmodeLabel } from './styles';
+import useDarkmode from '@hooks/useDarkmode';
+
+import { DarkmodeSwitchWrap, DarkmodeCheckbox, DarkmodeLabel } from './styled';
 
 function DarkmodeSwitch() {
-  const [darkmode, setDarkmode] = useDarkmode();
-
-  const onChangeDarkmode = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
-      const { checked } = e.target;
-      setDarkmode(checked);
-    },
-    [setDarkmode],
-  );
+  const [darkmode, onDarkmode] = useDarkmode();
 
   return (
     <DarkmodeSwitchWrap>
-      <DarkmodeCheckbox
-        type='checkbox'
-        id='darkmode'
-        checked={darkmode}
-        onChange={onChangeDarkmode}
-      />
+      <DarkmodeCheckbox type='checkbox' id='darkmode' checked={darkmode} onChange={(e) => onDarkmode(e.target.checked)} />
       <DarkmodeLabel htmlFor='darkmode'>
-        <MdDarkMode size='18' fill='var(--color-gray-9)' />
-        <MdLightMode size='18' fill='var(--color-gray-9)' />
+        <SunIcon fill={colors.gray.gray1} />
+        <MoonIcon fill={colors.gray.gray12} />
       </DarkmodeLabel>
     </DarkmodeSwitchWrap>
   );

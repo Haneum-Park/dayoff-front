@@ -1,17 +1,15 @@
-import React from 'react';
+'use client';
 
-import { BtnWrap, type BtnStyleProps } from './styles';
+import { type ButtonProps } from '@radix-ui/themes';
 
-export interface BtnProps extends BtnStyleProps, React.ButtonHTMLAttributes<HTMLButtonElement> {
-  children?: React.ReactNode | string;
-}
+import { AtomButtonWrap } from './styled';
 
-function Button({ type = 'button', children, ...rest }: BtnProps) {
+export interface IAtomButtonProps extends ButtonProps {}
+
+const AtomButton = ({ children, ...rest }: IAtomButtonProps) => {
   return (
-    <BtnWrap type={type} {...rest}>
-      {children}
-    </BtnWrap>
+    <AtomButtonWrap {...rest}>{children}</AtomButtonWrap>
   );
 }
 
-export default Button;
+export default AtomButton;

@@ -27,7 +27,7 @@ module.exports = {
       '@organism': path.resolve(__dirname, '../components/organisms'),
       '@template': path.resolve(__dirname, '../components/templates'),
       '@store': path.resolve(__dirname, '../stores'),
-      '@util': path.resolve(__dirname, '../utils'),
+      '@utils': path.resolve(__dirname, '../utils'),
       '@const': path.resolve(__dirname, '../consts'),
     };
 

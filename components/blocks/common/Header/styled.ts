@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 export const HeaderWrap = styled.header`
   display: flex;
@@ -21,7 +21,7 @@ export const Languages = styled.div`
   justify-content: flex-end;
   > *,
   > button {
-    color: var(--color-gray-4);
+    color: var(--gray-4);
   }
   span {
     margin: 0 calc(5rem / 16);
@@ -33,7 +33,7 @@ export const Languages = styled.div`
     padding: 0;
     &.lang-ko,
     &.lang-en {
-      color: var(--color-gray-9);
+      color: var(--gray-9);
     }
   }
 `;

@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
-import { MEDIA_QUERY } from '@util/design.util';
+import { MEDIA_QUERY } from '@utils/design.util';
 
 export const FooterInfoWrap = styled.div`
   display: flex;
@@ -16,12 +16,12 @@ export const FooterInfoWrap = styled.div`
   }
 
   & > div {
-    color: var(--color-gray-5);
+    color: var(--gray-5);
     font-size: calc(14rem / 16);
 
-    &:not(:last-child)::after {
+    &:not(:last-of-type)::after {
       content: '|';
-      color: var(--color-gray-5);
+      color: var(--gray-5);
       font-size: calc(14rem / 16);
       padding: 0 0.3rem;
       ${MEDIA_QUERY.max('tablet')} {
@@ -33,7 +33,7 @@ export const FooterInfoWrap = styled.div`
 
 export const CopyrightWrap = styled.div`
   font-size: calc(13rem / 16);
-  color: var(--color-gray-4) !important;
+  color: var(--gray-4) !important;
   font-weight: var(--bold);
 `;
 

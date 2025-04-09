@@ -2,8 +2,8 @@
 /* eslint-disable implicit-arrow-linebreak */
 import axios, { AxiosRequestConfig } from 'axios';
 
-import { validateToken } from '@util/token.util';
-import { cookies, isProduction } from '@util/common.util';
+import { validateToken } from '@utils/token.util';
+import { cookies, isProduction } from '@utils/common.util';
 
 const requireApiList = [
   { method: 'get', url: 'instance' },

@@ -1,7 +1,9 @@
-import React, { useEffect, memo } from 'react';
+'use client';
 
-import CVBtns from './CVBtns';
-import { IndexGridWrap, IndexGridTitle } from './styles';
+import { useEffect, memo } from 'react';
+
+import HistoryBtns from './HistoryBtns';
+import { IndexGridWrap, IndexGridTitle } from './styled';
 
 function IndexGrid() {
   useEffect(() => {
@@ -38,7 +40,7 @@ function IndexGrid() {
           <text x='380'>O</text>
         </svg>
       </IndexGridTitle>
-      <CVBtns />
+      <HistoryBtns />
     </IndexGridWrap>
   );
 }

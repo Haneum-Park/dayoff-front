@@ -1,33 +1,19 @@
-import { proxy } from 'valtio';
+import { atom } from 'jotai';
+import type { ButtonProps } from '@radix-ui/themes';
 
-import type { BtnProps } from '@atom/Button';
+export type TypeAtomBtns = ButtonProps[];
 
-export type ProxyBtns = {
-  btns: BtnProps[];
-};
-
-export const proxyBtns = proxy<ProxyBtns>({
-  btns: [
-    {
-      children: '2020',
-      bdColor: 'gray-9',
-      bdRadius: 32,
-      className: 'ripple',
-      id: '2020',
-    },
-    {
-      children: '2021',
-      bdColor: 'gray-9',
-      bdRadius: 32,
-      className: 'ripple',
-      id: '2021',
-    },
-    {
-      children: '2022',
-      bdColor: 'gray-9',
-      bdRadius: 32,
-      className: 'ripple',
-      id: '2022',
-    },
-  ],
-});
+export const atomBtns = atom<TypeAtomBtns>([
+  {
+    children: '2020',
+    id: '2020',
+  },
+  {
+    children: '2021',
+    id: '2021',
+  },
+  {
+    children: '2022',
+    id: '2022',
+  },
+]);

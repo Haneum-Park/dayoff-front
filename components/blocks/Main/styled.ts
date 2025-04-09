@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
-import { MEDIA_QUERY } from '@util/design.util';
+import { MEDIA_QUERY } from '@utils/design.util';
 
 export const MainGridWrap = styled.div`
   display: flex;

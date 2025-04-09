@@ -1,51 +1,65 @@
+'use client';
+
 import React, { memo } from 'react';
-import styled, { createGlobalStyle } from 'styled-components';
-import { useSnapshot } from 'valtio';
+import styled from '@emotion/styled';
+import { Global, css } from '@emotion/react';
+import { useAtomValue } from 'jotai';
+import { Theme } from '@radix-ui/themes';
 
-import { proxyDarkmode } from '@store/global/darkmode';
-
+import { atomDarkmode } from '@stores/global/darkmode';
 import Sidebar from './Sidebar';
 
 interface LayoutContentStyleProps {}
 
 interface LayoutContentProps extends LayoutContentStyleProps {
   children?: React.ReactNode;
+  index?: boolean;
 }
 
-function LayoutContent({ children }: LayoutContentProps) {
-  const { darkmode } = useSnapshot(proxyDarkmode);
-
-  return (
-    <>
-      <LocalPageStyle />
-      <LayoutContentBackground className='fixed' darkmode={darkmode}>
-        <LayoutContentWrap>{children}</LayoutContentWrap>
-        <Sidebar />
-      </LayoutContentBackground>
-    </>
-  );
-}
-
-export default memo(LayoutContent);
-
-export const LocalPageStyle = createGlobalStyle`
+export const globalStyles = css`
   html, body, #__next {
     max-width: 100%;
   }
 `;
 
+function LayoutContent({ children, index = false }: LayoutContentProps) {
+  const darkmode = useAtomValue(atomDarkmode);
+
+  return (
+    <Theme grayColor='mauve' accentColor='grass' appearance={darkmode ? 'dark' : 'light'}>
+      <Global styles={globalStyles} />
+      <LayoutContentBackground className='fixed' darkmode={darkmode}>
+        {index
+          ? <IndexGridBackground>{children}</IndexGridBackground>
+          : <LayoutContentWrap>{children}</LayoutContentWrap>
+        }
+        <Sidebar />
+      </LayoutContentBackground>
+    </Theme>
+  );
+}
+
+export default memo(LayoutContent);
+
 type LayoutContentBackgroundProps = {
-  darkmode: boolean;
+  darkmode?: boolean;
 };
 
-export const LayoutContentBackground = styled.div<LayoutContentBackgroundProps>`
+const LayoutContentBackground = styled.div<LayoutContentBackgroundProps>`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-color: var(--color-gray-0);
-  ${({ darkmode }) => (darkmode ? '' : 'background-image: url("/images/index/bg.jpg");')}
+  ${({ darkmode }) => (darkmode ? `background-color: var(--gray-1);` : 'background-image: url("/images/index/bg.jpg");')}
   width: 100%;
   height: 100vh;
+`;
+
+const IndexGridBackground = styled(LayoutContentBackground)`
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: initial;
+  background-color: initial;
 `;
 
 const LayoutContentWrap = styled.div`

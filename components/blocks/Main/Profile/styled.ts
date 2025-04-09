@@ -1,14 +1,8 @@
-import styled from 'styled-components';
+'use client';
 
-import { MEDIA_QUERY } from '@util/design.util';
+import styled from '@emotion/styled';
 
-export const MainGridWrap = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-`;
+import { MEDIA_QUERY } from '@utils/design.util';
 
 export const ProfileWrap = styled.div`
   display: grid;
@@ -35,7 +29,7 @@ export const ProfileImgWrap = styled.div`
   width: calc(120rem / 16);
   height: calc(120rem / 16);
   border-radius: 50%;
-  background-color: var(--color-white);
+  background-color: var(--white-a12);
   overflow: hidden;
   ${MEDIA_QUERY.max('sm-tablet')} {
     width: calc(100rem / 16);
@@ -59,19 +53,19 @@ export const ProfileImgWrap = styled.div`
 export const ProfileDescWrap = styled.div`
   width: 100%;
   max-width: calc(600rem / 16);
-  border: 1px solid var(--color-gray-6);
+  border: 1px solid var(--gray-7);
   border-radius: 5rem;
   margin: 0.5rem 0;
   padding: 1.5rem;
-  font-size: 14px;
+  font-size: var(--font-size-2);
   font-family: 'ExtraLight';
-  color: var(--color-gray-6);
+  color: var(--gray-12);
   ${MEDIA_QUERY.max('sm-tablet')} {
     order: 3;
     grid-area: profileDesc;
     &,
     div {
-      font-size: 12px;
+      font-size: var(--font-size-1);
     }
   }
 `;
@@ -86,14 +80,14 @@ export const ProfileInfoWrap = styled.div`
     margin: 0 0 0.5rem;
     font-family: 'Noto Sans KR', sans-serif;
     font-family: 'Source Serif 4', serif;
-    font-weight: 300;
-    color: var(--color-gray-9);
+    font-weight: 400;
+    color: var(--gray-12);
   }
 
   div {
     font-family: 'ExtraLight';
-    font-size: 14px;
-    color: var(--color-gray-6);
+    font-size: var(--font-size-2);
+    color: var(--gray-11);
   }
 
   ${MEDIA_QUERY.max('sm-tablet')} {
@@ -104,7 +98,7 @@ export const ProfileInfoWrap = styled.div`
   ${MEDIA_QUERY.max('tablet')} {
     text-align: left;
     div {
-      font-size: 12px;
+      font-size: var(--font-size-1);
     }
   }
 `;

@@ -1,7 +1,9 @@
-import React, { memo } from 'react';
-import styled from 'styled-components';
+'use client';
 
-import { MEDIA_QUERY } from '@util/design.util';
+import { memo } from 'react';
+import styled from '@emotion/styled';
+
+import { MEDIA_QUERY } from '@utils/design.util';
 
 import LocaleSwitch from './LocaleSwitch';
 import DarkmodeSwitch from './DarkmodeSwitch';
