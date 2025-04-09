@@ -12,6 +12,7 @@ export const LocaleSwitchWrap = styled.div`
   border-radius: 0.3rem;
   background-color: var(--gray-1);
   overflow: hidden;
+  line-height: 1.625rem;
 
   &.active {
     width: 10rem;
@@ -23,6 +24,7 @@ export const LocaleSwitchWrap = styled.div`
 `;
 
 export const CurrentLocale = styled.div`
+  font-size: var(--font-size-2);
   &:not(.current-locale) {
     color: var(--gray-9);
     &:hover {
