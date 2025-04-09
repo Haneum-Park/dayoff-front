@@ -1,4 +1,6 @@
-import React, { memo } from 'react';
+'use client';
+
+import { memo } from 'react';
 // import styled from '@emotion/styled';
 
 function ProjectGrid() {
