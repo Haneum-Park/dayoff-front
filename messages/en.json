@@ -63,10 +63,6 @@
           "memo": "qksdbf15@naver.com"
         },
         "2": {
-          "desc": "Email",
-          "memo": "qksdbf15@gmail.com"
-        },
-        "3": {
           "desc": "Phone",
           "memo": "010-2397-8172",
           "masking": "true"
@@ -117,16 +113,6 @@
           "route": "https://day-off.xyz"
         },
         "1": {
-          "desc": "Portfolio",
-          "memo": "https://portfolio.day-off.xyz",
-          "route": "https://portfolio.day-off.xyz"
-        },
-        "2": {
-          "desc": "Web link",
-          "memo": "https://allreva.com",
-          "route": "https://allreva.com"
-        },
-        "3": {
           "desc": "Github",
           "memo": "https://github.com/haneum-park",
           "route": "https://github.com/haneum-park"

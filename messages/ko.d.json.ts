@@ -66,10 +66,6 @@ declare const messages: {
           "memo": "qksdbf15@naver.com"
         },
         "2": {
-          "desc": "이메일",
-          "memo": "qksdbf15@gmail.com"
-        },
-        "3": {
           "desc": "개인번호",
           "memo": "010-2397-8172",
           "masking": "true"
@@ -117,21 +113,11 @@ declare const messages: {
       "title": "포트폴리오/기타문서",
       "list": {
         "0": {
-          "desc": "웹 사이트 주소",
+          "desc": "데이오프",
           "memo": "https://day-off.xyz",
           "route": "https://day-off.xyz"
         },
         "1": {
-          "desc": "포트폴리오",
-          "memo": "https://portfolio.day-off.xyz",
-          "route": "https://portfolio.day-off.xyz"
-        },
-        "2": {
-          "desc": "웹 사이트 주소",
-          "memo": "https://allreva.com",
-          "route": "https://allreva.com"
-        },
-        "3": {
           "desc": "Github 주소",
           "memo": "https://github.com/haneum-park",
           "route": "https://github.com/haneum-park"
