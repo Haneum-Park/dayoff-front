@@ -23,7 +23,7 @@ const config: PlaywrightTestConfig = {
   reporter: [['html', { open: 'always' }]],
   projects: [
     {
-      name: 'dayoff-portfolio-front',
+      name: 'dayoff-front',
       use: {
         ...devices['Desktop Chrome'],
       },

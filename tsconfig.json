@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
+    "allowArbitraryExtensions": true,
     "jsx": "preserve",
-    "jsxImportSource": "@emotion/react",
     "target": "ES5",
     "module": "ESNext",
     "allowJs": true,
@@ -11,11 +11,8 @@
     "noImplicitAny": true,
     "noImplicitReturns": true,
     "strictNullChecks": true,
-    "moduleResolution": "node",
-    "typeRoots": [
-      "./node_modules/@types",
-      "./@types"
-    ],
+    "moduleResolution": "bundler",
+    "typeRoots": ["./node_modules/@types", "./@types"],
     "alwaysStrict": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
@@ -29,59 +26,29 @@
     "baseUrl": ".",
     "rootDir": ".",
     "paths": {
-      "@/*": [
-        "./*"
-      ],
-      "@pages/*": [
-        "./pages/*"
-      ],
-      "@images/*": [
-        "./public/images/*"
-      ],
-      "@atoms/*": [
-        "./components/atoms/*"
-      ],
-      "@blocks/*": [
-        "./components/blocks/*"
-      ],
-      "@commons/*": [
-        "./components/blocks/common/*"
-      ],
-      "@hooks/*": [
-        "./hooks/*"
-      ],
-      "@stores/*": [
-        "./stores/*"
-      ],
-      "@utils/*": [
-        "./utils/*"
-      ],
-      "@consts/*": [
-        "./consts/*"
-      ],
-      "@libs/*": [
-        "./lib/*"
-      ]
+      "@/*": ["./*"],
+      "@images/*": ["./public/images/*"],
+      "@i18n/*": ["./src/i18n/*"],
+      "@app/*": ["./src/app/*"],
+      "@comps/*": ["./src/components/*"],
+      "@atoms/*": ["./src/components/atoms/*"],
+      "@blocks/*": ["./src/components/blocks/*"],
+      "@commons/*": ["./src/components/blocks/common/*"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@stores/*": ["./src/stores/*"],
+      "@utils/*": ["./src/utils/*"],
+      "@consts/*": ["./src/consts/*"]
     },
     "noEmit": true,
     "isolatedModules": true,
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "incremental": true
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
-  "exclude": [
-    "node_modules"
-  ],
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    "next.config.js",
-    "server.js",
-    "@types/*",
-    "next-i18next.config.js"
-  ]
+  "exclude": ["node_modules"],
+  "include": ["**/*.ts", "**/*.tsx", "@types/*", "next-env.d.ts", ".next/types/**/*.ts"]
 }
