@@ -26,8 +26,6 @@ function LayoutContent({ children }: LayoutContentProps) {
   const pathname = usePathname();
   const darkmode = useAtomValue(atomDarkmode);
 
-  console.log(pathname);
-
   return (
     <Theme grayColor='mauve' accentColor='grass' appearance={darkmode ? 'dark' : 'light'}>
       <Global styles={globalStyles} />

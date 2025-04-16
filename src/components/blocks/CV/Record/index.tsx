@@ -49,7 +49,7 @@ function Record() {
     });
 
     setRecord(cloneRecord);
-  }, [t, record, setRecord]);
+  }, []);
 
   return (
     <MainContentWrap justify='between' align='start' gap='5'>
