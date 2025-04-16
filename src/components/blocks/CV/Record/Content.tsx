@@ -52,8 +52,8 @@ function RecordContent({
           </ContentMemo>
           {content[key]?.extra && Object.keys(content[key].extra).length > 0 && (
             <ContentExtra>
-              {Object.keys(content[key].extra).map((extra, extraIdx) => (
-                <li key={`content[key]-extra-${idx}-${extraIdx}`}>{extra}</li>
+              {Object.keys(content[key].extra).map((kkey) => (
+                <li key={`extra-${key}-${kkey}`}>{content[key]?.extra?.[kkey]}</li>
               ))}
             </ContentExtra>
           )}
