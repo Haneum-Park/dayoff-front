@@ -19,7 +19,7 @@ function useDarkmode(): [boolean, (mode: boolean) => void] {
     if (cookies.get('darkmode')) {
       setDarkmode(cookies.get('darkmode') === '1');
     }
-  }, []);
+  }, [setDarkmode]);
 
   return [darkmode || cookies.get('darkmode') === '1', onDarkmode];
 }

@@ -1,7 +1,7 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useAtomValue } from 'jotai';
 import { Global, css } from '@emotion/react';
 import styled from '@emotion/styled';
@@ -52,7 +52,7 @@ const LayoutContentBackground = styled.div<LayoutContentBackgroundProps>`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  ${({ darkmode }) => (darkmode ? `background-color: var(--gray-1);` : 'background-image: url("/images/index/bg.jpg");')}
+  ${({ darkmode }) => (darkmode ? 'background-color: var(--gray-1);' : 'background-image: url("/images/index/bg.jpg");')}
   width: 100%;
   height: 100vh;
 `;

@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable implicit-arrow-linebreak */
-import axios, { AxiosRequestConfig } from 'axios';
+import axios from 'axios';
 
 import { validateToken } from '@utils/token.util';
 import { cookies, isProduction } from '@utils/common.util';
@@ -25,7 +25,7 @@ const $axios = axios.create({
   maxBodyLength: 100 * 1024 * 1024,
 });
 
-$axios.interceptors.request.use(async (config: AxiosRequestConfig) => {
+$axios.interceptors.request.use(async (config) => {
   config.baseURL = baseUrl;
   const { url, method } = config;
   if (

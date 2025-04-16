@@ -17,6 +17,6 @@ const AtomButton = ({ children, color = 'gray', size = '3', variant='outline', .
       {children}
     </AtomButtonWrap>
   );
-}
+};
 
 export default AtomButton;

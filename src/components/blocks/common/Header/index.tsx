@@ -25,7 +25,7 @@ function Header({ img }: HeaderProps) {
 
   return (
     <HeaderWrap>
-      <Link href='/'><Image {...img} /></Link>
+      <Link href='/'><Image {...img} alt={img.alt} /></Link>
       <Languages>
         <Button
           className={language === 'ko' ? 'lang-ko' : ''}

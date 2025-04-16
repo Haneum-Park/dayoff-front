@@ -1,15 +1,14 @@
 .babelrc
 .eslintrc.js
 tsconfig.json
-server.js
 node_modules/
-test/
+src/tests/
 .next/
 .vscode/
 public/
 server.js
 .github/
 next.config.js
-stores/
+src/stores/
 jest.config.js
 jest.setup.js

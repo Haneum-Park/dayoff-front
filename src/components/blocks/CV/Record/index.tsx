@@ -49,7 +49,7 @@ function Record() {
     });
 
     setRecord(cloneRecord);
-  }, []);
+  }, [t, record, setRecord]);
 
   return (
     <MainContentWrap justify='between' align='start' gap='5'>
@@ -60,7 +60,7 @@ function Record() {
               key={`track-${key}`}
               title={value.title}
               value={key}
-              children={<Content target={key} content={value.list} />}
+              children={<Content target={key as keyof TypeAtomRecord} content={value.list} />}
             />
           ))}
         </MasonryWrap>

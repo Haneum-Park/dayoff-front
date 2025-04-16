@@ -25,7 +25,7 @@ function RippleBtn({
       (ripple.parentNode as ParentNode).removeChild(ripple);
     }, 800);
     if (onClick) onClick(event);
-  }
+  };
 
   return (
     <Button type={type} onClick={onMergeClick} {...rest}>

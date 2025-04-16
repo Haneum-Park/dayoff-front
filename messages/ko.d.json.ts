@@ -3,7 +3,7 @@
 
 declare const messages: {
   "LocaleLayout": {
-    "title": "next-intl example"
+    "title": "DAY OFF"
   },
   "common": {
     "login": "로그인",

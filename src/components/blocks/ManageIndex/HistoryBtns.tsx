@@ -30,7 +30,7 @@ function HistoryBtns() {
     setTimeout(() => {
       setInitDisabled(false);
     }, 1500);
-  })
+  }, []);
 
   return (
     <IndexGridBtnWrap>

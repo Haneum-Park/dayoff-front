@@ -4,8 +4,8 @@ import { useId } from 'react';
 import { Link } from '@i18n/routing';
 import {
   type TypeAtomRecord,
-  type TypeContentListProps,
-} from '@stores/main/record';
+  type TypeRecordList,
+} from '@stores/record';
 import { generateMasking } from '@utils/common.util';
 
 import {
@@ -18,7 +18,7 @@ import {
 
 interface IRecordContentProps {
   isAccordion?: boolean;
-  content: TypeContentListProps[];
+  content: TypeRecordList;
   target: keyof TypeAtomRecord;
 }
 
@@ -26,7 +26,7 @@ const oneLineTargets = ['contacts', 'languages', 'documents'];
 
 function RecordContent({
   target,
-  content,
+  content = {},
 }: IRecordContentProps) {
   const uuid = useId();
 
@@ -44,15 +44,15 @@ function RecordContent({
           key={`content-${uuid}-${idx}`}
         >
           <ContentDesc weight='bold' size='3'>
-            {content[key].path ? <Link href={content[key].path}>{content[key].desc}</Link> : content[key].desc}
+            {content[key]?.path ? <Link href={content[key].path}>{content[key].desc}</Link> : content[key]?.desc}
           </ContentDesc>
-          <ContentMemo as='p' size='2' weight='regular' route={content[key].route} onClick={() => onRouter(content[key].route)}>
+          <ContentMemo as='p' size='2' weight='regular' route={content[key]?.route} onClick={() => onRouter(content[key]?.route)}>
             {/* // * 마스킹 부분 사용자 인증 후 개인번호 열람가능 */}
-            {content[key].masking ? generateMasking(content[key].memo) : content[key].memo}
+            {content[key]?.masking ? generateMasking(content[key].memo) : content[key]?.memo}
           </ContentMemo>
-          {content[key].extra && content[key].extra.length > 0 && (
+          {content[key]?.extra && Object.keys(content[key].extra).length > 0 && (
             <ContentExtra>
-              {content[key].extra?.map((extra, extraIdx) => (
+              {Object.keys(content[key].extra).map((extra, extraIdx) => (
                 <li key={`content[key]-extra-${idx}-${extraIdx}`}>{extra}</li>
               ))}
             </ContentExtra>
@@ -60,7 +60,7 @@ function RecordContent({
         </ContentListWrap>
       ))}
     </ContentDescWrap>
-  )
+  );
 }
 
 export default RecordContent;

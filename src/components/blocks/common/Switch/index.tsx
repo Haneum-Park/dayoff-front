@@ -9,7 +9,7 @@ const CommonSwitch = ({ children }: { children: React.ReactNode }) => {
     <CommonSwitchWrap display='flex' align='center' justify='center' gap='1'>
       {children}
     </CommonSwitchWrap>
-  )
+  );
 };
 
 export default CommonSwitch;
