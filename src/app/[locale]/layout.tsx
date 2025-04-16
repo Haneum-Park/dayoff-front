@@ -1,10 +1,10 @@
+import { ReactNode } from 'react';
 import { notFound } from 'next/navigation';
 import { Locale, hasLocale, NextIntlClientProvider } from 'next-intl';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
-import { ReactNode } from 'react';
+import { ThemeProvider } from 'next-themes';
 
 import { routing } from '@i18n/routing';
-
 import '@consts/css/global.css';
 import '@radix-ui/themes/styles.css';
 
@@ -38,9 +38,11 @@ export default async function LocaleLayout({children, params}: LocaleLayout) {
   setRequestLocale(locale);
   
   return (
-    <html lang={locale}>
+    <html lang={locale} suppressHydrationWarning>
       <body>
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        <ThemeProvider attribute='class' storageKey='theme' themes={['light', 'dark']} defaultTheme='light'>
+          <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

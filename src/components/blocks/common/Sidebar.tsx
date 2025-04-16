@@ -6,14 +6,14 @@ import styled from '@emotion/styled';
 import { MEDIA_QUERY } from '@utils/design.util';
 
 import LocaleSwitch from './LocaleSwitch';
-import DarkmodeSwitch from './DarkmodeSwitch';
+import ThemeSwitch from './ThemeSwitch';
 
 function Sidebar() {
   return (
     <SidebarWrap>
       <ul>
         <li className='localeswitch'><LocaleSwitch /></li>
-        <li><DarkmodeSwitch /></li>
+        <li><ThemeSwitch /></li>
       </ul>
     </SidebarWrap>
   );

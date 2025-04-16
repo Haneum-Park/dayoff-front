@@ -1,8 +1,6 @@
-export const isProduction = (process.env.NODE_ENV || 'development') === 'production';
+'use client';
 
-// TODO - add darkmode
-// export function darkmode() {
-// }
+export const isProduction = (process.env.NODE_ENV || 'development') === 'production';
 
 export function objToQuery<T extends Record<string, any>>(obj: T): string {
   const query: string[] = [];
@@ -24,6 +22,22 @@ export function queryToObj<T>(query: string): T {
   });
   return obj as T;
 }
+
+export const localstorage = {
+  setItem: (key: string, value: any) => {
+    localStorage.setItem(key, JSON.stringify(value));
+  },
+  getItem: (key: string) => {
+    const item = localStorage.getItem(key);
+    return item ? JSON.parse(item) : null;
+  },
+  removeItem: (key: string) => {
+    localStorage.removeItem(key);
+  },
+  clear: () => {
+    localStorage.clear();
+  },
+};
 
 export const cookies = {
   set: (key: string, value: string, expTime?: number) => {

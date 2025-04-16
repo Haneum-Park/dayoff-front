@@ -1,13 +1,12 @@
 'use client';
 
+import React, { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
-import React from 'react';
-import { useAtomValue } from 'jotai';
 import { Global, css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { Theme } from '@radix-ui/themes';
 
-import { atomDarkmode } from '@stores/global/darkmode';
+import useTheme, { type TypeTheme } from '@hooks/useTheme';
 import Sidebar from './Sidebar';
 
 interface LayoutContentStyleProps {}
@@ -24,18 +23,27 @@ export const globalStyles = css`
 
 function LayoutContent({ children }: LayoutContentProps) {
   const pathname = usePathname();
-  const darkmode = useAtomValue(atomDarkmode);
+  const [theme] = useTheme();
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) return null;
 
   return (
-    <Theme grayColor='mauve' accentColor='grass' appearance={darkmode ? 'dark' : 'light'}>
+    <Theme grayColor='mauve' accentColor='grass' appearance={theme as TypeTheme}>
       <Global styles={globalStyles} />
-      <LayoutContentBackground className='fixed' darkmode={darkmode}>
-        {pathname.split('/').length === 3
-          ? <IndexGridBackground>{children}</IndexGridBackground>
-          : <LayoutContentWrap>{children}</LayoutContentWrap>
-        }
-        <Sidebar />
-      </LayoutContentBackground>
+      {theme && (
+        <LayoutContentBackground theme={theme as TypeTheme}>
+          {pathname.split('/').length === 3
+            ? <IndexGridBackground>{children}</IndexGridBackground>
+            : <LayoutContentWrap>{children}</LayoutContentWrap>
+          }
+          <Sidebar />
+        </LayoutContentBackground>
+      )}
     </Theme>
   );
 }
@@ -43,14 +51,14 @@ function LayoutContent({ children }: LayoutContentProps) {
 export default LayoutContent;
 
 type LayoutContentBackgroundProps = {
-  darkmode?: boolean;
+  theme?: TypeTheme;
 };
 
 const LayoutContentBackground = styled.div<LayoutContentBackgroundProps>`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  ${({ darkmode }) => (darkmode ? 'background-color: var(--gray-1);' : 'background-image: url("/images/index/bg.jpg");')}
+  ${({ theme }) => (theme === 'dark' ? 'background-color: var(--gray-1);' : 'background-image: url("/images/index/bg.jpg");')}
   width: 100%;
   height: 100vh;
 `;

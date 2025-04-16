@@ -3,7 +3,7 @@
 import styled from '@emotion/styled';
 import '@radix-ui/colors/gray.css';
 
-export const DarkmodeSwitchWrap = styled.div`
+export const ThemeSwitchWrap = styled.div`
   position: relative;
   display: flex;
   align-items: center;
@@ -17,7 +17,7 @@ export const DarkmodeSwitchWrap = styled.div`
   cursor: pointer;
 `;
 
-export const DarkmodeCheckbox = styled.input`
+export const ThemeCheckbox = styled.input`
   appearance: none;
   position: absolute;
   top: 50%;
@@ -39,7 +39,7 @@ export const DarkmodeCheckbox = styled.input`
   }
 `;
 
-export const DarkmodeLabel = styled.label`
+export const ThemeLabel = styled.label`
   width: 100%;
   display: flex;
   justify-content: space-around;
