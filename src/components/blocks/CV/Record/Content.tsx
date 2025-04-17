@@ -5,7 +5,7 @@ import { Link } from '@i18n/routing';
 import {
   type TypeAtomRecord,
   type TypeRecordList,
-} from '@stores/record';
+} from '@stores/hr-kit/record.type';
 import { generateMasking } from '@utils/common.util';
 
 import {

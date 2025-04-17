@@ -2,11 +2,12 @@
 
 import React, { useEffect, useState } from 'react';
 import { useAtom, useAtomValue } from 'jotai';
+import { useSearchParams } from 'next/navigation'
 import { type ButtonProps } from '@radix-ui/themes';
 
 import AtomButton from '@atoms/Button';
 import { atomBtns, type TypeAtomBtns } from '@stores/index/btns';
-import { usePathname as usePathnameI18n, useRouter } from '@i18n/routing';
+import { usePathname as usePathnameI18n, useRouter as useRouterI18n } from '@i18n/routing';
 import { atomFoldToggle } from '@stores/index/foldToggle';
 
 import { IndexGridBtnWrap, FoldWrap, GroupBtnWrap, GroupBtnContainer, MainVisibleBtn } from './styled';
@@ -14,14 +15,17 @@ import { IndexGridBtnWrap, FoldWrap, GroupBtnWrap, GroupBtnContainer, MainVisibl
 const btnProps: ButtonProps = { color: 'gray', size: '3', variant: 'outline', radius: 'full' };
 
 function HistoryBtns() {
+  const searchParams = useSearchParams();
   const pathname = usePathnameI18n();
-  const { push } = useRouter();
+  const { push } = useRouterI18n();
   const [foldToggle, setFoldToggle] = useAtom(atomFoldToggle);
   const [initDisabled, setInitDisabled] = useState(true);
   const btns = useAtomValue<TypeAtomBtns>(atomBtns);
 
   const onRedirect = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    push(`${pathname}/${event.currentTarget.id}`);
+    const target = searchParams.get('target');
+    const query = target ? `target=${target}` : null;
+    push(`${pathname}/${event.currentTarget.id}${query ? `?${query}` : ''}`);
   };
 
   const onFoldToggle = () => setFoldToggle((prev) => !prev);

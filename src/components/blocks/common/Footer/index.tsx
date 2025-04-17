@@ -1,22 +1,20 @@
 'use client';
 
-import { memo } from 'react';
+// import footer from '@consts/footer';
 
-import footer from '@consts/footer';
-
-import { CopyrightWrap, FooterInfoWrap, FooterWrap } from './styled';
+import { CopyrightWrap, FooterWrap } from './styled';
 
 function Footer() {
   return (
     <FooterWrap>
-      <FooterInfoWrap>
+      {/* <FooterInfoWrap>
         {footer.map((item, idx) => (
           <div key={idx}>{item}</div>
         ))}
-      </FooterInfoWrap>
-      <CopyrightWrap>All right reserved. 2023 util-api</CopyrightWrap>
+      </FooterInfoWrap> */}
+      <CopyrightWrap className='focus'>Created by. Haneum Park</CopyrightWrap>
     </FooterWrap>
   );
 }
 
-export default memo(Footer);
+export default Footer;

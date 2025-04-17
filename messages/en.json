@@ -7,166 +7,168 @@
     "lightmode": "Light Mode",
     "darkmode": "Dark Mode"
   },
-  "kanuProfile": {
-    "info": {
-      "name": "Haneum Park",
-      "address": "RoK, Gwangju. qkrgksdma17@gmail.com",
-      "job": "Web Full-Stack Engineer",
-      "dob": "DOB : 29 / 09 / 1994"
-    },
-    "desc": {
-      "0": { "text": "Hi, my name is Haneum Park, but I go by " },
-      "1": { "focus": "Kanu." },
-      "2": { "text": " I'm an " },
-      "3": { "focus": "Web full-stack engineer" },
-      "4": { "text": " from Korea, It is the " },
-      "5": { "focus": "6th year." },
-      "6": { "text": " I'm focused on " },
-      "7": { "focus": "NodeJS, mainly language is Typescript." },
-      "8": {
-        "text": " I always prefer to develop new areas and stick to the basics. You can check out my history in detail below!"
-      }
-    }
-  },
-  "kanuRecord": {
-    "educations": {
-      "title": "Education",
-      "list": {
-        "0": {
-          "desc": "Department of Computer Statistics",
-          "memo": "Chosun University / Republic of Korea, Gwangju Metropolitan City / 2013 ~ 2019"
-        },
-        "1": {
-          "desc": "Science",
-          "memo": "Sejong High School / Republic of Korea, Gwangju Metropolitan City / 2010 ~ 2013"
+  "haneum": {
+    "profile": {
+      "info": {
+        "name": "Haneum Park",
+        "address": "RoK, Gwangju. qkrgksdma17@gmail.com",
+        "job": "Web Full-Stack Engineer",
+        "dob": "DOB : 29 / 09 / 1994"
+      },
+      "desc": {
+        "0": { "text": "Hi, my name is Haneum Park, but I go by " },
+        "1": { "focus": "Kanu." },
+        "2": { "text": " I'm an " },
+        "3": { "focus": "Web full-stack engineer" },
+        "4": { "text": " from Korea, It is the " },
+        "5": { "focus": "6th year." },
+        "6": { "text": " I'm focused on " },
+        "7": { "focus": "NodeJS, mainly language is Typescript." },
+        "8": {
+          "text": " I always prefer to develop new areas and stick to the basics. You can check out my history in detail below!"
         }
       }
     },
-    "careers": {
-      "title": "Career",
-      "list": {
-        "0": {
-          "desc": "Caramella Co., Ltd. Web Front General Manager and Project Lead",
-          "memo": "Republic of Korea, Gwangju Metropolitan City / 10.2019 ~ 03.2023(4 years)"
+    "record": {
+      "educations": {
+        "title": "Education",
+        "list": {
+          "0": {
+            "desc": "Department of Computer Statistics",
+            "memo": "Chosun University / Republic of Korea, Gwangju Metropolitan City / 2013 ~ 2019"
+          },
+          "1": {
+            "desc": "Science",
+            "memo": "Sejong High School / Republic of Korea, Gwangju Metropolitan City / 2010 ~ 2013"
+          }
         }
-      }
-    },
-    "contacts": {
-      "title": "Contact",
-      "list": {
-        "0": {
-          "desc": "Email",
-          "memo": "qkrgksdma17@gmail.com"
-        },
-        "1": {
-          "desc": "Email",
-          "memo": "qksdbf15@naver.com"
-        },
-        "2": {
-          "desc": "Phone",
-          "memo": "010-2397-8172",
-          "masking": "true"
+      },
+      "careers": {
+        "title": "Career",
+        "list": {
+          "0": {
+            "desc": "Caramella Co., Ltd. Web Front General Manager and Project Lead",
+            "memo": "Republic of Korea, Gwangju Metropolitan City / 10.2019 ~ 03.2023(4 years)"
+          }
         }
-      }
-    },
-    "project_desc": {
-      "title": "Project history",
-      "list": {
-        "0": {
-          "desc": "Name : Digital Sexual Crime Detection Solution(METU)",
-          "memo": "Period : 10.2019 ~ 01.2020(about 4 months)",
-          "extra": [
-            "Development or Participan Detail Content",
-            "- Developed the front-end with a prototype version",
-            "- Languages : Javascript",
-            "- Frameworks : React.js, Express.js"
-          ],
-          "path": "/project/metu"
+      },
+      "contacts": {
+        "title": "Contact",
+        "list": {
+          "0": {
+            "desc": "Email",
+            "memo": "qkrgksdma17@gmail.com"
+          },
+          "1": {
+            "desc": "Email",
+            "memo": "qksdbf15@naver.com"
+          },
+          "2": {
+            "desc": "Phone",
+            "memo": "010-2397-8172",
+            "masking": "true"
+          }
         }
-      }
-    },
-    "career_desc": {
-      "title": "Career Details"
-    },
-    "languages": {
-      "title": "Languages",
-      "list": {
-        "0": {
-          "desc": "Korean",
-          "memo": "Mother language"
-        },
-        "1": {
-          "desc": "English",
-          "memo": "Basic"
+      },
+      "project_desc": {
+        "title": "Project history",
+        "list": {
+          "0": {
+            "desc": "Name : Digital Sexual Crime Detection Solution(METU)",
+            "memo": "Period : 10.2019 ~ 01.2020(about 4 months)",
+            "extra": [
+              "Development or Participan Detail Content",
+              "- Developed the front-end with a prototype version",
+              "- Languages : Javascript",
+              "- Frameworks : React.js, Express.js"
+            ],
+            "path": "/project/metu"
+          }
         }
-      }
-    },
-    "skills": {
-      "title": "Skills"
-    },
-    "documents": {
-      "title": "Documents",
-      "list": {
-        "0": {
-          "desc": "Web link",
-          "memo": "https://day-off.xyz",
-          "route": "https://day-off.xyz"
-        },
-        "1": {
-          "desc": "Github",
-          "memo": "https://github.com/haneum-park",
-          "route": "https://github.com/haneum-park"
+      },
+      "career_desc": {
+        "title": "Career Details"
+      },
+      "languages": {
+        "title": "Languages",
+        "list": {
+          "0": {
+            "desc": "Korean",
+            "memo": "Mother language"
+          },
+          "1": {
+            "desc": "English",
+            "memo": "Basic"
+          }
         }
-      }
-    },
-    "licenseNawards": {
-      "title": "License & Awards",
-      "list": {
-        "0": {
-          "desc": "License / information processing engineer / Final pass",
-          "memo": "Human Resources Development Service of Korea / 08.2019"
-        },
-        "1": {
-          "desc": "License / Class 1 Driver License / Final pass",
-          "memo": "National Police Agency / 08.2013"
-        },
-        "2": {
-          "desc": "Award / Idea award",
-          "memo": "Smart Media Human Resources Development Institute / 02.2019"
-        },
-        "3": {
-          "desc": "Award / Core Web Convergence Project Grand Prize",
-          "memo": "Smart Media Human Resources Development Institute / 01.2019"
-        },
-        "4": {
-          "desc": "Award / BASE Creative Talent Fostering Festival Content Award",
-          "memo": "Science and Culture Education Project Group / 12.2018"
-        },
-        "5": {
-          "desc": "Award / Software Contest Grand Prize",
-          "memo": "College of Natural Sciences, Chosun University / 06.2019"
+      },
+      "skills": {
+        "title": "Skills"
+      },
+      "documents": {
+        "title": "Documents",
+        "list": {
+          "0": {
+            "desc": "Web link",
+            "memo": "https://day-off.xyz",
+            "route": "https://day-off.xyz"
+          },
+          "1": {
+            "desc": "Github",
+            "memo": "https://github.com/haneum-park",
+            "route": "https://github.com/haneum-park"
+          }
         }
-      }
-    },
-    "activities": {
-      "title": "Activities",
-      "list": {
-        "0": {
-          "desc": "Completion of education / Completion of big data analysis expert course",
-          "memo": "Smart Media Human Resources Development Institute / 03.09.2018 ~ 28.02.2019"
-        },
-        "1": {
-          "desc": "Part-time job / Hanul Corporation",
-          "memo": "Republic of Korea / 07.2016 ~ 08.2016"
+      },
+      "licenseNawards": {
+        "title": "License & Awards",
+        "list": {
+          "0": {
+            "desc": "License / information processing engineer / Final pass",
+            "memo": "Human Resources Development Service of Korea / 08.2019"
+          },
+          "1": {
+            "desc": "License / Class 1 Driver License / Final pass",
+            "memo": "National Police Agency / 08.2013"
+          },
+          "2": {
+            "desc": "Award / Idea award",
+            "memo": "Smart Media Human Resources Development Institute / 02.2019"
+          },
+          "3": {
+            "desc": "Award / Core Web Convergence Project Grand Prize",
+            "memo": "Smart Media Human Resources Development Institute / 01.2019"
+          },
+          "4": {
+            "desc": "Award / BASE Creative Talent Fostering Festival Content Award",
+            "memo": "Science and Culture Education Project Group / 12.2018"
+          },
+          "5": {
+            "desc": "Award / Software Contest Grand Prize",
+            "memo": "College of Natural Sciences, Chosun University / 06.2019"
+          }
         }
-      }
-    },
-    "etc": {
-      "title": "Etc.",
-      "list": {
-        "0": {
-          "desc": "Republic of Korea Military Pillar / Army Sergeant Fully Discharged",
-          "memo": "Munsan-eup, Paju-si, South Korea / 10.2014 ~ 07.2016"
+      },
+      "activities": {
+        "title": "Activities",
+        "list": {
+          "0": {
+            "desc": "Completion of education / Completion of big data analysis expert course",
+            "memo": "Smart Media Human Resources Development Institute / 03.09.2018 ~ 28.02.2019"
+          },
+          "1": {
+            "desc": "Part-time job / Hanul Corporation",
+            "memo": "Republic of Korea / 07.2016 ~ 08.2016"
+          }
+        }
+      },
+      "etc": {
+        "title": "Etc.",
+        "list": {
+          "0": {
+            "desc": "Republic of Korea Military Pillar / Army Sergeant Fully Discharged",
+            "memo": "Munsan-eup, Paju-si, South Korea / 10.2014 ~ 07.2016"
+          }
         }
       }
     }

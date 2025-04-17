@@ -14,13 +14,15 @@ function ThemeSwitch() {
 
   return (
     <ThemeSwitchWrap>
-      <ThemeCheckbox type='checkbox' id='theme' checked={theme === 'dark'} onChange={(e) => onChangeTheme(e.target.checked)} />
       <ThemeLabel htmlFor='theme'>
         <Tooltip content={t('lightmode')}>
-          <SunIcon fill={colors.gray.gray1} />
+          <SunIcon fill={colors.gray.gray1} className='focus' />
         </Tooltip>
-        <MoonIcon fill={colors.gray.gray12} />
+        <Tooltip content={t('darkmode')}>
+          <MoonIcon fill={colors.gray.gray12} className='focus' />
+        </Tooltip>
       </ThemeLabel>
+      <ThemeCheckbox className='focus' type='checkbox' id='theme' checked={theme === 'dark'} onChange={(e) => onChangeTheme(e.target.checked)} />
     </ThemeSwitchWrap>
   );
 }

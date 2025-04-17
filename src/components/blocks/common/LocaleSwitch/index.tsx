@@ -75,12 +75,12 @@ function LocaleSwitch() {
   }, []);
 
   return (
-    <LocaleSwitchWrap onClick={onFlab}>
+    <LocaleSwitchWrap onClick={onFlab} className='focus'>
       {locales &&
         locales.map((loc: 'ko' | 'en') => (
           <CurrentLocale
             key={`locale-${loc}`}
-            className={classnames(loc, loc === locale ? 'current-locale' : 'hidden')}
+            className={classnames(loc, loc === locale ? 'current-locale' : 'hidden', 'focus')}
             onClick={() => onChangeLocale(loc)}
           >
             {loc.toLocaleUpperCase()}

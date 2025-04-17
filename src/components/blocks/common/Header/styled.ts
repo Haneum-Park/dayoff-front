@@ -2,40 +2,43 @@
 
 import styled from '@emotion/styled';
 
-export const HeaderWrap = styled.header`
+import { MEDIA_QUERY } from '@utils/design.util';
+
+export type TypeHeaderWrapStypeProps = {
+  type?: 'hr-kit' | 'default';
+};
+
+export const HeaderWrap = styled.nav<TypeHeaderWrapStypeProps>`
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
-  justify-content: space-between;
+  justify-content: ${({ type }) => (type === 'default' ? 'space-between' : 'flex-end')};
   align-items: center;
   width: 100%;
-  max-width: var(--content-width);
-  height: 50px;
-  padding: 0 ${16 / 16}rem;
+  padding: var(--space-2) var(--space-4);
 
-  img {
-    width: 150px;
-    height: 28px;
-    cursor: pointer;
+  ul {
+    display: flex;
+    /* flex-direction: column; */
+    gap: var(--space-2);
   }
-`;
 
-export const Languages = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  > *,
-  > button {
-    color: var(--gray-4);
+  li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &.localeswitch {
+      align-items: flex-end;
+    }
   }
-  span {
-    margin: 0 calc(5rem / 16);
-  }
-  button {
-    border: none;
-    border-radius: 0;
-    margin: 0;
-    padding: 0;
-    &.lang-ko,
-    &.lang-en {
-      color: var(--gray-9);
+
+  ${MEDIA_QUERY.max('sm-tablet')} {
+    top: 5%;
+    left: 91%;
+    ul {
+      gap: var(--space-1);
     }
   }
 `;

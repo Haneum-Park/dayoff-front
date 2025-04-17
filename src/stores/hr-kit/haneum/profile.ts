@@ -1,23 +1,6 @@
 import { atom } from 'jotai';
 
-export type TypeProfileDesc = {
-  [key: string]: {
-    text?: string;
-    focus?: string;
-  }
-}
-
-export type TypeProfileInfo = {
-  name: string;
-  address: string;
-  job: string;
-  dob: string;
-}
-
-export type TypeAtomProfile = {
-  info: TypeProfileInfo;
-  desc: TypeProfileDesc;
-}
+import { type TypeAtomProfile } from '../profile.type';
 
 export const atomProfile = atom<TypeAtomProfile>({
   info: {

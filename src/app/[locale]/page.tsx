@@ -2,6 +2,8 @@
 
 import React from 'react';
 
+import LocaleLayout from '@commons/LocaleLayout';
+
 export default function LocalePage() {
-  return <div>page</div>;
+  return <LocaleLayout>page</LocaleLayout>;
 };

@@ -5,18 +5,24 @@ import { useTranslations } from 'next-intl';
 import { useAtom } from 'jotai';
 
 import CustomAccordion from '@blocks/common/Accordion';
+import { atomRecord } from '@stores/hr-kit/haneum/record';
 import {
-  atomRecord,
   type TypeAtomRecord,
   type TypeRecordList,
-} from '@stores/record';
+} from '@stores/hr-kit/record.type';
 import { cloneDeep } from '@utils/common.util';
 
 import Content from './Content';
 import { MainContentWrap, MasonryWrap } from './styled';
 
-function Record() {
-  const t = useTranslations('kanuRecord');
+export interface IRecordProps {
+  target: 'haneum';
+}
+
+function Record({ target }: IRecordProps) {
+  if (!['haneum'].includes(target)) return null;
+
+  const t = useTranslations(`${target}.record`);
   const [record, setRecord] = useAtom(atomRecord);
   const recordTrack = [
     { educations: record.educations, careers: record.careers, contacts: record.contacts },

@@ -20,6 +20,6 @@ export default memo(FocusText);
 const FocusTextWrap = styled.div<FocusTextStyleProps>`
   display: inline-block;
   color: var(--gray-12);
-  font-size: ${({ fontSize }) => fontSize || '14px'};
+  font-size: ${({ fontSize }) => fontSize || 'var(--font-size-1)'};
   font-family: 'SemiBold';
 `;

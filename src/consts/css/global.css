@@ -11,6 +11,15 @@
 
 :root {
   --content-width: 1440px;
+  --pointer-color: #000;
+}
+
+.dark {
+  --pointer-color: #fff;
+}
+
+.light {
+  --pointer-color: #000;
 }
 
 /* 
@@ -28,8 +37,8 @@ body,
   margin: 0 auto;
   font-size: var(--font-size-3);
   font-family: 'Thin', 'ExtraLight', 'Light', 'Regular', 'Medium', 'SemiBold', 'Bold', 'ExtraBold', 'Heavy';
-  background-color: var(--gray-1);
-  color: var(--gray-12);
+  background-color: var(--white-a12);
+  color: var(--black-a12);
 
   /* Disabled Draggable */
   -webkit-user-select: none;

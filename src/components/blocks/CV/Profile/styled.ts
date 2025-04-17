@@ -38,7 +38,6 @@ export const ProfileImgWrap = styled.div`
     grid-area: profileImg;
     img {
       width: 60px;
-      height: 90px;
     }
   }
 
@@ -47,6 +46,7 @@ export const ProfileImgWrap = styled.div`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    width: 80px;
   }
 `;
 

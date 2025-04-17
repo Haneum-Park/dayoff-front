@@ -28,6 +28,7 @@ export const ThemeCheckbox = styled.input`
   border-radius: 0.25rem;
   color: var(--gray-1);
   border: 1px solid var(--gray-12);
+  background-color: transparent;
   padding: 0;
   margin: 0;
 
@@ -37,6 +38,7 @@ export const ThemeCheckbox = styled.input`
   &:checked {
     left: 74%;
   }
+  z-index: 1;
 `;
 
 export const ThemeLabel = styled.label`
@@ -46,4 +48,5 @@ export const ThemeLabel = styled.label`
   align-items: center;
 
   cursor: pointer;
+  z-index: 2;
 `;
