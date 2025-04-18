@@ -20,15 +20,21 @@ export default function PointerFollower(): [
 ] {
   const pointerRef = useRef<HTMLDivElement>(null);
   const requestRef = useRef(0);
+  const isMouseDownRef = useRef(false);
 
   const onMouseDown: React.MouseEventHandler<HTMLDivElement> = () => {
     if (pointerRef.current) {
-      pointerRef.current.style.transform = 'translate(-50%, -50%) scale(1.6)';
+      isMouseDownRef.current = true;
+      const transform = pointerRef.current.style.transform;
+      if (transform.indexOf('scale(1)') > -1) {
+        pointerRef.current.style.transform = 'translate(-50%, -50%) scale(1.6)';
+      }
     }
   };
 
   const onMouseUp: React.MouseEventHandler<HTMLDivElement> = () => {
     if (pointerRef.current) {
+      isMouseDownRef.current = false;
       pointerRef.current.style.transform = 'translate(-50%, -50%) scale(1)';
     }
   }
@@ -58,26 +64,15 @@ export default function PointerFollower(): [
       pointerRef.current.style.top = `${targetY}px`
       pointerRef.current.style.left = `${targetX}px`
 
-      const el = document.elementFromPoint(targetX, targetY);
-
-    let isHoveringText = false;
-
-    if (el instanceof HTMLElement) {
-      const style = window.getComputedStyle(el);
-      const hasVisibleText = el.classList.contains('focus');
-      const isInvisible = style.visibility === 'hidden' || style.display === 'none';
-
-      if (hasVisibleText && !isInvisible) {
-        isHoveringText = true;
+      if (pointerRef.current.style.display !== 'none') {
+        const el = document.elementFromPoint(targetX, targetY);
+        if (parseFloat(targetX.toFixed(0)) !== x || parseFloat(targetY.toFixed(0)) !== y) {
+          const hasVisibleText = el && el.getAttribute('class') && el.getAttribute('class')!.indexOf('focus') > -1;
+          pointerRef.current.style.transform = `translate(-50%, -50%) scale(${hasVisibleText ? 3 : isMouseDownRef.current ? 1.6 : 1})`;
+        }
       }
+      requestRef.current = requestAnimationFrame(loop)
     }
-
-    pointerRef.current.style.transform = isHoveringText
-      ? 'translate(-50%, -50%) scale(3)'
-      : 'translate(-50%, -50%) scale(1)';
-    }
-
-    requestRef.current = requestAnimationFrame(loop)
   };
 
   useEffect(() => {

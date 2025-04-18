@@ -13,12 +13,12 @@ function ThemeSwitch() {
   const [theme, onChangeTheme] = useTheme();
 
   return (
-    <ThemeSwitchWrap>
-      <ThemeLabel htmlFor='theme'>
+    <ThemeSwitchWrap className='focus'>
+      <ThemeLabel htmlFor='theme' className='focus'>
         <Tooltip content={t('lightmode')}>
           <SunIcon fill={colors.gray.gray1} className='focus' />
         </Tooltip>
-        <Tooltip content={t('darkmode')}>
+        <Tooltip content={t('darkmode')} className='focus'>
           <MoonIcon fill={colors.gray.gray12} className='focus' />
         </Tooltip>
       </ThemeLabel>

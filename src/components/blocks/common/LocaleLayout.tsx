@@ -53,7 +53,7 @@ function LocaleLayoutContent({ children, type = 'default' }: LocaleLayoutContent
             <LocaleLayoutContentWrap type={type}>
               {children}
             </LocaleLayoutContentWrap>
-            <PointerFollower pointerRef={pointerRef} />
+            <PointerFollower pointerRef={pointerRef} theme={theme} />
             <Footer />
           </LocaleLayoutContentBg>
         </>
