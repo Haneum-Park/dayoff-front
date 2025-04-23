@@ -4,11 +4,11 @@ import styled from '@emotion/styled';
 
 import { MEDIA_QUERY } from '@utils/design.util';
 
-export type TypeHeaderWrapStypeProps = {
+export interface IHeaderWrapStyle {
   type?: 'hr-kit' | 'default';
 };
 
-export const HeaderWrap = styled.nav<TypeHeaderWrapStypeProps>`
+export const HeaderWrap = styled.nav<IHeaderWrapStyle>`
   position: absolute;
   left: 50%;
   transform: translateX(-50%);

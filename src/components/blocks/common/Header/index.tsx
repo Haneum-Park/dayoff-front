@@ -6,13 +6,11 @@ import Image from 'next/image';
 import DayoffLogo from '@images/logos/logo_dayoff.png';
 import LocaleSwitch from '../LocaleSwitch';
 import ThemeSwitch from '../ThemeSwitch';
-import { HeaderWrap } from './styled';
+import { HeaderWrap, type IHeaderWrapStyle } from './styled';
 
-type TypeHeaderProps = {
-  type?: 'hr-kit' | 'default';
-}
+interface IHeader extends IHeaderWrapStyle {}
 
-function Header({ type = 'default' }: TypeHeaderProps) {
+function Header({ type = 'default' }: IHeader) {
   return (
     <HeaderWrap type={type}>
       {type === 'default' && <Image src={DayoffLogo} alt='logo' className='focus' width={24} />}

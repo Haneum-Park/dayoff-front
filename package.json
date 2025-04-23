@@ -53,5 +53,8 @@
     "eslint-plugin-prettier": "^5.2.5",
     "prettier": "^3.5.3",
     "typescript": "5.8.3"
+  },
+  "volta": {
+    "node": "22.15.0"
   }
 }

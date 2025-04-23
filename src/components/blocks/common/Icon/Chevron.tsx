@@ -4,19 +4,19 @@ import styled from '@emotion/styled';
 import classnames from 'classnames';
 import { ChevronDownIcon } from '@radix-ui/react-icons';
 
-interface ChevronProps {
+interface IIconChevron {
   isAccordion?: boolean;
   direction?: 'top' | 'down' | 'left' | 'right';
   className?: string;
 }
 
-function IconChevron({ isAccordion, className, direction = 'down' }: ChevronProps) {
+function IconChevron({ isAccordion, className, direction = 'down' }: IIconChevron) {
   return <ChevronWrap isAccordion={isAccordion} className={classnames(className, direction)} />;
 }
 
 export default IconChevron;
 
-export const ChevronWrap = styled(ChevronDownIcon)<Omit<ChevronProps, 'direction'>>`
+export const ChevronWrap = styled(ChevronDownIcon)<Omit<IIconChevron, 'direction'>>`
   position: relative;
   display: block;
   transform: scale(1);

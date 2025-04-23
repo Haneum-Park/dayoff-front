@@ -5,12 +5,12 @@ import React, { useRef, useState, useEffect } from 'react';
 import { usePathname as usePathnameI18n, useRouter as useRouterI18n } from '@i18n/routing';
 import { RubberLineWrap } from './styled';
 
-type MousePosition = {
+interface IRubberHorizonLine {
   startX?: number;
   endX?: number;
 }
 
-const RubberHorizonLine = ({ startX = 0, endX = 1000 }: MousePosition) => {
+const RubberHorizonLine = ({ startX = 0, endX = 1000 }: IRubberHorizonLine) => {
   const { push } = useRouterI18n();
   const pathname = usePathnameI18n();
   const svgRef = useRef<SVGSVGElement>(null);

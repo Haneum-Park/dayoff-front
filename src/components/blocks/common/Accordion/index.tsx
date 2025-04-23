@@ -11,7 +11,7 @@ import {
   AccordionContentContainer,
 } from './styled';
 
-interface ICustomAccoridonProps {
+interface ICustomAccoridon {
   title?: string;
   value: string;
   children?: React.ReactNode;
@@ -29,7 +29,7 @@ function CustomAccordion({
   disabled = false,
   itemDisabled = false,
   headingSize = '7',
-}: ICustomAccoridonProps) {
+}: ICustomAccoridon) {
 	return (
     <AccordionRootWrap type='single' defaultValue={value} collapsible={collapsible} disabled={disabled}>
       <AccordionItemContainer value={value} disabled={itemDisabled}>
